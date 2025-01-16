@@ -1,0 +1,74 @@
+.activitiesBreadcrumb {
+  color: black !important;
+  text-decoration: none !important;
+}
+.activitiesBreadcrumb:hover {
+    color: #99B1C9 !important;
+}
+.clear-all:hover {
+text-decoration: underline;
+}
+/* Checkbox label customized */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hides default browser checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* KyotoVenture custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #a481c4;
+  border-radius: 2px;
+}
+
+/* When checkbox is checked */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #a481c4;
+}
+/* Checkmark indicator */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Display checkmark */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+/* Checkmark style */
+.checkbox-container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #001429;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox-group {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 16px;
+}
