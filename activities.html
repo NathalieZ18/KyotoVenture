@@ -7,47 +7,80 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Temporary Title -->
-    <h1>Activities</h1>
-    <!-- Activities Breadcrumb -->
-    <h3>
-      <a href="index.html" class="activitiesBreadcrumb">Home</a>
-      <span> > Activities</span>
-    </h3>
-    <!-- Filters -->
-    <h3>Filters <span class="clear-all">Clear All</span></h3>
-    <!-- Sort By -->
-    <h3>Sort By</h3>
-    <!-- Area -->
-    <h3>Area</h3>
-    <!-- Area Checkboxes inside a div -->
-     <!-- Later add JavaScript functionality when clicking checkboxes -->
-    <div class="checkbox-group">
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Kyoto City
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Arashiyama
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Nara
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Uji
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Kameoka
-      </label>
+
+    <div class="page-layout">
+      <!-- Container (Left-Side) -->
+      <div class="left-layout-container">
+        <!-- Activities Breadcrumb -->
+        <div class="left-section">
+          <h3>
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <span> > Activities</span>
+          </h3>
+          <!-- Filters -->
+          <h3>Filters <span class="clear-all">Clear All</span></h3>
+          <!-- Sort By -->
+          <h3>Sort By</h3>
+          <!-- Area -->
+          <h3>Area</h3>
+          <!-- Area Checkboxes inside a div -->
+          <!-- Later add JavaScript functionality when clicking checkboxes -->
+          <div class="checkbox-group">
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Kyoto City
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Arashiyama
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Nara
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Uji
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Kameoka
+            </label>
+            <!-- Add rest of content below -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Section -->
+      <div class="main-content">
+        <h1 class="activityTitle">Activities</h1>
+        <!-- Search Activities -->
+        <div class="activities-search-box">
+          <input type="text" placeholder="Search for activities..." />
+          <button class="activities-search-button">Search</button>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="card-list">
+          <div class="card">
+            <h3>Activity 1</h3>
+            <p>Activity 1 Description</p>
+          </div>
+          <div class="card">
+            <h3>Activity 2</h3>
+            <p>Activity 2 Description</p>
+          </div>
+          <div class="card">
+            <h3>Activity 3</h3>
+            <p>Activity 3 Description</p>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
