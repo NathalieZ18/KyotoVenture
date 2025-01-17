@@ -7,47 +7,144 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Temporary Title -->
-    <h1>Activities</h1>
-    <!-- Activities Breadcrumb -->
-    <h3>
-      <a href="index.html" class="activitiesBreadcrumb">Home</a>
-      <span> > Activities</span>
-    </h3>
-    <!-- Filters -->
-    <h3>Filters <span class="clear-all">Clear All</span></h3>
-    <!-- Sort By -->
-    <h3>Sort By</h3>
-    <!-- Area -->
-    <h3>Area</h3>
-    <!-- Area Checkboxes inside a div -->
-     <!-- Later add JavaScript functionality when clicking checkboxes -->
-    <div class="checkbox-group">
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Kyoto City
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Arashiyama
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Nara
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Uji
-      </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
-        <span class="checkmark"></span>
-        Kameoka
-      </label>
+    <div class="page-layout">
+      <!-- Container (Left-Side) -->
+      <div class="left-layout-container">
+        <!-- Activities Breadcrumb -->
+        <div class="left-section">
+          <h3>
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <span> > Activities</span>
+          </h3>
+          <!-- Filters -->
+          <h3>Filters <span class="clear-all">Clear All</span></h3>
+          <!-- Sort By Dropdown -->
+          <h3>Sort By</h3>
+          <label for="activitiesSortBy"></label>
+          <select id="activitiesSortBy" name="activitiesSortBy">
+            <option value="recommended">Recommended</option>
+            <option value="mostPopular">Most Popular</option>
+            <option value="hiddenGems">Hidden Gems</option>
+          </select>
+          <!-- Area -->
+          <h3>Area</h3>
+          <!-- Area Checkboxes inside a div -->
+          <!-- Later add JavaScript functionality when clicking checkboxes -->
+          <div class="area-checkbox-group">
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Kyoto City
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Arashiyama
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Nara
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Uji
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Kameoka
+            </label>
+          </div>
+          <!-- Add rest of content below -->
+          <!-- Interests -->
+           <h3 class="interests-header">Interests</h3>
+          <div class="interests-checkbox-group">
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Anime & Pop Culture
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Fashion & Shopping
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Food & Drink
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Nature & Outdoors
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Bathhouses/Onsens
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Landmarks
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Festivals & Events
+            </label>
+            <label class="checkbox-container">
+              <input type="checkbox" />
+              <span class="checkmark"></span>
+              Cultural Activities
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Section -->
+      <div class="main-content">
+        <h1 class="activityTitle">Activities</h1>
+        <!-- Search Activities -->
+        <div class="activities-search-box">
+          <input type="text" placeholder="Search for activities..." />
+          <button class="activities-search-button">Search</button>
+        </div>
+
+        <!-- Cards Section -->
+        <div class="card-list">
+          <div class="card">
+            <img
+              src="assets/images/fushimi inari shrine.jpg"
+              alt="Activity 1: Fushimi Inari Shrine"
+              class="card-image"
+            />
+            <h3>Activity 1</h3>
+            <p>Activity 1 Description</p>
+          </div>
+          <div class="card">
+            <img
+              src="assets/images/kinkakuji temple.jpg"
+              alt="Activity 2: Kinkakuji Temple"
+              class="card-image"
+            />
+            <h3>Activity 2</h3>
+            <p>Activity 2 Description</p>
+          </div>
+          <div class="card">
+            <img
+              src="assets/images/kiyomizu dera temple.jpg"
+              alt="Activity 3: Kiyomizu Dera Temple"
+              class="card-image"
+            />
+            <h3>Activity 3</h3>
+            <p>Activity 3 Description</p>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
