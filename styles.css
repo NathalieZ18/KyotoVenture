@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: auto 0;
+}
 .activitiesBreadcrumb {
   color: black !important;
   text-decoration: none !important;
@@ -115,11 +118,34 @@
 }
 
 /* Cards Container */
-.card-list {
+/* .card-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
-  gap: 16px;
+  gap: 24px;
+} */
+/* Screen width 1440px and under and 921px and above (Standard Desktop Size)*/
+@media (max-width: 1440px) and (min-width: 921px) {
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 }
+/* Screen width above 1441px (Bigger Screen Size) */
+@media (min-width: 1441px) {
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
+    gap: 24px;
+  }
+}
+/* Phone Size */
+/* @media (max-width: 393) {
+  .card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+} */
 
 /* Card Styling */
 .card {
@@ -157,6 +183,8 @@
 Sort, Area, Price, Interests */
 .left-layout-container {
   flex: 0 0 300px;
+  /* display: grid; */
+  /* grid-template-columns: 300px; */
   padding-right: 24px;
   border-right: 2px solid darkgray;
 }
@@ -168,6 +196,41 @@ Sort, Area, Price, Interests */
 .page-layout {
   display: flex;
   gap: 24px;
-  padding: 0 80px;
-  margin-top: 200px;
+  margin-left: 80px;
+  margin-right: 80px;
+  /* padding: 0 80px; */
+  /* margin-top: 200px; */
+}
+
+/* Placeholder Navigation */
+.main-nav {
+  display: flex;
+  list-style: none;
+  font-size: 1.25rem;
+  margin: 0;
+  height: 96px;
+}
+
+li  {
+  padding: 24px;
+  margin-top: 15px;
+}
+
+a {
+  color: #1F2B59;
+  text-decoration: none;
+}
+
+.kyotoVentureHeader{
+  background-color: #FAFEFB;
+  border: 1px solid #001429;
+  margin-left: 80px;
+  margin-right: 80px;
+  justify-items: center;
+}
+
+.kyotoVentureNavTitle {
+  margin-top: 28px;
+  font-size: 2rem;
+  color: #1F2B59;
 }
