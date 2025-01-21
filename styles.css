@@ -117,7 +117,7 @@ body {
 .myItineraryButton button {
   display: flex;
   align-items: center;
-  padding: 16px 40px;
+  padding: 16px 24px;
   font-size: 20px;
   font-family: "Lato", sans-serif;
   gap: 8px;
@@ -336,6 +336,11 @@ body {
   background-color: #a481c4;
   color: white;
   border: 2px solid #a481c4;
+}
+
+.pagination a.disabled {
+  pointer-events: none;
+  color: #CCD8E4;
 }
 
 #activitiesSortBy {
