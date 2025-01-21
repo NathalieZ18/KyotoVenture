@@ -36,12 +36,15 @@
       <div class="left-layout-container">
         <!-- Activities Breadcrumb -->
         <div class="left-section">
-          <h3>
+          <h3 class="less-bold">
             <a href="index.html" class="activitiesBreadcrumb">Home</a>
             <span> > Activities</span>
           </h3>
           <!-- Filters -->
-          <h3>Filters <span class="clear-all">Clear All</span></h3>
+          <h3 class="less-bold filterSpacing">
+            Filters <i class="fa-solid fa-filter"></i>
+            <span class="clear-all">Clear All</span>
+          </h3>
           <!-- Sort By Dropdown -->
           <h3>Sort By</h3>
           <label for="activitiesSortBy"></label>
@@ -51,35 +54,37 @@
             <option value="hiddenGems">Hidden Gems</option>
           </select>
           <!-- Area -->
-          <h3>Area</h3>
-          <!-- Area Checkboxes inside a div -->
-          <!-- Later add JavaScript functionality when clicking checkboxes -->
-          <div class="area-checkbox-group">
-            <label class="checkbox-container">
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Kyoto City
-            </label>
-            <label class="checkbox-container">
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Arashiyama
-            </label>
-            <label class="checkbox-container">
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Nara
-            </label>
-            <label class="checkbox-container">
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Uji
-            </label>
-            <label class="checkbox-container">
-              <input type="checkbox" />
-              <span class="checkmark"></span>
-              Kameoka
-            </label>
+          <div class="area-section">
+            <h3 class="area-header">Area</h3>
+            <!-- Area Checkboxes inside a div -->
+            <!-- Later add JavaScript functionality when clicking checkboxes -->
+            <div class="area-checkbox-group">
+              <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Kyoto City
+              </label>
+              <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Arashiyama
+              </label>
+              <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Nara
+              </label>
+              <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Uji
+              </label>
+              <label class="checkbox-container">
+                <input type="checkbox" />
+                <span class="checkmark"></span>
+                Kameoka
+              </label>
+            </div>
           </div>
           <!-- Add rest of content below -->
           <!-- Interests -->
@@ -363,9 +368,7 @@
             </p>
 
             <p class="cardTitle">Shijo Street</p>
-            <i class="fa-solid fa-star"
-              ><span class="rating">4.8</span></i
-            >
+            <i class="fa-solid fa-star"><span class="rating">4.8</span></i>
             <button class="addItineraryButton">
               <i class="fa-solid fa-plus"></i>Add to Itinerary
             </button>
@@ -387,9 +390,7 @@
             </p>
 
             <p class="cardTitle">Kyoto Station</p>
-            <i class="fa-solid fa-star"
-              ><span class="rating">5.0</span></i
-            >
+            <i class="fa-solid fa-star"><span class="rating">5.0</span></i>
             <button class="addItineraryButton">
               <i class="fa-solid fa-plus"></i>Add to Itinerary
             </button>
@@ -411,9 +412,7 @@
             </p>
 
             <p class="cardTitle">Kawaramachi Dori</p>
-            <i class="fa-solid fa-star"
-              ><span class="rating">4.8</span></i
-            >
+            <i class="fa-solid fa-star"><span class="rating">4.8</span></i>
             <button class="addItineraryButton">
               <i class="fa-solid fa-plus"></i>Add to Itinerary
             </button>
@@ -422,14 +421,15 @@
           <!-- End of Card 12 -->
         </div>
         <!-- End of Card List ^ -->
-         <!-- Pagination -->
+        <!-- Pagination -->
         <div class="pagination">
-          <a href="#"><i class="fa-solid fa-chevron-left"></i></a> <!-- Previous button -->
+          <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
+          <!-- Previous button -->
           <a href="activities.html" class="active">1</a>
           <a href="activities2.html">2</a>
           <a href="#">3</a>
           <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
-          </div>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>

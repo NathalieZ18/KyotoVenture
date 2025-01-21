@@ -13,6 +13,17 @@ body {
 .activitiesBreadcrumb:hover {
   color: #99b1c9 !important;
 }
+
+.fa-filter {
+  margin-left: 4px;
+}
+.filterSpacing {
+  display: flex;
+  align-items: center;
+}
+.clear-all {
+  margin-left: 6px;
+}
 .clear-all:hover {
   text-decoration: underline;
 }
@@ -64,17 +75,21 @@ body {
 }
 /* Checkmark style */
 .checkbox-container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 7px;
+  top: 3px;
   width: 5px;
   height: 10px;
-  border: solid #001429;
+  border: solid black;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
+.area-section {
+position: relative;
+top: 80px;
+}
 /* Checkbox Divs */
 .area-checkbox-group {
   display: inline-flex;
@@ -83,14 +98,14 @@ body {
 }
 
 .interests-checkbox-group {
-  margin-top: 200px;
+  margin-top: 120px;
   display: inline-flex;
   flex-direction: column;
   gap: 16px;
 }
 .interests-header {
   position: relative;
-  top: 200px;
+  top: 120px;
 }
 .activities-search-box {
   display: flex;
@@ -102,21 +117,29 @@ body {
   height: 48px;
   padding: 8px;
   font-size: 16px;
-  border: 2px solid #a481c4;
+  border: 2px none;
   border-radius: 4px;
+  background-color: #E6ECF2;
 }
+
 .activities-search-button {
-  padding: 8px 16px;
+  padding: 8px 24px;
   background-color: #a481c4;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+.activities-search-button:hover {
+  background: #013d79;
+  color: white;
+  cursor: pointer;
 }
 /* Activities Search Button Hover */
-.activities-search-button:hover {
+/* .activities-search-button:hover {
   background-color: #8f70b2;
-}
+} */
 
 /* Cards Container */
 /* .card-list {
@@ -150,9 +173,9 @@ body {
 
 /* Card Styling */
 .card {
-  border: 1px none black;
+  border: 1px none ;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: #F6F6F6;
   /* width: 302px; */
   height: 440px;
   overflow: hidden;
@@ -165,8 +188,12 @@ body {
   border-top-right-radius: 8px;
 }
 
+.less-bold {
+  font-weight: 500;
+}
 .activityTitle {
-  margin-left: 212px;
+  margin-left: 248px;
+  font-weight: 500;
 }
 
 /* Activity Card Ellipses */
@@ -214,7 +241,7 @@ body {
   font-size: 16px;
   background-color: #013d79;
   padding: 16px 32px;
-  border: solid;
+  border: solid #013d79;
   border-radius: 8px;
   position: relative;
   top: 4px;
@@ -275,11 +302,13 @@ Sort, Area, Price, Interests */
   /* grid-template-columns: 300px; */
   padding-right: 24px;
   border-right: 2px solid darkgray;
+  margin-top: 120px;
 }
 
 /* Main Content Section */
 .main-content {
   flex: 1;
+  margin-top: 50px;
 }
 .page-layout {
   display: flex;
