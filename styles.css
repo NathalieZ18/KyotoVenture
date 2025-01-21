@@ -26,6 +26,7 @@ body {
 }
 .clear-all:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 /* Checkbox label customized */
 .checkbox-container {
@@ -87,8 +88,8 @@ body {
 }
 
 .area-section {
-position: relative;
-top: 80px;
+  position: relative;
+  top: 80px;
 }
 /* Checkbox Divs */
 .area-checkbox-group {
@@ -107,6 +108,33 @@ top: 80px;
   position: relative;
   top: 120px;
 }
+/* My Itinerary Button */
+.myItineraryButton {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+}
+.myItineraryButton button {
+  display: flex;
+  align-items: center;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  gap: 8px;
+  font-weight: normal;
+  border: none;
+  border-radius: 8px;
+  background-color: white;
+  color: #1F2B59;
+  cursor: pointer;
+}
+.myItineraryButton button:hover {
+  background-color: #E9D6FA;
+}
+.fa-calendar {
+  font-size: 24px;
+}
+
 .activities-search-box {
   display: flex;
   gap: 8px;
@@ -119,7 +147,7 @@ top: 80px;
   font-size: 16px;
   border: 2px none;
   border-radius: 4px;
-  background-color: #E6ECF2;
+  background-color: #e6ecf2;
 }
 
 .activities-search-button {
@@ -173,9 +201,9 @@ top: 80px;
 
 /* Card Styling */
 .card {
-  border: 1px none ;
+  border: 1px none;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   /* width: 302px; */
   height: 440px;
   overflow: hidden;
