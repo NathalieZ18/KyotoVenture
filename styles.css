@@ -278,7 +278,7 @@ body {
   left: 8px;
 }
 /* Star Icon */
-.fa-star {
+.activitiesStar {
   color: #a481c4;
   font-size: 20px;
   position: relative;
@@ -306,7 +306,7 @@ body {
   cursor: pointer;
 }
 
-.fa-plus {
+.activityPlus {
   margin-right: 8px;
   font-size: 18px;
 }
