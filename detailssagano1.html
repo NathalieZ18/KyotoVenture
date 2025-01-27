@@ -42,7 +42,7 @@
       .description {
         grid-row: 2;
         grid-column: 2;
-        padding-left: 20px;
+        padding-left: 24px;
       }
       .itinerary {
         color: white;
@@ -178,7 +178,9 @@
         justify-content: center;
         gap: 24px;
         padding: 16px;
-        
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
       }
       .reviews {
         /* grid-row: 1;
@@ -186,6 +188,7 @@
         display: flex;
         justify-content: center;
         margin-right: 980px;
+        margin-top: 32px;
       }
 
       .reviewone {
@@ -233,12 +236,17 @@
       }
       .back-arrow {
         margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
       }
       .activityDetailsText {
         font-size: 1.25em;
       }
       .activityDetailsExtra {
-        font-size: 1.25em;
+        font-size: 1em;
         display: flex;
         gap: 24px;
       }
@@ -251,6 +259,7 @@
         margin-top: -10px; */
         grid-row: 3;
         grid-column: 1 / span 2;
+        line-height: 1;
       }
       .activityDetailsPlus {
         margin-right: 4px;
@@ -261,7 +270,23 @@
         bottom: 24px;
       }
       .activityDetailsReviewStar {
-        color: #1F2B59;
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
       }
     </style>
   </head>
@@ -283,14 +308,14 @@
     <div class="page-container">
       <div class="back-arrow">
         <a href="activities.html">
-          <i class="fa-solid fa-arrow-left"></i>
+          <i class="fa-solid fa-arrow-left backArrow"></i>
         </a>
       </div>
       <div class="image">
         <div class="crumb">
-          <h3>
+          <h3 class="less-bold">
             <a href="index.html" class="activitiesBreadcrumb">Home</a>
-            <span> > Activities</span> <span> > Activity Info</span>
+            <a href="activities.html" class="activitiesBreadcrumb"><span class="removeColor"> > </span><span> Activities</span></a><span class="removeColor"> > </span> <span> Activity Info</span>
           </h3>
         </div>
         <div class="train">
@@ -298,10 +323,6 @@
         </div>
         <div class="location">
           <p class="activityDetailsExtra">
-            <span class="rating"
-              ><i class="fa-solid fa-star activityDetailsStar"></i> 4.8
-              (500)</span
-            >
             <span class="location"
               ><strong class="boldLocation">Location:</strong> Arashiyama
               District, Kyoto City</span
@@ -311,6 +332,10 @@
 
         <div class="description">
           <h2>Sagano Romantic Train</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 4.8
+            (500)</span
+          >
           <p class="activityDetailsText">
             The Sagano Romantic Train is a charming sightseeing train that
             operates in the Saga-Arashiyama area of Kyoto, Japan.​ It runs along
@@ -423,10 +448,21 @@
 
       <div class="sagano">
         <div class="map"><h3>Map</h3></div>
-        <div class="mapsagano">
-          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3267.526033569508!2d135.67820201232567!3d35.01856797269516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001a9fe9bfe6b87%3A0x6e4bba830f7834f5!2sSaga%20Torokko%20Station!5e0!3m2!1sen!2sus!4v1737931826623!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-      </div> 
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
 
       <div class="reviews"><h3>Reviews</h3></div>
       <div class="comments">
@@ -435,7 +471,9 @@
             <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
             <h4>Alyssa Williams</h4>
           </div>
-          <div class="reviewRating"><i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8</div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
           <div class="firstcomment">
             <p class="reviewComment">
               Riding the Sagano Romantic Train was a breathtaking experience!
@@ -451,7 +489,9 @@
             <img src="assets/images/johnkim.png" alt="John Kim" />
             <h4>John Kim</h4>
           </div>
-          <div class="reviewRating"><i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8</div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
           <div class="secondcomment">
             <p>
               I absolutely loved the journey on the Sagano Romantic Train! The
@@ -467,7 +507,9 @@
             <img src="assets/images/naomar.png" alt="Nao Martinez" />
             <h4>Nao Martinez</h4>
           </div>
-          <div class="reviewRating"><i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8</div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
           <div class="thirdcomment">
             <p>
               The Sagano Romantic Train ride exceeded my expectations! It was a
