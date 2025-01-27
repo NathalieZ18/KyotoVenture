@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-layout {
+        display: flex;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+
+      .faq {
+        border: solid #BFB7D6;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+      }
+      .venturefaq {
+        border: solid #BFB7D6;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+      }
+
+      .question1 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .question2 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer2 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question3 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer3 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question4 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer4 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question5 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer5 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question6 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer6 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question7 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer7 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .question8 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .answer8 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion1 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer1 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion2 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer2 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion3 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer3 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion4 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer4 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion5 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer5 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion6 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer6 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion7 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer7 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .venturequestion8 h3 {
+        display: flex;
+        align-items: center;
+      }
+
+      .ventureanswer8 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+
+      
+      
+      .down-arrow {
+        margin-left: auto;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      
+      
+
+      .answer1 {
+        padding: 10px 15px;
+        font-size: 16px;
+        line-height: 1.5;
+        background: #f9f9f9;
+        border: solid #BFB7D6;
+      }
+
+      .putLeft {
+        text-align: left;
+      }
+
+      
+
+    </style>
+  </head>
+  <body>
+    <div class="page-layout">
+      <div class="crumb">
+        <h1>FAQs</h1>
+        <h3>
+          <a href="index.html" class="activitiesBreadcrumb">Home</a>
+          <span> > About</span> <span> > FAQs</span>
+        </h3>
+        <br />
+        <br />
+        <h2>Kyoto Questions</h2>
+
+        <div class="faq">
+          <div class="question1">
+            <h3 class="putLeft">What are the most common transportation options? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer1">
+            <p>
+              Answer: The most common transportation options are by train, bus or taxi.
+              The most common way of transportation is by train
+            </p>
+          </div>
+
+          <div class="question2">
+            <h3 class="putLeft">When is the best time to visit Kyoto? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer2">
+            <p>
+              Answer: The best time to visit Kyoto is typically around mid-March to 
+              May during Cherry blossom Season and October to November for the Autumn Foliage.
+            </p>
+          </div>
+
+          <div class="question3">
+            <h3 class="putLeft">What are the most popular attractions? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer3">
+            <p>
+              Answer: The most popular and well-known attractions are the 
+              Fushimi Inari Shrine, Kinkakuji Temple, and Kiyomizu-dera Temple.
+            </p>
+          </div>
+
+          <div class="question4">
+            <h3 class="putLeft">Do I need to know Japanese when going to Kyoto? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer4">
+            <p>
+              Answer: While knowing some Japanese can enhance your 
+              experience, many popular tourist areas, restaurants, and hotels have English-Speaking Staff, making it 
+              easy to Navigate without fluent Japanese.
+            </p>
+          </div>
+
+          <div class="question5">
+            <h3 class="putLeft">Is Kyoto safe for solo travelers? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer5">
+            <p>
+              Answer: Yes! Kyoto is very safe for solo travelers, 
+              including women. The city has very low crime rates and a welcoming atmosphere. However, going to any destination is 
+              always best to practice common safety precautions.
+            </p>
+          </div>
+
+          <div class="question6">
+            <h3 class="putLeft">Are there any special events or festivals in Kyoto? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer6">
+            <p>
+              Answer: There are many festivals and special events in Kyoto. 
+              Many of these festivals and events showcase Kyoto’s rich cultural heritage.
+            </p>
+          </div>
+
+          <div class="question7">
+            <h3 class="putLeft">Are there any cultural etiquette tips I should be aware of? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer7">
+            <p>
+              Answer: Yes there are a couple practices to keep in mind that i
+              nclude respecting temples and shrines and taking shoes off in traditional ryokans, homes, or indoors in certain places.
+            </p>
+          </div>
+
+          <div class="question8">
+            <h3 class="putLeft">Do I need to book attractions in advance? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="answer8">
+            <p>
+              Answer: It is advisable to book popular attractions in advance, 
+              especially during certain seasons where there is a peak of tourist population. Reservations are often required for 
+              special dining experiences, tours, and tea ceramonies.
+            </p>
+          </div>
+        </div>
+          <h2>KyotoVenture Questions</h2>
+
+          <div class="venturefaq">
+
+          <div class="venturequestion1">
+            <h3 class="putLeft">How can I create my own Kyoto itinerary? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer1">
+            <p>
+              Answer: You can go to your profile and select the "Create an Itinerary" option to create your own Kyoto itinerary. From there you can select how many days you want in your collection (Up to a maximum of 14 per itinerary collection) and start adding activities to different days by browsing our Activities page. Remember to set a default itinerary for a collection you make so that activities you add can automatically go into that collection when clicking "Add to Itinerary" 
+              for any activity. Otherwise you will be prompted to choose a collection every time you click "Add to Itinerary". You can always change the dates and times of an activity later on when selecting the "Edit Itinerary" option.
+            </p>
+          </div>
+
+          <div class="venturequestion2">
+            <h3 class="putLeft">How do I book accommodations? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer2">
+            <p>
+              Answer: You can book accommodations by going to Itineraries on the navigation menu and then selecting Accommodations as one of the drop downs. From there you can 
+              browse different accommodations and sort them by area, price, and accommodation type to find one that works best for you!
+            </p>
+          </div>
+
+          <div class="venturequestion3">
+            <h3 class="putLeft">How does payments work when booking?<span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer3">
+            <p>
+              Answer: When booking anything for accommodation or transportation you have to select the required button option such as "Book Accommodation" or "Book Transportation" which will direct you to a third party site where you can 
+              then continue with the booking and payment.
+            </p>
+          </div>
+
+          <div class="venturequestion4">
+            <h3 class="putLeft">Can I cancel or modify my booking? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer4">
+            <p>
+              Answer: Yes, you can cancel or modify your booking by going to your profile and going to the "My Accommodations" section. Cancellation policies vary depending on the accommodation
+               so be sure to check the specific terms of your booking.
+            </p>
+          </div>
+
+          <div class="venturequestion5">
+            <h3 class="putLeft">How can I contact customer support? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer5">
+            <p>
+              Answer: You can reach out to our customer support team through our Contact Us page or by emailing our support team. 
+              We will try to respond within 24 hours.
+            </p>
+          </div>
+
+          <div class="venturequestion6">
+            <h3 class="putLeft">Do you add more activities as new ones come out? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer6">
+            <p>
+              Answer: Yes! We continuously try to stay up to date and add the most interesting activities there is to in Kyoto as our top priority while also adding new lesser known activities 
+              that may interest different people as well!
+            </p>
+          </div>
+
+          <div class="venturequestion7">
+            <h3 class="putLeft">Can I create multiple itineraries and be able to modify them? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer7">
+            <p>
+              Answer: Of course! You can create multiple itinerary collections that you can organize and edit as you see fit for your trip! You are also able to 
+              delete any using our "Delete Itinerary" option.
+            </p>
+          </div>
+
+          <div class="venturequestion8">
+            <h3 class="putLeft">What is the default itinerary? <span class="down-arrow">▼</span></button></h3>
+          </div>
+          <div class="ventureanswer8">
+            <p>
+              Answer: The default itinerary is your main itinerary where for any activity you click the "Add to Itinerary" button, it gets automatically added to your default itinerary where you can easily view and edit at any time. You can always change the dates and times after an activity gets added to your default itinerary. Make sure to have a default itinerary selected and have the right collection for it so you can add the activities
+               you want to your desired itinerary collection!
+            </p>
+          </div>
+
+
+          
+
+        
+
+        
+        
+        
+      </div>
+    </div>
+    <script src="faqs.js"></script>
+  </body>
+
+  
+</html>
