@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empty My Itinerary</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .emptyMyItineraryHeader {
+        font-weight: 400;
+        font-size: 2.5em;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      .top {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 60px;
+      }
+      .removeColor {
+        color: initial;
+      }
+      .emptyItineraryCalendar {
+        font-size: 48px;
+      }
+      .emptyItineraryText {
+        font-size: 1.5em;
+      }
+      .signInButton,
+      .continueBrowsingButton {
+        padding: 0 24px;
+        font-size: 1.5em;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        width: 314px;
+        height: 53px;
+        line-height: 53px;
+        box-sizing: border-box;
+      }
+      .signInButton {
+        color: white;
+        background-color: #a481c4;
+        border-radius: 4px 0 0 4px;
+      }
+      .continueBrowsingButton {
+        color: #1a5086;
+        background-color: #cdbade;
+        border-radius: 0 4px 4px 0px;
+      }
+      .button-container {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .suggestedActivitiesSection {
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-layout">
+      <div class="top">
+        <h1 class="emptyMyItineraryHeader">My Itinerary</h1>
+        <h3 class="less-bold">
+          <a href="index.html" class="activitiesBreadcrumb">Home</a>
+          <span class="removeColor"> > </span><span> My Itinerary</span>
+        </h3>
+        <i class="fa-regular fa-calendar emptyItineraryCalendar"></i>
+        <p class="emptyItineraryText">Your Itinerary is empty.</p>
+        <p class="emptyItineraryText">
+          Have any saved collections or a default itinerary? Sign in to view
+          them!
+        </p>
+        <div class="button-container">
+          <button class="signInButton">Sign In</button>
+          <button class="continueBrowsingButton">Continue Browsing</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
