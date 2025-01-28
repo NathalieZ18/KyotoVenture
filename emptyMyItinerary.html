@@ -18,7 +18,6 @@
     <style>
       .emptyMyItineraryHeader {
         font-weight: 400;
-        font-size: 2.5em;
       }
       .less-bold {
         font-weight: 500;
@@ -67,7 +66,155 @@
         align-items: center;
       }
       .suggestedActivitiesSection {
-        align-self: flex-start;
+        margin-top: 60px;
+        width: 100%;
+      }
+      .page-layout-itinerary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .suggestedActivitiesHeader {
+        font-weight: 500;
+      }
+      .card-container-emptyItinerary {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 24px;
+      }
+      .card-emptyItinerary {
+        border: 1px none;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        background-color: #f6f6f6;
+        /* width: 302px; */
+        height: 400px;
+        overflow: hidden;
+        flex-wrap: wrap;
+      }
+      .card-image-emptyItinerary {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .emptyItineraryCardTitle {
+        font-size: 20px;
+        position: relative;
+        bottom: 24px;
+        left: 8px;
+      }
+      .emptyItineraryStar {
+        color: #a481c4;
+        font-size: 20px;
+        position: relative;
+        left: 8px;
+        bottom: 36px;
+      }
+      .emptyItineraryRating {
+        color: black;
+        font-family: "Lato", sans-serif;
+        font-weight: normal;
+        font-size: 16px;
+        margin-left: 4px;
+      }
+      /* Footer */
+      p {
+            font-family: Lato;
+        }
+
+      .logo img {
+        height: 100.66px;
+        width: 110.66px;
+      }
+
+
+      .destination {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2;
+        margin-right: 50px;
+      }
+      .destination p {
+        margin: 0;
+        line-height: 2;
+      }
+
+      .guide {
+        display: flex;
+        flex-direction: column;
+        grid-column: 3;
+        margin-right: 50px;
+
+      }
+      .guide p {
+        margin: 0;
+        line-height: 2;
+      }
+
+      .support {
+        display: flex;
+        flex-direction: column;
+        grid-column: 4;
+        margin-right: 50px;
+
+      }
+      .support p {
+        margin: 0;
+        line-height: 2;
+      }
+
+      .subscribe {
+        background-color: #013d79;
+        color: white;
+        border: none;
+        height: 30px;
+        width: 80px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      .news {
+        display: flex;
+        flex-direction: column;
+        grid-column: 5;
+        padding-left: 80px;
+      }
+      .news p {
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: repeat(5, auto);
+        background-color: #cdbade;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 100px;
+      }
+
+      .logo {
+        grid-column: 1;
+        margin-right: 50px;
+        margin-top: 30px;
+        padding-left: 15px;
+
+      }
+
+      .email-bar {
+        color: #ebe3f2;
+      }
+
+      .receive {
+        font-size: 13px;
+        padding-bottom: 5px;
       }
     </style>
   </head>
@@ -86,7 +233,7 @@
         <li><a href="profile.html">Profile</a></li>
       </ul>
     </nav>
-    <div class="page-layout">
+    <div class="page-layout-itinerary">
       <div class="top">
         <h1 class="emptyMyItineraryHeader">My Itinerary</h1>
         <h3 class="less-bold">
@@ -104,6 +251,203 @@
           <button class="continueBrowsingButton">Continue Browsing</button>
         </div>
       </div>
+      <!-- Suggested Activities Section -->
+      <div class="suggestedActivitiesSection">
+        <h2 class="suggestedActivitiesHeader">Suggested Activities</h2>
+        <div class="card-container-emptyItinerary">
+          <!-- Card 1 -->
+          <div class="card-emptyItinerary">
+            <img
+              src="assets/images/gion district.jpg"
+              alt="Activity 1: Gion District"
+              class="card-image-emptyItinerary"
+            />
+            <p class="cardOne cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Food & Drink
+            </p>
+            
+            <p class="emptyItineraryCardTitle">Gion District</p>
+            <i class="fa-solid fa-star emptyItineraryStar"
+              ><span class="emptyItineraryRating">5.0</span></i
+            >
+          </div>
+          <!-- End of Card 1 -->
+           <!-- Card 2 -->
+           <div class="card-emptyItinerary">
+            <img
+              src="assets/images/Sagano Romantic Train.jpg"
+              alt="Activity 2: Sagano Romantic Train"
+              class="card-image-emptyItinerary"
+            />
+            <p class="cardOne cardTop">
+              Arashiyama
+              <span class="ellipses"></span>
+              Nature & Outdoors
+            </p>
+            
+            <p class="emptyItineraryCardTitle">Sagano Romantic Train</p>
+            <i class="fa-solid fa-star emptyItineraryStar"
+              ><span class="emptyItineraryRating">4.8</span></i
+            >
+          </div>
+          <!-- End of Card 2 -->
+           <!-- Card 3 -->
+           <div class="card-emptyItinerary">
+            <img
+              src="assets/images/Todai-ji Temple.jpg"
+              alt="Activity 3: Todai-ji Temple"
+              class="card-image-emptyItinerary"
+            />
+            <p class="cardOne cardTop">
+              Nara
+              <span class="ellipses"></span>
+              Landmarks
+            </p>
+            
+            <p class="emptyItineraryCardTitle">Todai-ji Temple</p>
+            <i class="fa-solid fa-star emptyItineraryStar"
+              ><span class="emptyItineraryRating">4.6</span></i
+            >
+          </div>
+           <!-- End of Card 3 -->
+            <!-- Card 4 -->
+            <div class="card-emptyItinerary">
+              <img
+                src="assets/images/Kasuga Taisha.jpg"
+                alt="Activity 4: Kasuga Taisha Shrine Forest"
+                class="card-image-emptyItinerary"
+              />
+              <p class="cardOne cardTop">
+                Nara
+                <span class="ellipses"></span>
+                Nature & Outdoors
+              </p>
+              
+              <p class="emptyItineraryCardTitle">Kasuga Taisha Shrine Forest</p>
+              <i class="fa-solid fa-star emptyItineraryStar"
+                ><span class="emptyItineraryRating">4.7</span></i
+              >
+            </div>
+             <!-- End of Card 4 -->
+              <!-- Card 5 -->
+              <div class="card-emptyItinerary">
+                <img
+                  src="assets/images/Hozugawa River Boat Ride.jpg"
+                  alt="Activity 5: Hozugawa River Boat Ride"
+                  class="card-image-emptyItinerary"
+                />
+                <p class="cardOne cardTop">
+                  Kameoka
+                  <span class="ellipses"></span>
+                  Nature & Outdoors
+                </p>
+                
+                <p class="emptyItineraryCardTitle">Hozugawa River Boat Ride</p>
+                <i class="fa-solid fa-star emptyItineraryStar"
+                  ><span class="emptyItineraryRating">4.7</span></i
+                >
+              </div>
+               <!-- End of Card 5 -->
+                <!-- Card 6 -->
+                <div class="card-emptyItinerary">
+                  <img
+                    src="assets/images/NakamuraTokichi.png"
+                    alt="Activity 6: Nakamura Tokichi"
+                    class="card-image-emptyItinerary"
+                  />
+                  <p class="cardOne cardTop">
+                    Uji
+                    <span class="ellipses"></span>
+                    Food & Drink
+                  </p>
+                  
+                  <p class="emptyItineraryCardTitle">Nakamura Tokichi</p>
+                  <i class="fa-solid fa-star emptyItineraryStar"
+                    ><span class="emptyItineraryRating">4.9</span></i
+                  >
+                </div>
+                 <!-- End of Card 6 -->
+        </div>
+      </div>
     </div>
+    <!-- Footer -->
+     
+  <div class="logo-grid">
+    <div class="logo">
+      <img src="assets/images/KyoVenLogo.png" alt="Logo" />
+    </div>
+  <div class="destination">
+    <p><strong>Destinations</strong></p>
+  <p>Kyoto City</p>
+  <p>Arashiyama</p>
+  <p>Nara</p>
+  <p>Uji</p>
+  <p>Kameoka</p>
+  </div>
+
+  <div class="guide">
+    <strong><p>Guides</p></strong>
+    <p>Guides</p>
+    <p>Community Guides</p>
+  </div>
+
+  <div class="support">
+    <strong><p>Support</p></strong>
+    <p>FAQs</p>
+    <p>Contact Us</p>
+    <p>About Us</p>
+  </div>
+
+  <div class="news">
+  <strong><p>Join Our Newsletter </p></strong>
+  <p class="receive">
+    Receive news about the latest and most 
+    popular activities and events in Kyoto!   
+  </p>
+
+  <div class="email-bar">
+    <form action="/email" method="get">
+      <input
+        type="text"
+        name="q"
+        placeholder="Your Email"
+        class="email-input"
+      />
+    </form>
+
+    <button class="subscribe">Subscribe</button>
+  </div>
+
+  </div>
+</div>
+</body>
+
+
+
+
+    
+  <!--<p>
+      Destinations
+      <br />
+      <br />
+      Kyoto City
+      <br />
+      <br />
+      Arashiyama
+      <br />
+      <br />
+      Nara
+      <br />
+      <br />
+      Uji
+      <br />
+      <br />
+      Kameoka
+      <br />
+      <br />
+    </p>-->
+  </div>
   </body>
 </html>
