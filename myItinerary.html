@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Empty My Itinerary</title>
+    <title>My Itinerary</title>
     <link rel="stylesheet" href="styles.css" />
     <script
       src="https://kit.fontawesome.com/5e8cd39909.js"
@@ -40,7 +40,7 @@
       }
       .container-layout-itinerary {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 24px;
         margin-left: 80px;
         margin-right: 80px;
@@ -144,6 +144,40 @@
         font-size: 1.25em;
         color: black;
       }
+      .button-layout {
+        display: flex;
+        justify-content: center;
+        margin: 80px auto;
+        width: 100%;
+      }
+      .button-container {
+        display: flex;
+        gap: 0px;
+      }
+      .continueBrowsingButton,
+      .editMyItineraryButton {
+        padding: 0 24px;
+        font-size: 1.5em;
+        border: none;
+        cursor: pointer;
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        width: 314px;
+        height: 53px;
+        line-height: 53px;
+        box-sizing: border-box;
+      }
+      .continueBrowsingButton {
+        color: white;
+        background-color: #4D77A1;
+        border-radius: 4px 0px 0px 4px;
+      }
+      .editMyItineraryButton {
+        color: white;
+        background-color: #013D79;
+        border-radius: 0 4px 4px 0px;
+      }
     </style>
   </head>
   <body>
@@ -173,6 +207,7 @@
     </div>
 
     <div class="container-layout-itinerary">
+      <!-- Itinerary 1 -->
       <div class="itinerary-container">
         <img
           src="assets/images/Gion District Starbucks.jpg"
@@ -192,8 +227,9 @@
             6:00AM-8:00AM
           </p>
           <p class="notes">
-            Notes: Get some Starbucks drinks in the morning then walk around the
-            area and look around different shops and restaurants.
+            <strong>Notes:</strong> Get some Starbucks drinks in the morning
+            then walk around the area and look around different shops and
+            restaurants.
           </p>
         </div>
         <div class="myItineraryButtonSet">
@@ -204,6 +240,119 @@
             <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
           </button>
         </div>
+      </div>
+      <!-- End of Itinerary 1 -->
+      <!-- Itinerary 2 -->
+      <div class="itinerary-container">
+        <img
+          src="assets/images/fushimi inari shrine.jpg"
+          alt="Itinerary 2: Fushimi Inari Shrine"
+          class="container-image"
+        />
+        <div class="container-text">
+          <h3 class="less-bold headerSize">Fushimi Inari Shrine</h3>
+          <p class="container-tag">
+            Kyoto City
+            <span class="ellipses"></span>
+            Landmarks
+          </p>
+          <p class="container-tag-two">Unscheduled Time</p>
+          <p class="notes">
+            <strong>Notes:</strong> Walk through the iconic red Torii gates,
+            visit the main shrine, and explore small shrines along the trail.
+            The hike to the top takes 1.5 to 3 hours, offering beautiful views
+            and fox statues. Wear comfortable shoes, bring water, and aim to
+            visit early or late to avoid crowds.
+          </p>
+        </div>
+        <div class="myItineraryButtonSet">
+          <button class="editTimeButton">
+            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          </button>
+          <button class="deleteButton">
+            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
+          </button>
+        </div>
+      </div>
+      <!-- End of Itinerary 2 -->
+      <!-- Itinerary 3 -->
+      <div class="itinerary-container">
+        <img
+          src="assets/images/kinkakuji temple.jpg"
+          alt="Itinerary 3: Kinkakuji Temple"
+          class="container-image"
+        />
+        <div class="container-text">
+          <h3 class="less-bold headerSize">Kinkakuji Temple</h3>
+          <p class="container-tag">
+            Kyoto City
+            <span class="ellipses"></span>
+            Landmarks
+          </p>
+          <p class="container-tag-two">
+            Day 3
+            <span class="ellipsesTime"></span>
+            12:00PM
+          </p>
+          <p class="notes">
+            <strong>Notes:</strong> Visit Kinkaku-ji, the Golden Pavilion, set
+            amidst beautiful gardens and a reflective pond. Spend about 30
+            minutes to an hour exploring the temple and its serene surroundings.
+            Best to visit early to avoid crowds.
+          </p>
+        </div>
+        <div class="myItineraryButtonSet">
+          <button class="editTimeButton">
+            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          </button>
+          <button class="deleteButton">
+            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
+          </button>
+        </div>
+      </div>
+      <!-- End of Itinerary 3 -->
+      <!-- Itinerary 4 -->
+      <div class="itinerary-container">
+        <img
+          src="assets/images/Arashiyama Bamboo Forest.jpg"
+          alt="Itinerary 4: Arashiyama Bamboo Forest"
+          class="container-image"
+        />
+        <div class="container-text">
+          <h3 class="less-bold headerSize">Arashiyama Bamboo Forest</h3>
+          <p class="container-tag">
+            Kyoto City
+            <span class="ellipses"></span>
+            Nature & Outdoors
+          </p>
+          <p class="container-tag-two">
+            Day 4
+            <span class="ellipsesTime"></span>
+            11:00AM-2:00PM
+          </p>
+          <p class="notes">
+            <strong>Notes:</strong> Explore the Arashiyama Bamboo Forest, a
+            stunning path surrounded by towering bamboo. A 20-30 minute walk
+            offers peaceful views. Visit early to avoid crowds and enjoy the
+            serene atmosphere.
+          </p>
+        </div>
+        <div class="myItineraryButtonSet">
+          <button class="editTimeButton">
+            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          </button>
+          <button class="deleteButton">
+            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
+          </button>
+        </div>
+      </div>
+      <!-- End of Itinerary 4 -->
+    </div>
+    <!-- Buttons -->
+    <div class="button-layout">
+      <div class="button-container">
+        <button class="continueBrowsingButton">Continue Browsing</button>
+        <button class="editMyItineraryButton">Edit My Itinerary</button>
       </div>
     </div>
   </body>
