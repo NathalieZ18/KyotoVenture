@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empty My Itinerary</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .emptyMyItineraryHeader {
+        font-weight: 400;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      .top {
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 60px;
+      }
+      .removeColor {
+        color: initial;
+      }
+      .page-layout-itinerary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .container-layout-itinerary {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .itinerary-container {
+        display: flex;
+        flex-direction: row;
+        /* align-items: center; */
+        width: 100%;
+        max-width: 1280px;
+        height: 304px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: #f5f7fa;
+        gap: 24px;
+      }
+      .container-image {
+        width: 35%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        max-height: 304px;
+      }
+      .container-tag {
+        color: gray;
+        /* position: relative;
+        bottom: 10px;
+        left: 8px; */
+        font-size: 1em;
+      }
+      .container-tag-two {
+        font-size: 1em;
+      }
+      .ellipsesTime {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 0 2px;
+      }
+      .container-text {
+        width: 35%;
+        height: auto;
+      }
+      .notes {
+        max-height: 100px;
+        overflow-y: auto;
+        font-size: 1em;
+      }
+      .headerSize {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-layout-itinerary">
+      <div class="top">
+        <h1 class="emptyMyItineraryHeader">My Itinerary</h1>
+        <h3 class="less-bold">
+          <a href="index.html" class="activitiesBreadcrumb">Home</a>
+          <span class="removeColor"> > </span><span> My Itinerary</span>
+        </h3>
+      </div>
+    </div>
+
+    <div class="container-layout-itinerary">
+      <div class="itinerary-container">
+        <img
+          src="assets/images/Gion District Starbucks.jpg"
+          alt="Itinerary 1: Gion District Starbucks"
+          class="container-image"
+        />
+        <div class="container-text">
+          <h3 class="less-bold headerSize">Gion District Starbucks</h3>
+          <p class="container-tag">
+            Kyoto City
+            <span class="ellipses"></span>
+            Food & Drink
+          </p>
+          <p class="container-tag-two">
+            Day 1
+            <span class="ellipsesTime"></span>
+            6:00AM-8:00AM
+          </p>
+          <p class="notes">
+            Notes: Get some Starbucks drinks in the morning then walk around the
+            area and look around different shops and restaurants.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
