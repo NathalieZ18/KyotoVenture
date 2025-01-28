@@ -56,6 +56,8 @@
         border-radius: 8px;
         background-color: #f5f7fa;
         gap: 24px;
+        /* overflow: auto; */
+        /* overflow: hidden; */
       }
       .container-image {
         width: 35%;
@@ -66,13 +68,14 @@
       }
       .container-tag {
         color: gray;
-        /* position: relative;
-        bottom: 10px;
-        left: 8px; */
+        position: relative;
+        bottom: 20px;
         font-size: 1em;
       }
       .container-tag-two {
         font-size: 1em;
+        position: relative;
+        bottom: 20px;
       }
       .ellipsesTime {
         display: inline-block;
@@ -90,9 +93,56 @@
         max-height: 100px;
         overflow-y: auto;
         font-size: 1em;
+        position: relative;
+        bottom: 20px;
       }
       .headerSize {
         font-size: 1.5em;
+      }
+      .myItineraryButtonSet {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        height: 100%;
+        margin-top: 56px;
+        box-sizing: border-box;
+      }
+      .editTimeButton {
+        color: white;
+        font-size: 1.2em;
+        background-color: #013d79;
+        padding: 16px 36px;
+        border: solid #013d79;
+        border-radius: 8px;
+        width: 200px;
+        /* position: relative;
+        top: 4px;
+        left: 16px; */
+        cursor: pointer;
+      }
+      .editTimePen {
+        margin-right: 8px;
+        font-size: 1.25em;
+      }
+      .deleteButton {
+        color: black;
+        font-size: 1.2em;
+        background-color: #cdcdcd;
+        padding: 16px 36px;
+        border: solid #cdcdcd;
+        border-radius: 8px;
+        width: 200px;
+        cursor: pointer;
+      }
+      .deleteIcon {
+        margin-right: 8px;
+        font-size: 1.25em;
+        color: black;
       }
     </style>
   </head>
@@ -145,6 +195,14 @@
             Notes: Get some Starbucks drinks in the morning then walk around the
             area and look around different shops and restaurants.
           </p>
+        </div>
+        <div class="myItineraryButtonSet">
+          <button class="editTimeButton">
+            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          </button>
+          <button class="deleteButton">
+            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
+          </button>
         </div>
       </div>
     </div>
