@@ -235,37 +235,31 @@
         display: flex;
         gap: 0px;
       }
-      .continueBrowsingButton,
-      .editMyItineraryButton {
+      .saveItineraryButton {
         padding: 0 24px;
         font-size: 1.5em;
         border: none;
         cursor: pointer;
-        display: inline-block;
+        display: block;
         text-align: center;
         margin: 0 auto;
-        width: 314px;
-        height: 53px;
+        width: 264px;
+        height: 72px;
         line-height: 53px;
         box-sizing: border-box;
+        border-radius: 16px;
       }
-      .continueBrowsingButton {
-        color: white;
-        background-color: #4d77a1;
-        border-radius: 4px 0px 0px 4px;
-      }
-      .editMyItineraryButton {
+      .saveItineraryButton {
         color: white;
         background-color: #013d79;
-        border-radius: 0 4px 4px 0px;
       }
-      .day1 {
+      .day {
         display: flex;
         align-items: center;
         width: 100%;
         background-color: #cdbade;
         height: 48px;
-        margin-bottom: 24px;
+        /* margin-bottom: 24px; */
       }
       .dayText {
         color: #013d79;
@@ -277,6 +271,44 @@
         display: flex;
         width: 1280px;
         margin: 0 auto;
+      }
+      .day2Section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .day2Text {
+        font-size: 1.25em;
+      }
+      .browseButton {
+        color: white;
+        font-size: 1.2em;
+        background-color: #013d79;
+        padding: 12px 24px;
+        border: solid #013d79;
+        border-radius: 8px;
+        width: 200px;
+        cursor: pointer;
+        margin-top: 24px;
+      }
+      .spaceBetween {
+        margin-bottom: 24px;
+      }
+      .text-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 860px;
+        justify-content: center;
+        margin-top: 24px;
+      }
+      .left-text {
+        font-size: 1.5em;
+      }
+      .right-text {
+        font-size: 1.5em;
+        color: #12306a;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -343,11 +375,11 @@
 
     <!-- Day Separator -->
     <div class="purple-container">
-      <div class="day1">
+      <div class="day">
         <p class="dayText">Day 1</p>
       </div>
     </div>
-
+    <div class="spaceBetween"></div>
     <div class="container-layout-itinerary">
       <!-- Itinerary 1 -->
       <div class="itinerary-container">
@@ -390,39 +422,24 @@
         </div>
       </div>
       <!-- End of Itinerary 1 -->
-      <!-- Itinerary 2 -->
-      <div class="itinerary-container">
-        <img
-          src="assets/images/fushimi inari shrine.jpg"
-          alt="Itinerary 2: Fushimi Inari Shrine"
-          class="container-image"
-        />
-        <div class="container-text">
-          <h3 class="less-bold headerSize">Fushimi Inari Shrine</h3>
-          <p class="container-tag">
-            Kyoto City
-            <span class="ellipses"></span>
-            Landmarks
-          </p>
-          <p class="container-tag-two">Unscheduled Time</p>
-          <p class="notes">
-            <strong>Notes:</strong> Walk through the iconic red Torii gates,
-            visit the main shrine, and explore small shrines along the trail.
-            The hike to the top takes 1.5 to 3 hours, offering beautiful views
-            and fox statues. Wear comfortable shoes, bring water, and aim to
-            visit early or late to avoid crowds.
-          </p>
-        </div>
-        <div class="myItineraryButtonSet">
-          <button class="editTimeButton">
-            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
-          </button>
-          <button class="deleteButton">
-            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
-          </button>
+      <!-- Day Separator -->
+      <div class="purple-container">
+        <div class="day">
+          <p class="dayText">Day 2</p>
         </div>
       </div>
+      <!-- Itinerary 2 -->
+      <div class="day2Section">
+        <p class="day2Text">No activities scheduled for this day</p>
+        <button class="browseButton">Browse Activities</button>
+      </div>
       <!-- End of Itinerary 2 -->
+      <!-- Day Separator -->
+      <div class="purple-container">
+        <div class="day">
+          <p class="dayText">Day 3</p>
+        </div>
+      </div>
       <!-- Itinerary 3 -->
       <div class="itinerary-container">
         <img
@@ -437,11 +454,16 @@
             <span class="ellipses"></span>
             Landmarks
           </p>
-          <p class="container-tag-two">
-            Day 3
-            <span class="ellipsesTime"></span>
-            12:00PM
-          </p>
+          <div class="align-wrapper">
+            <p class="container-tag-two">
+              Day 3
+              <span class="ellipsesTime"></span>
+              12:00PM
+            </p>
+            <button class="editTimeButton">
+              <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+            </button>
+          </div>
           <p class="notes">
             <strong>Notes:</strong> Visit Kinkaku-ji, the Golden Pavilion, set
             amidst beautiful gardens and a reflective pond. Spend about 30
@@ -450,8 +472,9 @@
           </p>
         </div>
         <div class="myItineraryButtonSet">
-          <button class="editTimeButton">
-            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          <button class="moveButton">
+            <i class="fa-solid fa-up-down-left-right moveActivityIcon"></i>Move
+            Activity
           </button>
           <button class="deleteButton">
             <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
@@ -459,6 +482,12 @@
         </div>
       </div>
       <!-- End of Itinerary 3 -->
+      <!-- Day Separator -->
+      <div class="purple-container">
+        <div class="day">
+          <p class="dayText">Day 4</p>
+        </div>
+      </div>
       <!-- Itinerary 4 -->
       <div class="itinerary-container">
         <img
@@ -473,11 +502,16 @@
             <span class="ellipses"></span>
             Nature & Outdoors
           </p>
-          <p class="container-tag-two">
-            Day 4
-            <span class="ellipsesTime"></span>
-            11:00AM-2:00PM
-          </p>
+          <div class="align-wrapper">
+            <p class="container-tag-two">
+              Day 4
+              <span class="ellipsesTime"></span>
+              11:00AM-2:00PM
+            </p>
+            <button class="editTimeButton">
+              <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+            </button>
+          </div>
           <p class="notes">
             <strong>Notes:</strong> Explore the Arashiyama Bamboo Forest, a
             stunning path surrounded by towering bamboo. A 20-30 minute walk
@@ -486,8 +520,9 @@
           </p>
         </div>
         <div class="myItineraryButtonSet">
-          <button class="editTimeButton">
-            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          <button class="moveButton">
+            <i class="fa-solid fa-up-down-left-right moveActivityIcon"></i>Move
+            Activity
           </button>
           <button class="deleteButton">
             <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
@@ -495,12 +530,60 @@
         </div>
       </div>
       <!-- End of Itinerary 4 -->
+      <!-- Day Separator -->
+      <div class="purple-container">
+        <div class="day">
+          <p class="dayText">Unscheduled Activities</p>
+        </div>
+      </div>
+      <!-- Itinerary 2 -->
+      <div class="itinerary-container">
+        <img
+          src="assets/images/fushimi inari shrine.jpg"
+          alt="Itinerary 2: Fushimi Inari Shrine"
+          class="container-image"
+        />
+        <div class="container-text">
+          <h3 class="less-bold headerSize">Fushimi Inari Shrine</h3>
+          <p class="container-tag">
+            Kyoto City
+            <span class="ellipses"></span>
+            Landmarks
+          </p>
+          <div class="align-wrapper">
+            <p class="container-tag-two">Unscheduled Time</p>
+            <button class="editTimeButton">
+              <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+            </button>
+          </div>
+          <p class="notes">
+            <strong>Notes:</strong> Walk through the iconic red Torii gates,
+            visit the main shrine, and explore small shrines along the trail.
+            The hike to the top takes 1.5 to 3 hours, offering beautiful views
+            and fox statues. Wear comfortable shoes, bring water, and aim to
+            visit early or late to avoid crowds.
+          </p>
+        </div>
+        <div class="myItineraryButtonSet">
+          <button class="moveButton">
+            <i class="fa-solid fa-up-down-left-right moveActivityIcon"></i>Move
+            Activity
+          </button>
+          <button class="deleteButton">
+            <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
+          </button>
+        </div>
+      </div>
+      <!-- End of Itinerary 2 -->
+    </div>
+    <div class="text-container">
+      <span class="left-text">Total Days: 4 (Maximum of 14)</span>
+      <span class="right-text">add day</span>
     </div>
     <!-- Buttons -->
     <div class="button-layout">
       <div class="button-container">
-        <button class="continueBrowsingButton">Continue Browsing</button>
-        <button class="editMyItineraryButton">Edit My Itinerary</button>
+        <button class="saveItineraryButton">Save Itinerary</button>
       </div>
     </div>
   </body>
