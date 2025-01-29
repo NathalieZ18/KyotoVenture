@@ -61,7 +61,7 @@
         margin-right: 24px;
         padding: 24px;
         border: 1px none;
-        background-color: #F5F7FA;
+        background-color: #f5f7fa;
         border-radius: 8px;
         width: 40%;
         margin-top: 24px;
@@ -74,7 +74,7 @@
         margin-right: 88px;
         text-align: center;
         text-decoration: underline;
-        text-decoration-color: #12306A;
+        text-decoration-color: #12306a;
         text-underline-offset: 5px;
       }
       .itineraryDetails {
@@ -92,7 +92,7 @@
         height: auto;
       }
       .changeCover {
-        color: #12306A;
+        color: #12306a;
         font-size: 1.5em;
         cursor: pointer;
       }
@@ -135,6 +135,11 @@
         position: relative;
         bottom: 20px;
       }
+      .align-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
       .ellipsesTime {
         display: inline-block;
         width: 8px;
@@ -162,24 +167,26 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 40px;
+        gap: 48px;
         width: 100%;
         max-width: 200px;
         margin: 0 auto;
         height: 100%;
-        margin-top: 56px;
+        margin-top: 64px;
         box-sizing: border-box;
         flex-shrink: 0;
         overflow: auto;
       }
       .editTimeButton {
         color: white;
-        font-size: 1.2em;
+        font-size: 1em;
         background-color: #013d79;
-        padding: 16px 36px;
+        padding: 12px 16px;
         border: solid #013d79;
         border-radius: 8px;
-        width: 200px;
+        width: 140px;
+        position: relative;
+        bottom: 20px;
         /* position: relative;
         top: 4px;
         left: 16px; */
@@ -187,13 +194,27 @@
       }
       .editTimePen {
         margin-right: 8px;
-        font-size: 1.25em;
+        font-size: 1em;
+      }
+      .moveActivityIcon {
+        margin-right: 8px;
+        font-size: 1em;
+      }
+      .moveButton {
+        color: white;
+        font-size: 1.2em;
+        background-color: #013d79;
+        padding: 16px 24px;
+        border: solid #013d79;
+        border-radius: 8px;
+        width: 200px;
+        cursor: pointer;
       }
       .deleteButton {
         color: black;
         font-size: 1.2em;
         background-color: #cdcdcd;
-        padding: 16px 36px;
+        padding: 12px 24px;
         border: solid #cdcdcd;
         border-radius: 8px;
         width: 200px;
@@ -237,6 +258,25 @@
         color: white;
         background-color: #013d79;
         border-radius: 0 4px 4px 0px;
+      }
+      .day1 {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        background-color: #cdbade;
+        height: 48px;
+        margin-bottom: 24px;
+      }
+      .dayText {
+        color: #013d79;
+        font-size: 1.5em;
+        line-height: 48px;
+        margin-left: 8px;
+      }
+      .purple-container {
+        display: flex;
+        width: 1280px;
+        margin: 0 auto;
       }
     </style>
   </head>
@@ -301,6 +341,13 @@
       </div>
     </div>
 
+    <!-- Day Separator -->
+    <div class="purple-container">
+      <div class="day1">
+        <p class="dayText">Day 1</p>
+      </div>
+    </div>
+
     <div class="container-layout-itinerary">
       <!-- Itinerary 1 -->
       <div class="itinerary-container">
@@ -316,11 +363,16 @@
             <span class="ellipses"></span>
             Food & Drink
           </p>
-          <p class="container-tag-two">
-            Day 1
-            <span class="ellipsesTime"></span>
-            6:00AM-8:00AM
-          </p>
+          <div class="align-wrapper">
+            <p class="container-tag-two">
+              Day 1
+              <span class="ellipsesTime"></span>
+              6:00AM-8:00AM
+            </p>
+            <button class="editTimeButton">
+              <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+            </button>
+          </div>
           <p class="notes">
             <strong>Notes:</strong> Get some Starbucks drinks in the morning
             then walk around the area and look around different shops and
@@ -328,8 +380,9 @@
           </p>
         </div>
         <div class="myItineraryButtonSet">
-          <button class="editTimeButton">
-            <i class="fa-solid fa-pen editTimePen"></i>Edit Time
+          <button class="moveButton">
+            <i class="fa-solid fa-up-down-left-right moveActivityIcon"></i>Move
+            Activity
           </button>
           <button class="deleteButton">
             <i class="fa-regular fa-trash-can deleteIcon"></i>Delete
