@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Itineraries Wishlist</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        .page-layout {
+            display: flex;
+            gap: 24px;
+            margin-left: 80px;
+            margin-right: 80px;
+        }
+        .page-layout2 {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-left: 80px;
+            margin-right: 80px;
+
+        }
+
+        /* @media only screen and (min-width: 1200px) {
+        .page-layout2 {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-left: 600px;
+            margin-right: 300px;
+        }
+    } */
+
+        .breadcrumb {
+            display:grid;
+            grid-template-columns: 3;
+        }
+        .text2 {
+            grid-column: 3;
+
+        }
+        .activitiesBreadcrumb {
+            grid-template-columns: 1;
+        }
+        .greater {
+            grid-template-columns: 2;
+        }
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            margin-bottom: 20px;
+            
+        }
+        .button-group {
+            display: flex;
+        }
+        .first-container {
+            display: grid;
+            grid-template-rows: repeat(4, auto);
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .sort {
+            margin-left: 30px;
+        }
+        
+
+        .button-group {
+            grid-row: 4;
+            grid-column: 2;
+            gap: 1px;
+            height: 35px;
+            margin-left: 150px;
+            
+        }
+
+        .wish {
+            background-color: #99b1c9;
+            color: white;
+            border: none;
+            width: 80px;
+
+        }
+        .review {
+            background-color: #99b1c9;
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            width: 80px;
+
+        }
+        .profile {
+            background-color: #013d79;
+            color: #cff3d7;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 80px;
+
+
+        }
+        .sort {
+            background-color: #ccd8e4;
+            color: #013d79;
+            border: none;
+            width: 120px;
+            border-radius: 5px;
+            margin-left: 150px;
+
+        }
+
+        .down-arrow {
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #013d79;
+            margin-left: 10px;
+            position: relative;
+            top: 30%;
+            
+        }
+        .background {
+            display: flex;
+            height: 300px;
+            width: auto;
+           
+        }
+        .itinerary {
+            background-color: #1f3179;
+          color: white;
+          border-radius: 10px;
+          width: 120px;
+          margin-right: 150px;
+          
+        }
+        .profpic {
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 50px;
+            width: 200px;
+        }
+        .luver {
+            position: absolute;
+            margin-left: 310px;
+            margin-top: 100px;
+            width: 200px;
+        }
+        .profile2 {
+            position: absolute;
+            background-color: #1f3179;
+          color: white;
+          border-radius: 10px;
+          width: 100px;
+          margin-left: 308px;
+            margin-top: 150px;
+          
+
+        }
+        .star {
+            color: #b69ad0;
+            font-size: 22px;
+        }
+
+        .itin-container {
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            grid-column: 1;
+        }
+        .itin-container2 {
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            grid-column: 2;
+        }
+        .itin-container3 {
+            display: flex;
+            flex-direction: column;
+            margin-left: 100px;
+            grid-column: 3;
+        }
+        .bamb {
+            height: 200px;
+            width: 200px;
+        }
+
+        .foodbutton {
+            position: absolute;
+            width: 150px;
+            height: 25px;
+            background-color: #cbe2d1; opacity: 92%;
+            border: none;
+            margin-top: 220px;
+            margin-left: 25px;
+            
+        }
+        .defitin {
+            margin-left: 13px;
+            margin-bottom: 5px;
+            
+            
+        }
+        .itin-grid {
+            display: grid;
+            grid-template-columns: 3;
+            grid-template-rows: 1;
+            margin-left: 80px;
+            margin-right: 80px;
+            padding-left: 40px;
+            padding-right: 40px;
+            justify-content: center;
+        }
+        .itin-grid2 {
+            display: grid;
+            grid-template-columns: 3;
+            grid-template-rows: 1;
+            margin-left: 80px;
+            margin-right: 80px;
+            padding-left: 40px;
+            padding-right: 40px;
+            margin-bottom: 40px;
+            justify-content: center;
+
+        }
+        
+
+
+        </style>
+
+</style>
+</head>
+<body>
+  
+  <div class="page-layout">
+
+      
+      <div class="first-container">
+      <div class="breadcrumb">
+          <h3>
+              <a href="index.html" class="activitiesBreadcrumb">Home</a>
+              
+            </h3>
+            
+            <h3 class="greater">></h3>
+            <h3 class="text2">
+              Itineraries
+        </h3>
+      </div>
+
+      <div class="back-container">
+      <div class="title">
+          <h1>Itineraries</h1>
+      </div>
+
+
+      <div class="background"> <img src="assets/images/itineraryback.png" alt="Itineraryback">
+    <img class="profpic" src="assets/images/profileicon.png">
+    <h3 class="luver">Kyotoluver</h3>
+    <button class="profile2">Edit Profile</button>
+</div>
+    </div>
+
+      
+
+
+      <div class="button-group">
+        
+        <button class="itinerary">
+            + Create Itinerary
+          </button>
+          <button class="profile">Profile</button>
+          <button class="wish">Wishlist</button>
+          <button class="review">Reviews</button>
+          
+          <button class="sort">Set Default <span class="down-arrow"></span></button>
+
+      </div>
+      
+      
+      
+
+  </div>
+
+  
+  </div>
+
+  <hr class="horizon" />
+
+  <div class="page-layout2">
+
+  <div class="itin-grid">
+  <div class="itin-container">
+  <p class="defitin"><span class="star">&#9733;</span>Default Itinerary</p> 
+  <img class="bamb" src="assets/images/bamboogrove.png">
+  <button class="foodbutton">Food</button>
+</div>
+
+<div class="itin-container2">
+    <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 2</p> 
+    <img class="bamb" src="assets/images/temple.png">
+    <button class="foodbutton">Kyoto City</button>
+  </div>
+
+  <div class="itin-container3">
+    <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 3</p> 
+    <img class="bamb" src="assets/images/deer.png">
+    <button class="foodbutton">Nara</button>
+  </div>
+
+</div>
+
+<div class="itin-grid2">
+    <div class="itin-container">
+    <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 4</p> 
+    <img class="bamb" src="assets/images/uji.png">
+    <button class="foodbutton">Uji</button>
+  </div>
+  
+  <div class="itin-container2">
+      <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 5</p> 
+      <img class="bamb" src="assets/images/shop (2).png">
+      <button class="foodbutton">Food</button>
+    </div>
+  
+    <div class="itin-container3">
+      <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 6</p> 
+      <img class="bamb" src="assets/images/redtemple.png">
+      <button class="foodbutton">Food</button>
+    </div>
+
+</div>
+
+  
+
+
+</body>
