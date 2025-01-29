@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasuga Taisha Shrine Forest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-container {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .image {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+      }
+
+      .train img {
+        width: 500px;
+        height: 408px;
+        grid-row: 2;
+        grid-column: 1;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .crumb {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        padding-left: 20px;
+      }
+      .description {
+        grid-row: 2;
+        grid-column: 2;
+        padding-left: 24px;
+      }
+      .itinerary {
+        color: white;
+        font-size: 1.25em;
+        background-color: #013d79;
+        padding: 16px 48px;
+        border: solid #013d79;
+        border-radius: 8px;
+        margin-top: 24px;
+        cursor: pointer;
+      }
+
+      .info {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        padding: 32px;
+        font-size: 1.25em;
+      }
+      .details {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+      .interests {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .popularity {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      .reservation {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .price {
+        grid-row: 3;
+        grid-column: 2;
+      }
+
+      .important {
+        background-color: #ebe4f1;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        gap: 24px;
+        padding: 48px;
+        font-size: 1.25em;
+      }
+      .extrainfo {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .things {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .tips {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .highlights {
+        grid-row: 1;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .explore {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .book {
+        grid-row: 3;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+
+      .sagano {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+      }
+      .map {
+        display: flex;
+        justify-content: center;
+      }
+      .mapsagano {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .first {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .first img {
+        margin-right: 10px;
+      }
+      .second {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .second img {
+        margin-right: 10px;
+      }
+      .third {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .third img {
+        margin-right: 10px;
+      }
+      .star {
+        color: #1f2b59;
+      }
+
+      .comments {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300, 350));
+        grid-template-rows: repeat(2, auto-fill);
+        gap: 24px; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
+      }
+      .reviews {
+        /* grid-row: 1;
+        grid-column: 1 / span 2; */
+        display: flex;
+        justify-content: center;
+        margin-right: 980px;
+        margin-top: 32px;
+      }
+
+      .reviewone {
+        grid-row: 2;
+        grid-column: 1;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .firstcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewtwo {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .secondcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewthree {
+        grid-row: 2;
+        grid-column: 3;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .thirdcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
+      .activityDetailsText {
+        font-size: 1.25em;
+      }
+      .activityDetailsExtra {
+        font-size: 1em;
+        display: flex;
+        gap: 24px;
+      }
+      .activityDetailsStar {
+        color: #a481c4;
+        font-size: 1.25em;
+      }
+      .location {
+        /* padding-left: 30px;
+        margin-top: -10px; */
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        line-height: 1;
+      }
+      .activityDetailsPlus {
+        margin-right: 4px;
+      }
+      .reviewRating {
+        position: relative;
+        left: 96px;
+        bottom: 24px;
+      }
+      .activityDetailsReviewStar {
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-container">
+      <div class="back-arrow">
+        <a href="activities.html">
+          <i class="fa-solid fa-arrow-left backArrow"></i>
+        </a>
+      </div>
+      <div class="image">
+        <div class="crumb">
+          <h3 class="less-bold">
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <a href="activities.html" class="activitiesBreadcrumb"
+              ><span class="removeColor"> > </span><span> Activities</span></a
+            ><span class="removeColor"> > </span> <span> Activity Info</span>
+          </h3>
+        </div>
+        <div class="train">
+          <img src="assets/images/Kasuga Taisha.jpg" alt="Sagano" />
+        </div>
+        <div class="location">
+          <p class="activityDetailsExtra">
+            <span class="location"
+              ><strong class="boldLocation">Location:</strong> Nara City, Nara Prefecture</span
+            >
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Kasuga Taisha Shrine Forest</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 4.9
+            (600)</span
+          >
+          <p class="activityDetailsText">
+            Kasuga Taisha Shrine Forest is a revered and sacred 
+            area surrounding the Kasuga Taisha Shrine in Nara,
+             Japan. ​Designated as a UNESCO World Heritage site, 
+             the forest is known for its ancient trees, lush greenery,
+              and thousands of stone lanterns lining the pathways.​ The 
+              serene atmosphere of the forest complements the shrine's 
+              spiritual significance, as it is dedicated to the deities 
+              of the Fujiwara clan. Visitors can enjoy serene walks under
+               the canopy of trees, where deer roam freely, 
+               adding to the area's tranquil beauty. 
+               The forest plays a vital role in preserving 
+               the natural environment and cultural heritage 
+               of Nara, making it a must-visit destination for nature 
+            lovers and those seeking a peaceful retreat.
+          </p>
+          <button class="itinerary">
+            <span
+              ><i class="fa-solid fa-plus activityDetailsPlus"></i> Add to
+              Itinerary</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="details"><h4>Details</h4></div>
+        <div class="interests">
+          <p><strong>Interest/Topic:</strong> Nature & Outdoors</p>
+        </div>
+        <div class="popularity">
+          <p><strong>Popularity:</strong> High</p>
+        </div>
+        <div class="reservation">
+          <p><strong>Reservation:</strong> Not Required</p>
+        </div>
+        <div class="price">
+          <p><strong>Estimated Price Range:</strong> Free-$5 USD (¥0-¥700)</p>
+        </div>
+      </div>
+
+      <div class="important">
+        <div class="extrainfo"><h3>Extra Info</h3></div>
+        <div class="things"><h3>Things to Do</h3></div>
+        <div class="tips"><h3>Tips</h3></div>
+
+        <div class="highlights">
+          <ol>
+            <li>
+              <strong>Highlights:</strong> Cherry blossoms, historic temples,
+              and traditional shops.
+            </li>
+            <li>
+              <strong>Duration:</strong> Year-round, with peak visits during
+              cherry blossom season in early April. Hanami (flower viewing)
+              celebrations in spring.
+            </li>
+          </ol>
+        </div>
+
+        <div class="explore">
+          <ul>
+            <li>
+              Stroll the Canal: Walk the scenic stone path lined with cherry
+              trees.
+            </li>
+            <li>Visit Temples: Explore Ginkaku-ji and Honen-in.</li>
+            <li>Join Hanami: Enjoy cherry blossom festivals.</li>
+            <li>Shop & Dine: Find unique shops and cafes.</li>
+            <li>Take Photos: Snap seasonal views and historic sites.</li>
+          </ul>
+        </div>
+
+        <div class="book">
+          <ul>
+            <li>Arrive Early: Enjoy a quieter path in the morning.</li>
+            <li>Time Your Visit: Check spring bloom forecasts.</li>
+            <li>Wear Comfy Shoes: Prepare for uneven paths.</li>
+            <li>Carry Cash: Smaller shops may not take cards.</li>
+            <li>Follow Etiquette: Be mindful during busy times.</li>
+            <li>Check Weather: Dress for the season and bring an umbrella.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sagano">
+        <div class="map"><h3>Map</h3></div>
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52495.204663615674!2d135.81182529726732!3d34.68120401892167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600139c06bb06ad5%3A0x4c97e78382e39596!2sKasugataisha%20Shrine!5e0!3m2!1sen!2sus!4v1738185000592!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
+
+      <div class="reviews"><h3>Reviews</h3></div>
+      <div class="comments">
+        <div class="reviewone">
+          <div class="first">
+            <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
+            <h4>Lily Cooper</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="firstcomment">
+            <p class="reviewComment">
+              Walking along the Philosopher's Path was magical! The cherry
+              blossoms lining the canal created a picturesque scene, and I took
+              my time to soak in the beauty. It's the perfect place for
+              reflection and a leisurely stroll.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewtwo">
+          <div class="second">
+            <img src="assets/images/johnkim.png" alt="John Kim" />
+            <h4>Benjamin Flores</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="secondcomment">
+            <p>
+              The Philosopher's Path was a highlight of my trip to Kyoto. The
+              tranquil atmosphere and stunning landscapes were truly inspiring.
+              I loved discovering the small temples and shops along the way,
+              making it a delightful adventure!
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewthree">
+          <div class="third">
+            <img src="assets/images/naomar.png" alt="Nao Martinez" />
+            <h4>Amelia Torres</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="thirdcomment">
+            <p>
+              Philosopher's Path offers a unique blend of nature and culture!
+              The serene path beside the canal is perfect for a quiet walk, and
+              I enjoyed stopping at various art installations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h1></h1>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

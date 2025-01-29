@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kurama Onsen</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-container {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .image {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+      }
+
+      .train img {
+        width: 500px;
+        height: 408px;
+        grid-row: 2;
+        grid-column: 1;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .crumb {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        padding-left: 20px;
+      }
+      .description {
+        grid-row: 2;
+        grid-column: 2;
+        padding-left: 24px;
+      }
+      .itinerary {
+        color: white;
+        font-size: 1.25em;
+        background-color: #013d79;
+        padding: 16px 48px;
+        border: solid #013d79;
+        border-radius: 8px;
+        margin-top: 24px;
+        cursor: pointer;
+      }
+
+      .info {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        padding: 32px;
+        font-size: 1.25em;
+      }
+      .details {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+      .interests {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .popularity {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      .reservation {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .price {
+        grid-row: 3;
+        grid-column: 2;
+      }
+
+      .important {
+        background-color: #ebe4f1;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        gap: 24px;
+        padding: 48px;
+        font-size: 1.25em;
+      }
+      .extrainfo {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .things {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .tips {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .highlights {
+        grid-row: 1;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .explore {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .book {
+        grid-row: 3;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+
+      .sagano {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+      }
+      .map {
+        display: flex;
+        justify-content: center;
+      }
+      .mapsagano {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .first {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .first img {
+        margin-right: 10px;
+      }
+      .second {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .second img {
+        margin-right: 10px;
+      }
+      .third {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .third img {
+        margin-right: 10px;
+      }
+      .star {
+        color: #1f2b59;
+      }
+
+      .comments {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300, 350));
+        grid-template-rows: repeat(2, auto-fill);
+        gap: 24px; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
+      }
+      .reviews {
+        /* grid-row: 1;
+        grid-column: 1 / span 2; */
+        display: flex;
+        justify-content: center;
+        margin-right: 980px;
+        margin-top: 32px;
+      }
+
+      .reviewone {
+        grid-row: 2;
+        grid-column: 1;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .firstcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewtwo {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .secondcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewthree {
+        grid-row: 2;
+        grid-column: 3;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .thirdcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
+      .activityDetailsText {
+        font-size: 1.25em;
+      }
+      .activityDetailsExtra {
+        font-size: 1em;
+        display: flex;
+        gap: 24px;
+      }
+      .activityDetailsStar {
+        color: #a481c4;
+        font-size: 1.25em;
+      }
+      .location {
+        /* padding-left: 30px;
+        margin-top: -10px; */
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        line-height: 1;
+      }
+      .activityDetailsPlus {
+        margin-right: 4px;
+      }
+      .reviewRating {
+        position: relative;
+        left: 96px;
+        bottom: 24px;
+      }
+      .activityDetailsReviewStar {
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-container">
+      <div class="back-arrow">
+        <a href="activities.html">
+          <i class="fa-solid fa-arrow-left backArrow"></i>
+        </a>
+      </div>
+      <div class="image">
+        <div class="crumb">
+          <h3 class="less-bold">
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <a href="activities.html" class="activitiesBreadcrumb"
+              ><span class="removeColor"> > </span><span> Activities</span></a
+            ><span class="removeColor"> > </span> <span> Activity Info</span>
+          </h3>
+        </div>
+        <div class="train">
+          <img src="assets/images/Kurama Onsen.jpg" alt="Sagano" />
+        </div>
+        <div class="location">
+          <p class="activityDetailsExtra">
+            <span class="location"
+              ><strong class="boldLocation">Location:</strong> Sakyo Ward, Kyoto City</span
+            >
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Kurama Onsen</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 4.8
+            (200)</span
+          >
+          <p class="activityDetailsText">
+            Kurama Onsen is a tranquil hot spring located in the mountains north of Kyoto, Japan, renowned for its stunning natural scenery and therapeutic waters. Nestled in the picturesque Kurama village, the onsen features both indoor and outdoor baths, allowing guests to soak while surrounded by lush forests and mountain views. The hot spring water is said to offer numerous health benefits, including relief from fatigue and muscle pain. Kurama Onsen is also notable for its traditional ryokan accommodations, where guests can enjoy authentic kaiseki cuisine made with local ingredients. ​The combination of serene natural beauty, soothing waters, and rich cultural experiences makes Kurama Onsen a perfect retreat for relaxation and rejuvenation​.
+          </p>
+          <button class="itinerary">
+            <span
+              ><i class="fa-solid fa-plus activityDetailsPlus"></i> Add to
+              Itinerary</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="details"><h4>Details</h4></div>
+        <div class="interests">
+          <p><strong>Interest/Topic:</strong> Bathhouses/Onsens</p>
+        </div>
+        <div class="popularity">
+          <p><strong>Popularity:</strong> High</p>
+        </div>
+        <div class="reservation">
+          <p><strong>Reservation:</strong> Recommended for ryokan stays</p>
+        </div>
+        <div class="price">
+          <p><strong>Estimated Price Range:</strong> 1,000 - 3,500 yen ($9 - $32) for day-use; 10,000 - 25,000 yen ($90 - $225) for overnight stays</p>
+        </div>
+      </div>
+
+      <div class="important">
+        <div class="extrainfo"><h3>Extra Info</h3></div>
+        <div class="things"><h3>Things to Do</h3></div>
+        <div class="tips"><h3>Tips</h3></div>
+
+        <div class="highlights">
+          <ol>
+            <li>
+              <strong>Highlights:</strong>  Explore Surrounding Areas: After your bath, consider wandering the nearby streets to experience local eateries or shops for a more immersive Kyoto experience.
+            </li>
+            <li>
+              <strong>Duration:</strong> Year-round, particularly popular during colder months and in the warm hues of autumn.
+            </li>
+          </ol>
+        </div>
+
+        <div class="explore">
+          <ul>
+            <li>
+              Natural Hot Springs: Enjoy rejuvenating baths in beautiful mountain scenery.
+            </li>
+            <li>Ryokan Experience: Stay in a ryokan with tatami rooms and kaiseki meals.</li>
+            <li>Scenic Location: Just 30 minutes from Kyoto, with walks to Kurama-dera Temple.</li>
+            <li>​- Wellness Benefits: Hot springs relieve stress and muscle pain.​</li>
+            <li>Seasonal Events: Participate in cultural activities like night bathing.</li>
+          </ul>
+        </div>
+
+        <div class="book">
+          <ul>
+            <li>Transportation: Take the Eizan Railway; 30 minutes from downtown Kyoto.</li>
+            <li>Hours and Fees: Check seasonal hours and entrance fees.</li>
+            <li>Bring Towels: Consider bringing your own for convenience.</li>
+            <li>Bathing Etiquette: Shower before entering; no towels in the baths.</li>
+            <li>​Stay Overnight: Enjoy tranquility and traditional meals at a ryokan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sagano">
+        <div class="map"><h3>Map</h3></div>
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3263.499325964088!2d135.7739863757629!3d35.11921097277394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001a66e89adb2c3%3A0x5686001ad56a99b8!2sKurama%20Hot%20Spring!5e0!3m2!1sen!2sus!4v1738187696376!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
+
+      <div class="reviews"><h3>Reviews</h3></div>
+      <div class="comments">
+        <div class="reviewone">
+          <div class="first">
+            <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
+            <h4>​Mitsuko Yamazaki</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="firstcomment">
+            <p class="reviewComment">
+              Kurama Onsen is a hidden gem! The location amidst the mountains adds to its charm, and soaking in the hot springs surrounded by nature was incredibly relaxing.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewtwo">
+          <div class="second">
+            <img src="assets/images/johnkim.png" alt="John Kim" />
+            <h4>Kenji Takahashi</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="secondcomment">
+            <p>
+              I loved my experience at Kurama Onsen! The outdoor baths offered stunning views, and the traditional atmosphere made me feel truly immersed in Japanese culture.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewthree">
+          <div class="third">
+            <img src="assets/images/naomar.png" alt="Nao Martinez" />
+            <h4>Sakura Matsumoto</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="thirdcomment">
+            <p>
+              The onsen was the perfect getaway after hiking in the area. The staff were friendly, and the overall ambiance was peaceful. I can't wait to return for another soak!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h1></h1>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

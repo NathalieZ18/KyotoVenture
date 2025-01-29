@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nara Deer Park</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-container {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .image {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+      }
+
+      .train img {
+        width: 500px;
+        height: 408px;
+        grid-row: 2;
+        grid-column: 1;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .crumb {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        padding-left: 20px;
+      }
+      .description {
+        grid-row: 2;
+        grid-column: 2;
+        padding-left: 24px;
+      }
+      .itinerary {
+        color: white;
+        font-size: 1.25em;
+        background-color: #013d79;
+        padding: 16px 48px;
+        border: solid #013d79;
+        border-radius: 8px;
+        margin-top: 24px;
+        cursor: pointer;
+      }
+
+      .info {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        padding: 32px;
+        font-size: 1.25em;
+      }
+      .details {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+      .interests {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .popularity {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      .reservation {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .price {
+        grid-row: 3;
+        grid-column: 2;
+      }
+
+      .important {
+        background-color: #ebe4f1;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        gap: 24px;
+        padding: 48px;
+        font-size: 1.25em;
+      }
+      .extrainfo {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .things {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .tips {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .highlights {
+        grid-row: 1;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .explore {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .book {
+        grid-row: 3;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+
+      .sagano {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+      }
+      .map {
+        display: flex;
+        justify-content: center;
+      }
+      .mapsagano {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .first {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .first img {
+        margin-right: 10px;
+      }
+      .second {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .second img {
+        margin-right: 10px;
+      }
+      .third {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .third img {
+        margin-right: 10px;
+      }
+      .star {
+        color: #1f2b59;
+      }
+
+      .comments {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300, 350));
+        grid-template-rows: repeat(2, auto-fill);
+        gap: 24px; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
+      }
+      .reviews {
+        /* grid-row: 1;
+        grid-column: 1 / span 2; */
+        display: flex;
+        justify-content: center;
+        margin-right: 980px;
+        margin-top: 32px;
+      }
+
+      .reviewone {
+        grid-row: 2;
+        grid-column: 1;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .firstcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewtwo {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .secondcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewthree {
+        grid-row: 2;
+        grid-column: 3;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .thirdcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
+      .activityDetailsText {
+        font-size: 1.25em;
+      }
+      .activityDetailsExtra {
+        font-size: 1em;
+        display: flex;
+        gap: 24px;
+      }
+      .activityDetailsStar {
+        color: #a481c4;
+        font-size: 1.25em;
+      }
+      .location {
+        /* padding-left: 30px;
+        margin-top: -10px; */
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        line-height: 1;
+      }
+      .activityDetailsPlus {
+        margin-right: 4px;
+      }
+      .reviewRating {
+        position: relative;
+        left: 96px;
+        bottom: 24px;
+      }
+      .activityDetailsReviewStar {
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-container">
+      <div class="back-arrow">
+        <a href="activities.html">
+          <i class="fa-solid fa-arrow-left backArrow"></i>
+        </a>
+      </div>
+      <div class="image">
+        <div class="crumb">
+          <h3 class="less-bold">
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <a href="activities.html" class="activitiesBreadcrumb"
+              ><span class="removeColor"> > </span><span> Activities</span></a
+            ><span class="removeColor"> > </span> <span> Activity Info</span>
+          </h3>
+        </div>
+        <div class="train">
+          <img src="assets/images/nara.jpg" alt="Sagano" />
+        </div>
+        <div class="location">
+          <p class="activityDetailsExtra">
+            <span class="location"
+              ><strong class="boldLocation">Location:</strong> Nara City, Nara Prefecture</span
+            >
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Nara Deer Park</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 4.8
+            (800)</span
+          >
+          <p class="activityDetailsText">
+            Nara Deer Park is a renowned public park located in Nara, Japan, famous for its free-roaming sakar deer, which are considered a symbol of the city.​ Covering an expansive area in the center of Nara, the park is a beloved destination for visitors who can interact closely with the friendly deer, which roam freely throughout the grounds. The park is also home to significant cultural landmarks, including Todai-ji Temple and Kasuga Taisha Shrine, enhancing its appeal as a blend of nature and history. Visitors often enjoy feeding the deer with special crackers sold around the park. With its beautiful landscapes, tranquil atmosphere, and rich cultural heritage, Nara Deer Park provides a unique experience of wildlife in close proximity to Japan's historical treasures.
+          </p>
+          <button class="itinerary">
+            <span
+              ><i class="fa-solid fa-plus activityDetailsPlus"></i> Add to
+              Itinerary</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="details"><h4>Details</h4></div>
+        <div class="interests">
+          <p><strong>Interest/Topic:</strong> Nature & Outdoors</p>
+        </div>
+        <div class="popularity">
+          <p><strong>Popularity:</strong> Very High</p>
+        </div>
+        <div class="reservation">
+          <p><strong>Reservation:</strong> Not Required</p>
+        </div>
+        <div class="price">
+          <p><strong>Estimated Price Range:</strong> Free-$5 USD (¥0-¥700) for deer crackers</p>
+        </div>
+      </div>
+
+      <div class="important">
+        <div class="extrainfo"><h3>Extra Info</h3></div>
+        <div class="things"><h3>Things to Do</h3></div>
+        <div class="tips"><h3>Tips</h3></div>
+
+        <div class="highlights">
+          <ol>
+            <li>
+              <strong>Highlights:</strong> Free-roaming deer, iconic cultural landmarks, beautiful landscapes, and serene walking paths.
+            </li>
+            <li>
+              <strong>Duration:</strong> Year-round, especially lively during spring and autumn.
+            </li>
+            <li>
+              Special ceremonies and local festivals, including the Nara Tokae Lantern Festival in August.
+              </li>
+          </ol>
+        </div>
+
+        <div class="explore">
+          <ul>
+            <li>
+              Interact with the Deer: Feed and observe the hundreds of friendly deer that roam freely throughout the park.​
+            </li>
+            <li>Visit Cultural Sites: Explore nearby attractions like Todai-ji Temple, Kasuga Taisha Shrine, and the Nara National Museum.</li>
+            <li>Enjoy Scenic Walks: Take leisurely strolls through the picturesque landscapes and wooded areas of the park.</li>
+            <li>Learn Local History: Discover the cultural significance of the deer and the park's role in Nara's heritage.</li>
+            <li>Capture Stunning Photos: Enjoy photography opportunities with the deer and beautiful backdrops.</li>
+          </ul>
+        </div>
+
+        <div class="book">
+          <ul>
+            <li>Purchase Deer Crackers: Buy special crackers from vendors to feed the deer, keeping them entertained and engaged.</li>
+            <li>Arrive Early: Visit in the morning for a quieter experience before the crowds arrive.</li>
+            <li>Wear Comfortable Shoes: Be prepared for walking on varied terrain throughout the park.</li>
+            <li>Bring Cash: Some food vendors and shops may only accept cash, so have it on hand.</li>
+            <li>Respect the Wildlife: Be cautious when feeding the deer and avoid teasing them with food.</li>
+            <li>Check Weather Conditions: Dress appropriately for the season and carry an umbrella if rain is expected.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sagano">
+        <div class="map"><h3>Map</h3></div>
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d420081.9069834102!2d135.5624212981959!3d34.6574834065763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60013996bd8c6061%3A0xf96cacf357447456!2sNara%20Park!5e0!3m2!1sen!2sus!4v1738185488719!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
+
+      <div class="reviews"><h3>Reviews</h3></div>
+      <div class="comments">
+        <div class="reviewone">
+          <div class="first">
+            <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
+            <h4>Emma Wilson</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="firstcomment">
+            <p class="reviewComment">
+              Nara Deer Park is a delightful experience! The friendly deer roam freely and add a unique charm to the park.​ Feeding them is a must—it’s such a fun interaction!
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewtwo">
+          <div class="second">
+            <img src="assets/images/johnkim.png" alt="John Kim" />
+            <h4>Lucas Thompson</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="secondcomment">
+            <p>
+              I absolutely loved Nara Deer Park! The deer are gentle and so photogenic. The park’s beautiful scenery makes it a perfect spot for a picnic or a leisurely stroll.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewthree">
+          <div class="third">
+            <img src="assets/images/naomar.png" alt="Nao Martinez" />
+            <h4>Mary Brown</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="thirdcomment">
+            <p>
+              What a fantastic place! Nara Deer Park offers a great mix of nature and culture. Being surrounded by the deer while visiting the temples made for a memorable day!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h1></h1>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

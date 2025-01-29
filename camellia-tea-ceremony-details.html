@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camellia Tea Ceremony</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-container {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .image {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+      }
+
+      .train img {
+        width: 500px;
+        height: 408px;
+        grid-row: 2;
+        grid-column: 1;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .crumb {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        padding-left: 20px;
+      }
+      .description {
+        grid-row: 2;
+        grid-column: 2;
+        padding-left: 24px;
+      }
+      .itinerary {
+        color: white;
+        font-size: 1.25em;
+        background-color: #013d79;
+        padding: 16px 48px;
+        border: solid #013d79;
+        border-radius: 8px;
+        margin-top: 24px;
+        cursor: pointer;
+      }
+
+      .info {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        padding: 32px;
+        font-size: 1.25em;
+      }
+      .details {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+      .interests {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .popularity {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      .reservation {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .price {
+        grid-row: 3;
+        grid-column: 2;
+      }
+
+      .important {
+        background-color: #ebe4f1;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        gap: 24px;
+        padding: 48px;
+        font-size: 1.25em;
+      }
+      .extrainfo {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .things {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .tips {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .highlights {
+        grid-row: 1;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .explore {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .book {
+        grid-row: 3;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+
+      .sagano {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+      }
+      .map {
+        display: flex;
+        justify-content: center;
+      }
+      .mapsagano {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .first {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .first img {
+        margin-right: 10px;
+      }
+      .second {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .second img {
+        margin-right: 10px;
+      }
+      .third {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .third img {
+        margin-right: 10px;
+      }
+      .star {
+        color: #1f2b59;
+      }
+
+      .comments {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300, 350));
+        grid-template-rows: repeat(2, auto-fill);
+        gap: 24px; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
+      }
+      .reviews {
+        /* grid-row: 1;
+        grid-column: 1 / span 2; */
+        display: flex;
+        justify-content: center;
+        margin-right: 980px;
+        margin-top: 32px;
+      }
+
+      .reviewone {
+        grid-row: 2;
+        grid-column: 1;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .firstcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewtwo {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .secondcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewthree {
+        grid-row: 2;
+        grid-column: 3;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .thirdcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
+      .activityDetailsText {
+        font-size: 1.25em;
+      }
+      .activityDetailsExtra {
+        font-size: 1em;
+        display: flex;
+        gap: 24px;
+      }
+      .activityDetailsStar {
+        color: #a481c4;
+        font-size: 1.25em;
+      }
+      .location {
+        /* padding-left: 30px;
+        margin-top: -10px; */
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        line-height: 1;
+      }
+      .activityDetailsPlus {
+        margin-right: 4px;
+      }
+      .reviewRating {
+        position: relative;
+        left: 96px;
+        bottom: 24px;
+      }
+      .activityDetailsReviewStar {
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-container">
+      <div class="back-arrow">
+        <a href="activities.html">
+          <i class="fa-solid fa-arrow-left backArrow"></i>
+        </a>
+      </div>
+      <div class="image">
+        <div class="crumb">
+          <h3 class="less-bold">
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <a href="activities.html" class="activitiesBreadcrumb"
+              ><span class="removeColor"> > </span><span> Activities</span></a
+            ><span class="removeColor"> > </span> <span> Activity Info</span>
+          </h3>
+        </div>
+        <div class="train">
+          <img src="assets/images/Camellia Tea Ceremony.jpg" alt="Sagano" />
+        </div>
+        <div class="location">
+          <p class="activityDetailsExtra">
+            <span class="location"
+              ><strong class="boldLocation">Location:</strong> Higashiyama Ward,
+              Kyoto City</span
+            >
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Camellia Tea Ceremony</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 4.9
+            (300)</span
+          >
+          <p class="activityDetailsText">
+            Camellia Garden offers an authentic Japanese tea ceremony experience in the heart of Kyoto’s traditional Gion district. The ceremony is conducted by highly trained tea masters in a serene, picturesque setting with a private garden. Guests can experience the centuries-old ritual of tea preparation, learning about its spiritual significance while savoring matcha (powdered green tea) served with traditional sweets (wagashi).
+          </p>
+          <button class="itinerary">
+            <span
+              ><i class="fa-solid fa-plus activityDetailsPlus"></i> Add to
+              Itinerary</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="details"><h4>Details</h4></div>
+        <div class="interests">
+          <p><strong>Interest/Topic:</strong> Cultural Activities</p>
+        </div>
+        <div class="popularity">
+          <p><strong>Popularity:</strong> Very High</p>
+        </div>
+        <div class="reservation">
+          <p><strong>Reservation:</strong> Highly Recommended</p>
+        </div>
+        <div class="price">
+          <p><strong>Estimated Price Range:</strong> Standard Tea Ceremony: ¥3,500–¥5,000 ($24–$34 USD)
+            Premium Experience (includes additional sweets or private setting): ¥6,000–¥8,000 ($40–$55 USD)</p>
+        </div>
+      </div>
+
+      <div class="important">
+        <div class="extrainfo"><h3>Extra Info</h3></div>
+        <div class="things"><h3>Things to Do</h3></div>
+        <div class="tips"><h3>Tips</h3></div>
+
+        <div class="highlights">
+          <ol>
+            <li>
+              <strong>Highlights:</strong> Personalized, intimate setting with small group sizes.
+              Learn about the history and etiquette of the Japanese tea ceremony.
+              Enjoy matcha and seasonal sweets, enhancing the cultural experience.
+            </li>
+            <li>
+              <strong>Cultural Significance:</strong> The Japanese tea ceremony, known as chanoyu, is a meditative and symbolic practice that celebrates the art of tea preparation and its spiritual values, including respect, harmony, purity, and tranquility. Camellia Garden offers guests an immersive experience where they learn about the deep cultural roots of tea preparation in Japan.
+            </li>
+            <li>
+              <strong>Session Details:</strong> Introduction: Learn about the history and principles behind the tea ceremony.
+              Tea Preparation: Observe the careful preparation of matcha by the tea master.
+              Tasting: Enjoy the matcha tea and seasonal sweets, and learn the etiquette for drinking tea in the traditional style.
+              Final Reflection: The ceremony ends with a moment of reflection, allowing you to experience the calmness of the ritual.
+            </li>
+          </ol>
+        </div>
+
+        <div class="explore">
+          <ul>
+            <li>
+              Yasaka Shrine: Just a few minutes away, this iconic shrine is a must-see, especially during festivals.
+            </li>
+            <li>Explore Gion District: Wander through the historic streets of Gion, home to traditional wooden machiya houses, teahouses, and geisha culture.</li>
+            <li>Maruyama Park: A lovely park for relaxation, especially during cherry blossom season.</li>
+            <li>Kiyomizu-dera Temple: A short walk from Gion, Kiyomizu-dera offers panoramic views of the city.</li>
+            <li>Savor Kyoto Cuisine: Try traditional dishes such as kaiseki (multi-course meal) or matcha-based desserts in the nearby cafes.</li>
+          </ul>
+        </div>
+
+        <div class="book">
+          <ul>
+            <li>Timing:
+              Book in Advance: Camellia Garden’s tea ceremony is very popular, especially during peak tourist seasons, so booking ahead is essential.</li>
+            <li>Duration: The tea ceremony typically lasts 45 minutes to 1 hour.</li>
+            <li>Dress Code:
+              While there’s no strict dress code, it’s best to wear modest, comfortable clothing. Traditional kimonos are available for rent nearby if you’d like to add to the experience.</li>
+            <li>Be Prepared to Participate:
+              While observing the tea preparation is fascinating, guests are also encouraged to participate in the tea-drinking ritual, which involves specific etiquette (e.g., turning the bowl before sipping).</li>
+            <li>Souvenirs:
+              Camellia Garden offers beautifully packaged matcha tea and teaware for purchase—perfect souvenirs to remember your experience.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sagano">
+        <div class="map"><h3>Map</h3></div>
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d775.8720054032834!2d135.71769610067378!3d35.03182779624024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001078736b30ff1%3A0x7f22ce14c217db80!2sTea%20Ceremony%20Camellia%20GARDEN!5e0!3m2!1sen!2sus!4v1738188173566!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
+
+      <div class="reviews"><h3>Reviews</h3></div>
+      <div class="comments">
+        <div class="reviewone">
+          <div class="first">
+            <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
+            <h4>Eloise Johnson</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="firstcomment">
+            <p class="reviewComment">
+              The tea ceremony at Camellia Garden was the highlight of my Kyoto trip. The tea master was very knowledgeable. The setting was so peaceful, and I loved learning the traditional rituals, with delicious matcha tea and sweets!
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewtwo">
+          <div class="second">
+            <img src="assets/images/johnkim.png" alt="John Kim" />
+            <h4>Hiroshi Sato</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="secondcomment">
+            <p>
+              I’ve lived in Kyoto all my life, but this tea ceremony was unlike any other I’ve experienced. The tea master took time to explain the significance of every movement and connection to Japanese culture.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewthree">
+          <div class="third">
+            <img src="assets/images/naomar.png" alt="Nao Martinez" />
+            <h4>Alice Brown </h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="thirdcomment">
+            <p>
+              The tea ceremony at Camellia Garden was very intimate, with only a few people in the group. I felt so welcomed, and the tea master was fantastic at explaining the process. It was a peaceful and beautiful experience overall. 
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h1></h1>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

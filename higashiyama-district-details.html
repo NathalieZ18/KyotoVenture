@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Higashiyama District</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .page-container {
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .image {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+      }
+
+      .train img {
+        width: 500px;
+        height: 408px;
+        grid-row: 2;
+        grid-column: 1;
+        border-radius: 20px;
+        object-fit: cover;
+      }
+      .crumb {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+        padding-left: 20px;
+      }
+      .description {
+        grid-row: 2;
+        grid-column: 2;
+        padding-left: 24px;
+      }
+      .itinerary {
+        color: white;
+        font-size: 1.25em;
+        background-color: #013d79;
+        padding: 16px 48px;
+        border: solid #013d79;
+        border-radius: 8px;
+        margin-top: 24px;
+        cursor: pointer;
+      }
+
+      .info {
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        padding: 32px;
+        font-size: 1.25em;
+      }
+      .details {
+        grid-row: 1;
+        grid-column: 1 / span 2;
+      }
+      .interests {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .popularity {
+        grid-row: 2;
+        grid-column: 2;
+      }
+      .reservation {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .price {
+        grid-row: 3;
+        grid-column: 2;
+      }
+
+      .important {
+        background-color: #ebe4f1;
+        display: grid;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, auto);
+        padding-left: 30px;
+        gap: 24px;
+        padding: 48px;
+        font-size: 1.25em;
+      }
+      .extrainfo {
+        grid-row: 1;
+        grid-column: 1;
+      }
+      .things {
+        grid-row: 2;
+        grid-column: 1;
+      }
+      .tips {
+        grid-row: 3;
+        grid-column: 1;
+      }
+      .highlights {
+        grid-row: 1;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .explore {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+      .book {
+        grid-row: 3;
+        grid-column: 2;
+        background-color: #d7c8e4;
+        border-radius: 8px;
+      }
+
+      .sagano {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+      }
+      .map {
+        display: flex;
+        justify-content: center;
+      }
+      .mapsagano {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+      }
+
+      .first {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .first img {
+        margin-right: 10px;
+      }
+      .second {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .second img {
+        margin-right: 10px;
+      }
+      .third {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+      .third img {
+        margin-right: 10px;
+      }
+      .star {
+        color: #1f2b59;
+      }
+
+      .comments {
+        /* display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300, 350));
+        grid-template-rows: repeat(2, auto-fill);
+        gap: 24px; */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+        bottom: 16px;
+        font-size: 1.125em;
+      }
+      .reviews {
+        /* grid-row: 1;
+        grid-column: 1 / span 2; */
+        display: flex;
+        justify-content: center;
+        margin-right: 980px;
+        margin-top: 32px;
+      }
+
+      .reviewone {
+        grid-row: 2;
+        grid-column: 1;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .firstcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewtwo {
+        grid-row: 2;
+        grid-column: 2;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .secondcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .reviewthree {
+        grid-row: 2;
+        grid-column: 3;
+        background-color: #d7c8e5;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+      }
+      .thirdcomment {
+        max-width: 320px;
+        padding: 12px;
+        margin-top: -24px;
+      }
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
+      .activityDetailsText {
+        font-size: 1.25em;
+      }
+      .activityDetailsExtra {
+        font-size: 1em;
+        display: flex;
+        gap: 24px;
+      }
+      .activityDetailsStar {
+        color: #a481c4;
+        font-size: 1.25em;
+      }
+      .location {
+        /* padding-left: 30px;
+        margin-top: -10px; */
+        grid-row: 3;
+        grid-column: 1 / span 2;
+        line-height: 1;
+      }
+      .activityDetailsPlus {
+        margin-right: 4px;
+      }
+      .reviewRating {
+        position: relative;
+        left: 96px;
+        bottom: 24px;
+      }
+      .activityDetailsReviewStar {
+        color: #1f2b59;
+      }
+      #map-container {
+        display: flex;
+        justify-content: center;
+      }
+      .less-bold {
+        font-weight: 500;
+      }
+      iframe {
+        border: 0;
+        width: 100%;
+        max-width: 1062px;
+        height: 544px;
+      }
+      .removeColor {
+        color: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Placeholder Navigation -->
+    <nav class="kyotoVentureHeader">
+      <ul class="main-nav">
+        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="">Destinations</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Language Option</a></li>
+        <li><a href="">Help</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </nav>
+    <div class="page-container">
+      <div class="back-arrow">
+        <a href="activities.html">
+          <i class="fa-solid fa-arrow-left backArrow"></i>
+        </a>
+      </div>
+      <div class="image">
+        <div class="crumb">
+          <h3 class="less-bold">
+            <a href="index.html" class="activitiesBreadcrumb">Home</a>
+            <a href="activities.html" class="activitiesBreadcrumb"
+              ><span class="removeColor"> > </span><span> Activities</span></a
+            ><span class="removeColor"> > </span> <span> Activity Info</span>
+          </h3>
+        </div>
+        <div class="train">
+          <img src="assets/images/higashiyama.jpg" alt="Sagano" />
+        </div>
+        <div class="location">
+          <p class="activityDetailsExtra">
+            <span class="location"
+              ><strong class="boldLocation">Location:</strong> Higashiyama Ward,
+              Kyoto City</span
+            >
+          </p>
+        </div>
+
+        <div class="description">
+          <h2>Higashiyama District</h2>
+          <span class="rating"
+            ><i class="fa-solid fa-star activityDetailsStar"></i> 5.0
+            (500)</span
+          >
+          <p class="activityDetailsText">
+            Higashiyama District is a beautifully 
+            preserved historic area in Kyoto, Japan,
+             known for its traditional architecture 
+             and cultural heritage. Nestled along the 
+             eastern mountains, this district offers a 
+             glimpse into old Kyoto with its narrow lanes,
+              wooden buildings, and charming shops and cafes.
+               Key attractions include Kiyomizu-dera Temple,
+                Yasaka Shrine, and the picturesque streets of
+                 Ninenzaka and Sannenzaka, where visitors can
+                  explore local crafts, pottery, and traditional sweets.
+                   The district is particularly popular during cherry 
+                   blossom season and autumn foliage, drawing tourists 
+                   seeking to experience the rich history and ambiance 
+                   of Kyoto. ​Higashiyama is a vibrant blend of culture,
+                    history, and scenic beauty, 
+            making it a must-visit destination for travelers.
+          </p>
+          <button class="itinerary">
+            <span
+              ><i class="fa-solid fa-plus activityDetailsPlus"></i> Add to
+              Itinerary</span
+            >
+          </button>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="details"><h4>Details</h4></div>
+        <div class="interests">
+          <p><strong>Interest/Topic:</strong> Food & Drink</p>
+        </div>
+        <div class="popularity">
+          <p><strong>Popularity:</strong> Very High</p>
+        </div>
+        <div class="reservation">
+          <p><strong>Reservation:</strong> Not Required</p>
+        </div>
+        <div class="price">
+          <p><strong>Estimated Price Range:</strong> Free-$100 USD (¥0-¥15,000)</p>
+        </div>
+      </div>
+
+      <div class="important">
+        <div class="extrainfo"><h3>Extra Info</h3></div>
+        <div class="things"><h3>Things to Do</h3></div>
+        <div class="tips"><h3>Tips</h3></div>
+
+        <div class="highlights">
+          <ol>
+            <li>
+              <strong>Highlights:</strong> Traditional wooden buildings, historic streets, local crafts, and major temples.
+            </li>
+            <li>
+              <strong>Duration:</strong> Year-round, especially popular during cherry blossom and autumn foliage seasons.
+            </li>
+            <li>
+              Special festivals and market events throughout the year, particularly during Hanatoro in March.
+            </li>
+          </ol>
+        </div>
+
+        <div class="explore">
+          <ul>
+            <li>
+              Stroll Through Historic Streets: Experience the charming atmosphere of narrow lanes filled with traditional architecture.
+            </li>
+            <li>Visit Key Temples: Explore iconic sites like Kiyomizu-dera and Ginkaku-ji, renowned for their beauty and cultural significance.</li>
+            <li>Shop for Local Crafts: Discover unique souvenir shops offering pottery, sweets, and traditional crafts.</li>
+            <li>Enjoy Local Cuisine: Try regional specialties at various tea houses and restaurants along the way.</li>
+            <li>Attend Seasonal Festivals: Participate in local events to experience the district's vibrant traditions.</li>
+          </ul>
+        </div>
+
+        <div class="book">
+          <ul>
+            <li>Arrive Early: Visit in the morning to avoid crowds, especially at popular attractions.</li>
+            <li>Wear Comfortable Shoes: Be prepared for walking on cobblestone paths and steep inclines.</li>
+            <li>Bring Cash: Many smaller shops and eateries may only accept cash.</li>
+            <li>Check for Festival Dates: Plan visits around annual events for a richer experience.</li>
+            <li>Respect Local Etiquette: Maintain a quiet demeanor, particularly in temples and residences.</li>
+            <li>Capture the Scenery: Bring a camera to photograph the picturesque streets and historic sites.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sagano">
+        <div class="map"><h3>Map</h3></div>
+        <div id="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26149.21515307074!2d135.75745735508843!3d34.99038321032758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600108cce225a887%3A0xc757bcddd50f90b1!2sHigashiyama%20Ward%2C%20Kyoto%2C%20Japan!5e0!3m2!1sen!2sus!4v1738185225881!5m2!1sen!2sus"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <!-- <div class="mapsagano">
+          <img src="assets/images/saganomap.png" alt="Map for Sagano" />
+        </div> -->
+      </div>
+
+      <div class="reviews"><h3>Reviews</h3></div>
+      <div class="comments">
+        <div class="reviewone">
+          <div class="first">
+            <img src="assets/images/alyssa.png" alt="Alyssa Williams" />
+            <h4>Sophia Turner</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="firstcomment">
+            <p class="reviewComment">
+              Higashiyama District is a delightful mix of history and charm! The traditional streets lined with shops and teahouses are a joy to explore.​ I loved trying the local snacks!
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewtwo">
+          <div class="second">
+            <img src="assets/images/johnkim.png" alt="John Kim" />
+            <h4>James Kim</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="secondcomment">
+            <p>
+              What a beautiful area! Higashiyama is perfect for wandering and discovering hidden temples. The views are stunning, especially at sunset—definitely a highlight of my trip!
+            </p>
+          </div>
+        </div>
+
+        <div class="reviewthree">
+          <div class="third">
+            <img src="assets/images/naomar.png" alt="Nao Martinez" />
+            <h4>Mia Chen</h4>
+          </div>
+          <div class="reviewRating">
+            <i class="fa-solid fa-star activityDetailsReviewStar"></i> 4.8
+          </div>
+          <div class="thirdcomment">
+            <p>
+              I fell in love with Higashiyama District! The atmosphere is so rich with culture and history. The architecture is gorgeous, and the shopping is unique and fun!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <h1></h1>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
