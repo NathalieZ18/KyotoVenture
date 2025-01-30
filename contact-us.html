@@ -23,6 +23,8 @@
         font-weight: 500;
       }
       .top {
+        display: flex;
+        flex-direction: column;
         text-align: center;
         margin: 0 auto;
         margin-top: 60px;
@@ -38,11 +40,105 @@
         margin-left: 80px;
         margin-right: 80px;
       }
-      .editItineraryBreadcrumbLayout {
-        display: flex;
-        margin-left: 320px;
-        margin-right: 80px;
+      .anymore {
+        font-size: 17px;
       }
+      .office {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        grid-column: 1;
+      }
+      
+      .office h3 {
+        line-height: 0.1;
+      }
+
+      .address {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2;
+        margin-top: 30px;
+
+      }
+
+      .emailphone {
+        display: flex;
+        flex-direction: column;
+        grid-column: 3;
+        margin-top: 30px;
+        
+      }
+
+      .contain-office {
+        display: grid;
+        grid-template-columns: 3;
+        gap: 40px;
+      }
+
+      .contact-input {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .contact-form input {
+        border: 2px solid #bfb7d6;
+        border-radius: 4px;
+        width: 400px;
+        padding: 5px;
+        
+      }
+      .message-bar input {
+        padding-bottom: 150px;
+      }
+
+      .submit-button {
+        background-color: #b69ad0;
+        border: none;
+        border-radius: 4px;
+        padding: 5px;
+        width: 80px;
+        margin-bottom: 40px;
+      }
+
+      .email-bar2 input {
+        border: 2px solid #bfb7d6;
+        border-radius: 4px;
+        width: 300px;
+        padding: 5px;
+
+      }
+      .email-container2 {
+        display: flex;
+        flex-direction: column;
+      }
+      .submit-button2 {
+        margin-right: 229px;
+        margin-top: -15px;
+        background-color: #013d79;
+        border: none;
+        border-radius: 4px;
+        width: 70px;
+        height: 30px;
+        color: #ffff;
+        margin-bottom: 40px;
+
+      }
+
+      
+
+      
+     
+
+
+      
+      
     </style>
   </head>
   <body>
@@ -102,18 +198,93 @@
     <div class="page-layout-itinerary">
       <div class="top">
         <h1 class="emptyMyItineraryHeader">Contact Us</h1>
+        <div class="editItineraryBreadcrumbLayout">
+          <div class="editItineraryBreadcrumb">
+            <h3 class="less-bold">
+              <a href="index.html" class="activitiesBreadcrumb">Home</a>
+              <a href="activities.html" class="activitiesBreadcrumb"
+                ><span class="removeColor"> > </span><span> About</span></a
+              ><span class="removeColor"> > </span> <span> Contact Us</span>
+            </h3>
+            <p class="anymore"><strong>Have anymore questions about Kyoto? You can contact us to keep in touch!</strong></p>
+          </div>
+        </div>
       </div>
+
+
+      <div class="contain-office">
+      <div class="office">
+      <h3>KyotoVenture Office</h3>
+      <img src="assets/images/officekyoto.png" alt="KyotoVenture Office">
+    </div>
+
+    <div class="address">
+    <p>Visit Us At:</p>
+    <p>123 Sakura Road,
+      Kyoto, Japan, 609-4002</p>
+      <p>Office Hours: 9:00 AM - 6:00 PM</p>
+    </div>
+
+    <div class="emailphone">
+    <p>Email & Phone</p>
+    <p>Email: support@KyotoVenture.com</p>
+    <p>Phone: 814-165-5326</p>
+  </div>
+</div>
+
+<div class="contact-input">
+<p>Send us an Email</p>
+<p>We would love to answer any of your questions regarding Kyoto and using our site! Please send us an email and we’ll aim to get back to you within 24 hours!</p>
+</div>
+
+<div class="contact-form">
+<form action="contact" method="post">
+
+  <div class="name-bar">
+    <form action="/input" method="get">
+        <input type="text" name="q" placeholder="Full Name" class="fullname-input">
+    </form>
+</div>
+
+<div class="email-bar">
+  <form action="/input" method="get">
+      <input type="text" name="q" placeholder="Email" class="email-input">
+  </form>
+</div>
+
+<div class="message-bar">
+  <form action="/input" method="get">
+      <input type="text" name="q" placeholder="Message" class="message-input">
+  </form>
+</div>
+  <button class="submit-button" type="submit">Submit</button>
+</form>
+</div>
+
+<img src="assets/images/Email Icon.png">
+<p>Want to hear more news about Kyoto and our site? Subscribe to our newsletter!</p>
+
+<div class="email-container2">
+<div class="email-bar2">
+  <form action="/input" method="get">
+      <input type="text" name="q" placeholder="Email" class="email-input">
+  </form>
+</div>
+</div>
+<button class="submit-button2" type="submit">Subscribe</button>
+</form>
+</div>
+
+
+
+
+  </div>
+
+
+
+
     </div>
     <!-- Edit Itinerary Breadcrumb -->
-    <div class="editItineraryBreadcrumbLayout">
-      <div class="editItineraryBreadcrumb">
-        <h3 class="less-bold">
-          <a href="index.html" class="activitiesBreadcrumb">Home</a>
-          <a href="activities.html" class="activitiesBreadcrumb"
-            ><span class="removeColor"> > </span><span> About</span></a
-          ><span class="removeColor"> > </span> <span> Contact Us</span>
-        </h3>
-      </div>
-    </div>
+    
   </body>
 </html>
