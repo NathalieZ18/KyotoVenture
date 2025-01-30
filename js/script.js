@@ -1,3 +1,13 @@
+/* Toggle =/- responsive nav links with menu */
+function toggleMenuBar() {
+  var x = document.getElementById("topNavBar");
+  if (x.classList.contains("responsive")) {
+      x.classList.remove("responsive");
+  } else {
+      x.classList.add("responsive");
+  }
+}
+
 // Tag Functionality //
 document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     checkbox.addEventListener('change', (event) => {

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign Up - KyotoVenture</title>
+        <script src="js/signup.js"></script>
+        <link rel="stylesheet" href="css/signup.css" />
+    </head>
+    <body>
+        <!-- Logo -->
+        <div>
+            <a href="index.html" class="logo">
+              <img src="assets/icons/logo.svg"
+              alt="KyotoVenture Logo for Kyoto, Japan Travel Site"
+              class="logo_img">
+              KyotoVenture</a>
+          </div>
+        <!-- SignUp Form -->
+        <div class="form-wrapper">
+            <h1>Sign Up</h1>
+            <p id="error-message"></p>
+            <form id="form">
+                <div id="g_id_onload"
+                data-client_id="YOUR_CLIENT_ID"
+                data-auto_prompt="false"
+                data-callback="handleCredentialResponse">
+            </div>
+            <div class="google-login">
+                <div id="g_id_signin" class="g_id_signin" data-type="standard"></div>
+            </div>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+                <div>
+                    <label for="first-name-input">
+                        <img src="assets/icons/account_circle.svg" alt="User Icon" />
+\                    </label>
+                    <input required
+                        type="text"
+                        name="first-name"
+                        id="first-name-input"
+                        placeholder="First Name"/>
+                </div>
+                <div>
+                    <label for="email-input">
+                        <img src="assets/icons/email.svg" alt="Email Icon" />
+                    </label>
+                    <input required
+                        type="email"
+                        name="email"
+                        id="email-input"
+                        placeholder="Email"/>
+                </div>
+                <div>
+                    <label for="password-input">
+                        <img src="assets/icons/lock.svg" alt="Password Icon" />
+                    </label>
+                    <input required
+                        type="password"
+                        name="password"
+                        id="password-input"
+                        placeholder="Password"/>
+                </div>
+                <div>
+                    <label for="confirm-password-input">
+                        <img src="assets/icons/lock.svg" alt="Password Icon" />
+                    </label>
+                    <input required
+                        type="password"
+                        name="confirm-password"
+                        id="confirm-password-input"
+                        placeholder="Confirm Password"/>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+        <header></header>
+    </body>
+</html>

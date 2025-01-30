@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/logout.css">
+  <script src="https://kit.fontawesome.com/5e8cd39909.js" crossorigin="anonymous"></script>
+  <title>Logout - KyotoVenture</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f3f2f1;
+    }
+
+    .logout-container {
+      text-align: center;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 100px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    a {
+      color: #0078d4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logout-container">
+    <div class="logo">
+      <img src="assets/icons/logo.svg" alt="KyotoVenture Logo">
+    </div>
+    <h1>You have been logged out.</h1>
+    <p>Thank you for visiting KyotoVenture!</p>
+    <p>You will be redirected to the homepage shortly.</p>
+    <p>If not, <a href="index.html">click here</a>.</p>
+  </div>
+
+  <script>
+    // Redirect to homepage after 5 seconds
+    setTimeout(function () {
+      window.location.href = "index.html";
+    }, 5000);
+  </script>
+</body>
+
+</html>

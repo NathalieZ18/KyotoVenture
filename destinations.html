@@ -6,9 +6,66 @@
     <title>Destinations</title>
     <!-- Link to Google Fonts for Lato -->
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="destinations.css" />
+    <link rel="stylesheet" href="css/destinations.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/5e8cd39909.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <!-- Navigation -->
+    <nav class="kyotoVentureNavBar">
+      <div class="kyotoVentureLogo">
+        <div class="logo"><img src="assets/icons/logo.svg"></div>
+        <div class="title">KyotoVenture</div>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Destinations</a>
+        <ul class="dropdown">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="#">Kyoto City</a></li>
+          <li><a href="#">Arashiyama</a></li>
+          <li><a href="#">Nara</a></li>
+          <li><a href="#">Uji</a></li>
+          <li><a href="#">Kameoka</a></li>
+        </ul>
+        </li>
+
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="">Itineraries</a>
+        <ul class="dropdown">
+          <li><a href="#">Itineraries</a></li>
+          <li><a href="#">Create Itinerary</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+        </li>
+        <li><a href="">About</a>
+        <ul class="dropdown">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+        </li>
+        <li><a href="#">
+        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div></a>
+        <ul class="dropdown">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </li>
+      </ul>
+      <!-- <div class="profile-container">
+      </div> -->
+    </nav>
+    <!-- End of Nav -->
     <!-- Banner Section with Heading and Gallery inside -->
     <div class="banner">
       <h1 class="centered-heading">Top Prefectures in Kyoto</h1>
@@ -18,31 +75,31 @@
         <div class="gallery-container">
           <a href="kyoto-city-destinations.html">
             <div class="gallery-item-container">
-              <img src="img/kyoto_temple.jpg" alt="Kyoto City" class="gallery-item" />
+              <img src="assets/images/kyoto city.jpg" alt="Kyoto City" class="gallery-item" />
               <div class="image-caption">Kyoto City</div>
             </div>
           </a>
           <a href="nara-destinations.html">
             <div class="gallery-item-container">
-              <img src="img/nara.jpg" alt="Nara" class="gallery-item" />
+              <img src="assets/images/nara.jpg" alt="Nara" class="gallery-item" />
               <div class="image-caption">Nara</div>
             </div>
           </a>
           <a href="uji-destinations.html">
             <div class="gallery-item-container">
-              <img src="img/uji.jpg" alt="Uji" class="gallery-item" />
+              <img src="assets/images/uji.jpg" alt="Uji" class="gallery-item" />
               <div class="image-caption">Uji</div>
             </div>
           </a>
           <a href="arashiyama-destinations.html">
             <div class="gallery-item-container">
-              <img src="img/arashiyama.jpg" alt="Arashiyama" class="gallery-item" />
+              <img src="assets/images/arashiyama.jpg" alt="Arashiyama" class="gallery-item" />
               <div class="image-caption">Arashiyama</div>
             </div>
           </a>
           <a href="kameoka-destinations.html">
             <div class="gallery-item-container">
-              <img src="img/kameoka.jpg" alt="Kameoka" class="gallery-item" />
+              <img src="assets/images/kameoka.jpg" alt="Kameoka" class="gallery-item" />
               <div class="image-caption">Kameoka</div>
             </div>
           </a>
@@ -62,8 +119,8 @@
       <div class="scrollable-cards-wrapper">
         <button class="scroll-arrow left-arrow" aria-label="Scroll Left">&#9664;</button>
         <div class="scrollable-cards-container">
-          <div class="scrollable-card" onclick="navigateToPage('gion_district.html')">
-            <div class="card-image" style="background-image: url('img/gion_district.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('gion-district-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/gion\ district.jpg');"></div>
             <div class="card-content">
               <h3>Gion District</h3>
               <div class="interest-area">
@@ -74,8 +131,8 @@
               <div class="rating">★ 5.0</div>
             </div>
           </div>
-          <div class="scrollable-card" onclick="navigateToPage('higashiyama_district.html')">
-            <div class="card-image" style="background-image: url('img/higashiyama_district.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('higashiyama-district-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/higashiyama_district.jpg');"></div>
             <div class="card-content">
               <h3>Higashiyama District</h3>
               <div class="interest-area">
@@ -86,8 +143,8 @@
               <div class="rating">★ 4.8</div>
             </div>
           </div>
-          <div class="scrollable-card" onclick="navigateToPage('kawaramachi_dori.html')">
-            <div class="card-image" style="background-image: url('img/kawamarachi_dori.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('kawaramachi-dori-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/kawamarachi_dori.jpg');"></div>
             <div class="card-content">
               <h3>Kawaramachi Dori</h3>
               <div class="interest-area">
@@ -98,8 +155,8 @@
               <div class="rating">★ 4.7</div>
             </div>
           </div>
-          <div class="scrollable-card" onclick="navigateToPage('nara_deer_park.html')">
-            <div class="card-image" style="background-image: url('img/nara_deer_park.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('nara-deer-park-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/nara_deer_park.jpg');"></div>
             <div class="card-content">
               <h3>Nara Deer Park</h3>
               <div class="interest-area">
@@ -110,8 +167,8 @@
               <div class="rating">★ 4.9</div>
             </div>
           </div>
-          <div class="scrollable-card" onclick="navigateToPage('uji_river.html')">
-            <div class="card-image" style="background-image: url('img/uji_river.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('uji-river-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/uji_river.jpg');"></div>
             <div class="card-content">
               <h3>Uji River</h3>
               <div class="interest-area">
@@ -122,8 +179,8 @@
               <div class="rating">★ 4.8</div>
             </div>
           </div>
-          <div class="scrollable-card" onclick="navigateToPage('kameoka_station_area.html')">
-            <div class="card-image" style="background-image: url('img/kameoka_station_area.jpg');"></div>
+          <div class="scrollable-card" onclick="navigateToPage('kameoka-station-details.html')">
+            <div class="card-image" style="background-image: url('assets/images/kameoka\ station.jpg');"></div>
             <div class="card-content">
               <h3>Kameoka Station</h3>
               <div class="interest-area">
@@ -220,6 +277,6 @@
 </div>
 </div>
 </footer>
-<script src="destinations.js"></script>
+<script src="js/destinations.js"></script>
 </body>
 </html>
