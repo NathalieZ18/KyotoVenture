@@ -1,9 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
-  --accent_color: ;
-  --base_color: ;
-  --text-color: ;
-}
 
 *{
   text-decoration: none;
@@ -25,7 +20,7 @@ body {
   margin: 20px;
   font-weight: 600;
   line-height: normal;
-  padding: 0px 20px;
+  padding: 0px 0px;
   gap: 8px;
 }
 
@@ -40,13 +35,14 @@ body {
   display: block;
   color: #013D79;
   text-align: left;
-  padding: 36px 20px;
+  padding: 38px 20px;
   text-decoration: none;
   font-size: 20px;
 }
 /* Styles TopNavBar Links on hover& DropdownBtn if 
 dropdown content shown except for class no-hover*/
-.top-nav a:hover:not(.no-hover), .dropdown:hover .dropbtn:not(.no-hover) {
+.top-nav a:hover:not(.no-hover), 
+.dropdown:hover .dropbtn:not(.no-hover) {
   background-color: #CFF3D7;
   color: #013D79;
   font-weight: 600;
@@ -72,18 +68,21 @@ dropdown content shown except for class no-hover*/
   border: none;
   outline: none;
   margin: 0;
-  padding: 36px 20px;
+  padding: 38px 20px;
   color: #013D79;
   background-color: inherit;
   font-family: inherit;
   cursor: pointer;
 }
-/* Styles Dropdown button on hover if dropdown content shown
-except for class no-hover */
-.top-nav .dropdown:hover .dropbtn:not(.no-hover) {
-  background-color: #CFF3D7;
-  font-weight: 600;
+
+/* Ensure no-hover dropdown aligns with the rest */
+.top-nav .dropdown.no-hover .dropbtn {
+  height: 100%;
+  padding: 38px 20px; /* Matches other dropdown items */
+  display: flex;
+  align-items: center;
 }
+
 /* Dropdown Content */
 .top-nav .dropdown-content {
   min-width: 180px;
@@ -108,27 +107,31 @@ except for class no-hover */
   font-weight: 600;
 }
 /* Dropdown Content shows on hover */
-.dropdown:hover .dropdown-content {
+.top-nav .dropdown:hover .dropdown-content {
   display: block;
 }
 
-.arrow-flip {
+.top-nav .arrow-flip {
     margin-left: 4px;
     transition: transform 0.3s ease;
 }
 /* Rotate arrow on dropdown hover */
-.dropdown:hover .arrow-flip {
+.top-nav .dropdown:hover .arrow-flip {
     transform: rotate(180deg);
 }
+
 /* Screen size < 600px wide = hide all besides leftmost element
 & show Menu icon to collapse/expand menu */
 @media screen and (max-width: 1200px) {
-  .top-nav a:not(:first-child), .dropdown .dropbtn {
+  .top-nav a:not(:first-child), .top-nav .dropdown .dropbtn {
     display: none;
   }
   .top-nav a.icon {
     float: right;
     display: block;
+  }
+  .top-nav .dropdown.no-hover {
+    display: none;
   }
 }
 /* Styles Responsive NavBar for small screens

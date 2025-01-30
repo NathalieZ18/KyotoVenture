@@ -51,3 +51,57 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       checkbox.checked = false;
     });
   });
+
+
+  // Activity Cards to go to Activity Details pages
+  // Function to redirect to the details page
+  // document.querySelectorAll('.card').forEach(card => {
+  //   card.addEventListener('click', function() {
+  //     const pageUrl = this.getAttribute('data-url');  // Get the URL from data-url
+  //     if (pageUrl) {
+  //       window.location.href = pageUrl;  // Redirect to the corresponding activity page
+  //     }
+  //   });
+  // });
+  
+
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function(event) {
+      // Prevent navigation if the "Add to Itinerary" button or its child (icon) was clicked
+      if (event.target.closest('.addItineraryButton')) {
+        event.stopPropagation(); // Stop the click from bubbling up to the card
+        return;
+      }
+  
+      // Get the URL from data-url and navigate
+      const pageUrl = this.getAttribute('data-url');
+      if (pageUrl) {
+        window.location.href = pageUrl;
+      }
+    });
+  });
+
+  // Search Feature
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector(".activities-search-box input");
+    const searchButton = document.querySelector(".activities-search-button");
+    const cards = document.querySelectorAll(".card");
+
+    function filterActivities() {
+      const searchText = searchInput.value.toLowerCase();
+
+      cards.forEach((card) => {
+        const title = card.querySelector(".cardTitle").textContent.toLowerCase();
+        
+        if (title.includes(searchText)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Event Listeners
+    searchButton.addEventListener("click", filterActivities);
+    searchInput.addEventListener("keyup", filterActivities); // Live filtering
+  });
