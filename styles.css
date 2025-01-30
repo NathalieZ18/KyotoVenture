@@ -6,6 +6,94 @@ body {
   margin: auto 0;
   font-family: "Lato", sans-serif;
 }
+
+/* KyotoVenture Navigation */
+.kyotoVentureNavBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F8FDF9;
+  height: 96px;
+}
+.kyotoVentureLogo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.title {
+  color: #013d79;
+  font-size: 1.5em;
+}
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+.navbar-links li {
+  position: relative;
+}
+.navbar-links a {
+  text-decoration: none;
+  font-size: 1.25em;
+  display: block;
+  color: #013D79;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #EBFBEE;
+  list-style: none;
+  padding: 8px 0;
+  min-width: 134px;
+  height: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.dropdown li a {
+  font-size: 1em;
+  color: #013D79;
+  padding: 8px;
+  display: block;
+}
+.dropdown li a:hover {
+  font-size: 1em;
+  color: #013D79;
+  padding: 8px;
+  display: block;
+  font-weight: bold;
+}
+.navbar-links li:hover .dropdown {
+  display: block;
+}
+/* .profile-container {
+  position: relative;
+  margin-left: 32px;
+} */
+/* .profile-icon {
+ width: 40px;
+ height: 40px;
+} */
+/* .profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.profile-dropdown li a {
+  color: black;
+  padding: 8px;
+  display: block;
+}
+.profile-container:hover .profile-dropdown {
+  display: block;
+} */
+
 .activitiesBreadcrumb {
   color: black !important;
   text-decoration: none !important;
@@ -125,11 +213,11 @@ body {
   border: none;
   border-radius: 8px;
   background-color: white;
-  color: #1F2B59;
+  color: #1f2b59;
   cursor: pointer;
 }
 .myItineraryButton button:hover {
-  background-color: #E9D6FA;
+  background-color: #e9d6fa;
 }
 .activitiesCalendar {
   font-size: 24px;
@@ -341,7 +429,7 @@ body {
 
 .pagination a.disabled {
   pointer-events: none;
-  color: #CCD8E4;
+  color: #ccd8e4;
 }
 
 #activitiesSortBy {
@@ -383,7 +471,7 @@ Sort, Area, Price, Interests */
 }
 
 /* Placeholder Navigation */
-.main-nav {
+/* .main-nav {
   display: flex;
   list-style: none;
   font-size: 1.25rem;
@@ -414,7 +502,7 @@ Sort, Area, Price, Interests */
   margin-top: 28px;
   font-size: 2rem;
   color: #1f2b59;
-}
+} */
 
 /* Hero Section */
 .container-hero {

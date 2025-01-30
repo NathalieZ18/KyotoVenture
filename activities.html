@@ -17,20 +17,52 @@
     />
   </head>
   <body>
-    <!-- Placeholder Navigation -->
-    <nav class="kyotoVentureHeader">
-      <ul class="main-nav">
-        <p class="kyotoVentureNavTitle">KyotoVenture</p>
+    <!-- Navigation -->
+    <nav class="kyotoVentureNavBar">
+      <div class="kyotoVentureLogo">
+        <div class="logo"><img src="assets/icons/logo.svg"></div>
+        <div class="title">KyotoVenture</div>
+      </div>
+      <ul class="navbar-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="">Destinations</a></li>
+        <li><a href="#">Destinations</a>
+        <ul class="dropdown">
+          <li><a href="destinations.html">Destinations</a></li>
+          <li><a href="#">Kyoto City</a></li>
+          <li><a href="#">Arashiyama</a></li>
+          <li><a href="#">Nara</a></li>
+          <li><a href="#">Uji</a></li>
+          <li><a href="#">Kameoka</a></li>
+        </ul>
+        </li>
+
         <li><a href="activities.html">Activities</a></li>
-        <li><a href="">Itineraries</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Language Option</a></li>
-        <li><a href="">Help</a></li>
-        <li><a href="profile.html">Profile</a></li>
+        <li><a href="">Itineraries</a>
+        <ul class="dropdown">
+          <li><a href="#">Itineraries</a></li>
+          <li><a href="#">Create Itinerary</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+        </li>
+        <li><a href="">About</a>
+        <ul class="dropdown">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+        </li>
+        <li><a href="#">
+        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div></a>
+        <ul class="dropdown">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </li>
       </ul>
+      <!-- <div class="profile-container">
+      </div> -->
     </nav>
+    <!-- End of Nav -->
     <div class="page-layout">
       <!-- Container (Left-Side) -->
       <div class="left-layout-container">
