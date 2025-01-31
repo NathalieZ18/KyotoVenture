@@ -29,3 +29,19 @@ document.querySelector(".continueBrowsingButton").addEventListener("click", func
 document.querySelector(".editMyItineraryButton").addEventListener("click", function () {
   window.location.href = "edit-itinerary.html"; 
 });
+
+
+//Sign In button from empty my itinerary
+document.querySelector(".signInButton").addEventListener("click", function () {
+  window.location.href = "signup.html"; 
+});
+
+// Empty Itinerary Cards navigate to their activity details page
+document.querySelectorAll('.card-emptyItinerary').forEach(card => {
+  card.addEventListener('click', function() {
+    const pageUrl = this.getAttribute('data-url');  
+    if (pageUrl) {
+      window.location.href = pageUrl;  
+    }
+  });
+});
