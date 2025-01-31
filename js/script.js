@@ -96,6 +96,6 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
 
   // Go to My Itinerary Button
   document.querySelector(".goToMyItineraryButton").addEventListener("click", function () {
-    window.location.href = "myItinerary.html"; 
+    window.location.href = "my-itinerary.html"; 
 });
 

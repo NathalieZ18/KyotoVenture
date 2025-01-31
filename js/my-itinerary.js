@@ -27,5 +27,5 @@ document.querySelector(".continueBrowsingButton").addEventListener("click", func
 });
 //Edit My Itinerary
 document.querySelector(".editMyItineraryButton").addEventListener("click", function () {
-  window.location.href = "editItinerary.html"; 
+  window.location.href = "edit-itinerary.html"; 
 });

@@ -183,7 +183,20 @@
         color: white;
         background-color: #013d79;
       }
-     
+      .fa-arrow-left {
+        font-size: 48px;
+        color: black;
+        margin-right: 1200px;
+      }
+      .back-arrow {
+        margin-top: 20px;
+        font-size: 10px;
+        
+      }
+      .backArrow {
+        font-size: 40px;
+        opacity: 0.8;
+      }
     </style>
   </head>
   <body>
@@ -203,6 +216,11 @@
     </nav>
 
     <div class="page-layout-itinerary">
+        <div class="back-arrow">
+            <a href="itineraries.html">
+              <i class="fa-solid fa-arrow-left backArrow"></i>
+            </a>
+          </div>
       <div class="top">
         <h1 class="emptyMyItineraryHeader">Create Itinerary</h1>
       </div>
@@ -270,6 +288,6 @@
     </div>
   </div>
 
-    <script src="js/editItinerary.js"></script>
+    <script src="js/edit-itinerary.js"></script>
   </body>
 </html>
