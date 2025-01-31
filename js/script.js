@@ -53,27 +53,15 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
   });
 
 
-  // Activity Cards to go to Activity Details pages
-  // Function to redirect to the details page
-  // document.querySelectorAll('.card').forEach(card => {
-  //   card.addEventListener('click', function() {
-  //     const pageUrl = this.getAttribute('data-url');  // Get the URL from data-url
-  //     if (pageUrl) {
-  //       window.location.href = pageUrl;  // Redirect to the corresponding activity page
-  //     }
-  //   });
-  // });
-  
-
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function(event) {
-      // Prevent navigation if the "Add to Itinerary" button or its child (icon) was clicked
+      // Add to Itinerary button doesn't navigate to activity details
       if (event.target.closest('.addItineraryButton')) {
-        event.stopPropagation(); // Stop the click from bubbling up to the card
+        event.stopPropagation(); 
         return;
       }
   
-      // Get the URL from data-url and navigate
+      // Get the URL from data-url and navigate to specific activity details page
       const pageUrl = this.getAttribute('data-url');
       if (pageUrl) {
         window.location.href = pageUrl;
@@ -103,5 +91,11 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
 
     // Event Listeners
     searchButton.addEventListener("click", filterActivities);
-    searchInput.addEventListener("keyup", filterActivities); // Live filtering
+    searchInput.addEventListener("keyup", filterActivities); 
   });
+
+  // Go to My Itinerary Button
+  document.querySelector(".goToMyItineraryButton").addEventListener("click", function () {
+    window.location.href = "myItinerary.html"; 
+});
+

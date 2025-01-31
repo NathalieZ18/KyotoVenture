@@ -12,6 +12,9 @@
             margin-left: 80px;
             margin-right: 80px;
         }
+        .removeColor {
+        color: initial;
+      }
 
         /* @media only screen and (min-width: 1200px) {
         .page-layout2 {
@@ -52,6 +55,7 @@
             grid-row: 3;
             grid-column: 2;
             margin-bottom: 20px;
+            display: none;
             
         }
         .search-input {
@@ -458,9 +462,11 @@
         
         <div class="first-container">
         <div class="breadcrumb">
-            <h3>
+            <h3 class="less-bold">
                 <a href="index.html" class="activitiesBreadcrumb">Home</a>
-                <span> > Itineraries</span> <span> > Wishlist</span>
+                <a href="itineraries.html" class="activitiesBreadcrumb"
+                  ><span class="removeColor"> > </span><span> Itineraries</span></a
+                ><span class="removeColor"> > </span> <span> Wishlist</span>
               </h3>
         </div>
 
