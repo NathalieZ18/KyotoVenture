@@ -566,3 +566,98 @@ Sort, Area, Price, Interests */
 .itinerary > img {
   width: 100%;
 } */
+
+/* footer css */
+p {
+  font-family: Lato;
+}
+
+.logo img {
+height: 100.66px;
+width: 110.66px;
+}
+
+
+.destination {
+display: flex;
+flex-direction: column;
+grid-column: 2;
+margin-right: 50px;
+}
+.destination p {
+margin: 0;
+line-height: 2;
+}
+
+.guide {
+display: flex;
+flex-direction: column;
+grid-column: 3;
+margin-right: 50px;
+
+}
+.guide p {
+margin: 0;
+line-height: 2;
+}
+
+.support {
+display: flex;
+flex-direction: column;
+grid-column: 4;
+margin-right: 50px;
+
+}
+.support p {
+margin: 0;
+line-height: 2;
+}
+
+.subscribe {
+background-color: #013d79;
+color: white;
+border: none;
+height: 30px;
+width: 80px;
+border-radius: 8px;
+margin-top: 10px;
+}
+
+.news {
+display: flex;
+flex-direction: column;
+grid-column: 5;
+padding-left: 80px;
+}
+.news p {
+margin: 0;
+line-height: 1.5;
+}
+
+.logo-grid {
+display: grid;
+grid-template-rows: auto;
+grid-template-columns: repeat(5, auto);
+background-color: #cdbade;
+padding-top: 40px;
+padding-bottom: 40px;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.logo {
+grid-column: 1;
+margin-right: 50px;
+margin-top: 30px;
+padding-left: 15px;
+
+}
+
+.email-bar {
+color: #ebe3f2;
+}
+
+.receive {
+font-size: 13px;
+padding-bottom: 5px;
+}
