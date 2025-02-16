@@ -1,48 +1,44 @@
-const express = require('express');
-const mysql = require('mysql2/promise');
-require('dotenv').config();
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+
+// Allow frontend requests (even when hosted on Vercel later)
 app.use(cors({
-  origin: "https://kyoto-venture.vercel.app/",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type"]
+  origin: ["http://127.0.0.1:8080", "http://localhost:8080"], 
+  credentials: true
 }));
 
-// Database connection pool
-const pool = mysql.createPool(process.env.DATABASE_URL);
+// Sample database simulation (you can replace this with real database logic later)
+let users = [];
 
-// Test the database connection
-(async () => {
-  try {
-    const connection = await pool.getConnection();
-    console.log('✅ Connected to the MySQL database');
-    connection.release(); // Release the connection
-  } catch (err) {
-    console.error('❌ Error connecting to the database:', err);
+// Test route
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API is working!" });
+});
+
+// Signup route (handle POST request from frontend)
+app.post("/api/signup", (req, res) => {
+  const { username, email, password } = req.body;
+  console.log(req.body); // Log the request data
+
+  // Simple validation
+  if (!username || !email || !password) {
+    return res.status(400).json({ message: "Please fill in all fields." });
   }
-})();
 
-// Example route to check if the backend is working
-app.get('/', (req, res) => {
-  res.send('✅ Backend is working!');
-});
-
-// Example route to fetch data from the MySQL database
-app.get('/users', async (req, res) => {
-  try {
-    const [results] = await pool.query('SELECT * FROM users');
-    res.json(results);
-  } catch (err) {
-    console.error('❌ Error retrieving data:', err);
-    res.status(500).send('Internal Server Error');
+  // Check if the user already exists (based on email)
+  const userExists = users.some(user => user.email === email);
+  if (userExists) {
+    return res.status(400).json({ message: "User with this email already exists." });
   }
+
+  // Save the user (for now, just add to an array)
+  users.push({ username, email, password }); // You should hash the password in a real app
+
+  // Send success response
+  res.status(201).json({ success: true, message: "Signup successful!" });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-});
+app.listen(5000, () => console.log("Backend running on http://localhost:5000"));
