@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const password = password_input.value;
     const confirm_password = confirm_password_input.value;
 
-    // Basic validation: Check if passwords match
+    // Validation check if passwords match
     if (password !== confirm_password) {
       error_message.textContent = "Passwords do not match!";
       error_message.style.color = "red";
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Send signup request to backend API
-    fetch('http://localhost:5000/api/signup', { // Make sure this URL is correct for your backend
+    fetch('http://localhost:5000/api/signup', { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = '/login.html';  // Redirect after successful signup
+        window.location.href = '/login.html';  // Redirects to login page after successful signup
       } else {
         error_message.textContent = data.message || "Signup failed, please try again.";
         error_message.style.color = "red";
