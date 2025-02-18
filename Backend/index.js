@@ -4,17 +4,21 @@ import db from './db.js'; // database connection
 import bcrypt from 'bcryptjs'; // bcryptjs for hashing passwords
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser'; // Import cookie-parser to handle cookies
 
 dotenv.config(); // Loads environment variables from .env
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser()); // Initialize cookie-parser middleware
 
 // Private Key
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
+
+// Allow frontend requests (node http server)
+app.use(cors({
+  origin: ['http://127.0.0.1:8080', 'http://localhost:8080'],
+  credentials: true,
+}));
 
 // Login Route - Generates a JWT token when the user logs in
 app.post('/api/login', (req, res) => {
@@ -49,15 +53,8 @@ app.post('/api/login', (req, res) => {
           expiresIn: JWT_EXPIRES_IN, // Set the token expiration
         });
 
-        // Set the JWT token in an HTTP-only cookie to keep the user logged in
-        res.cookie('token', token, {
-          httpOnly: true, // Ensures the cookie is only accessible by the server
-          secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS in production
-          maxAge: 1000 * 60 * 60 * 24 * 7, // Expiry time: 7 days
-        });
-
-        // Send response indicating login was successful
-        res.status(200).json({ success: true, message: 'Login successful!' });
+        // Send the JWT token in the response (stored in localStorage)
+        res.status(200).json({ success: true, token });
       });
     })
     .catch(err => {
@@ -66,18 +63,13 @@ app.post('/api/login', (req, res) => {
     });
 });
 
-// Allow frontend requests (node http server)
-app.use(cors({
-  origin: ['http://127.0.0.1:8080', 'http://localhost:8080'],
-  credentials: true,
-}));
 
 // Signup route (handle POST request from frontend)
 app.post('/api/signup', (req, res) => {
   const { username, email, password } = req.body;
   console.log(req.body); // Log the request data
 
-  // Simple validation
+  // Validation
   if (!username || !email || !password) {
     return res.status(400).json({ message: 'Please fill in all fields.' });
   }
@@ -120,7 +112,7 @@ app.post('/api/signup', (req, res) => {
 
 // Middleware for verifying JWT token (to keep the user logged in)
 const authenticateToken = (req, res, next) => {
-  const token = req.cookies.token; // Get token from cookies
+  const token = req.headers['authorization']?.split(' ')[1]; // Get token from Authorization header
 
   if (!token) { // If no token is provided
     return res.status(401).json({ message: 'Authentication required.' }); // Return unauthorized error
@@ -136,6 +128,12 @@ const authenticateToken = (req, res, next) => {
     next(); // Proceed to the next middleware or route handler
   });
 };
+
+// Logout Route - JWT is in localStorage
+app.post('/api/logout', (req, res) => {
+  // Sends a message
+  res.status(200).json({ message: 'Logged out successfully. (Token cleared in frontend)' });
+});
 
 // Example protected route that requires authentication
 app.get('/api/protected', authenticateToken, (req, res) => {
