@@ -66,6 +66,15 @@ body {
 .navbar-links li:hover .dropdown {
   display: block;
 }
+
+/* Hide logged-in and logged-out menus*/
+#logged-in {
+  display: none;
+}
+
+#logged-out {
+  display: block;
+}
 /* .profile-container {
   position: relative;
   margin-left: 32px;
