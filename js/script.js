@@ -36,8 +36,12 @@ function showImage(index) {
     img.style.display = i === index ? "block" : "none";
   });
 
-  // Update the label text
-  galleryLabel.textContent = imageDetails[index].label;
+  // Check if galleryLabel exists before modifying it
+  if (galleryLabel) {
+    galleryLabel.textContent = imageDetails[index].label;
+  } else {
+    console.error("galleryLabel element not found!");
+  }
 }
 
  // Event listeners for the next and previous arrow buttons
@@ -106,19 +110,26 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
 
   document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('click', function(event) {
-      // Add to Itinerary button doesn't navigate to activity details
+      console.log('Card clicked');
+      
+      // Check for the 'Add to Itinerary' button, don't navigate if clicked
       if (event.target.closest('.addItineraryButton')) {
-        event.stopPropagation(); 
+        event.stopPropagation();
         return;
       }
   
       // Get the URL from data-url and navigate to specific activity details page
       const pageUrl = this.getAttribute('data-url');
+      console.log('Navigating to:', pageUrl); // Debug log for URL
+  
       if (pageUrl) {
         window.location.href = pageUrl;
+      } else {
+        console.error("No URL found for this card!");
       }
     });
   });
+  
 
   // Search Feature
   document.addEventListener("DOMContentLoaded", function () {
