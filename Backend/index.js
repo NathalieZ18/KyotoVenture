@@ -144,36 +144,55 @@ app.get('/api/protected', authenticateToken, (req, res) => {
 
 // Create a new itinerary
 app.post('/api/itineraries', authenticateToken, (req, res) => {
-  const { itinerary_name, destinations, budget, start_date, end_date } = req.body;  // Changed 'name' to 'itinerary_name'
+  const { itinerary_name, destinations, budget, start_date, end_date } = req.body;  
   const userId = req.user.id;
 
   // Log user ID to check if it's set properly
   console.log('User ID:', userId);
 
-  if (!itinerary_name || !destinations || !budget || !start_date || !end_date) {  // Changed 'name' to 'itinerary_name'
+  if (!itinerary_name || !destinations || !budget || !start_date || !end_date) {  
     return res.status(400).json({ message: 'Itinerary name, destinations, budget, start date, and end date are required.' });
   }
 
   db.query(
     'INSERT INTO itineraries (user_id, itinerary_name, destinations, budget, start_date, end_date, created_at) VALUES ($1, $2, $3, $4, $5, $6, NOW()) RETURNING *',
-    [userId, itinerary_name, destinations, budget, start_date, end_date]  // Changed 'name' to 'itinerary_name'
+    [userId, itinerary_name, destinations, budget, start_date, end_date]  
   )
     .then(result => res.status(201).json({ success: true, itinerary: result.rows[0] }))
     .catch(err => {
-      console.error(err);  // Log the error if there is an issue
+      console.error(err);  
       res.status(500).json({ message: 'Error creating itinerary.', error: err.message });
+    });
+});
+
+// Get all itineraries for the authenticated user
+app.get('/api/itineraries', authenticateToken, (req, res) => {
+  const userId = req.user.id;
+
+  db.query(
+    'SELECT * FROM itineraries WHERE user_id = $1 ORDER BY created_at DESC', [userId]
+  )
+    .then(result => {
+      if (result.rows.length === 0) {
+        return res.status(404).json({ message: 'No itineraries found for this user.' });
+      }
+      res.status(200).json({ itineraries: result.rows });
+    })
+    .catch(err => {
+      console.error(err);  
+      res.status(500).json({ message: 'Error fetching itineraries.', error: err.message });
     });
 });
 
 // Update an itinerary 
 app.put('/api/itineraries/:id', authenticateToken, (req, res) => {
   const { id } = req.params;
-  const { itinerary_name, destinations, budget, start_date, end_date } = req.body;  // Changed 'name' to 'itinerary_name'
+  const { itinerary_name, destinations, budget, start_date, end_date } = req.body; 
   const userId = req.user.id;
 
   db.query(
     'UPDATE itineraries SET itinerary_name = $1, destinations = $2, budget = $3, start_date = $4, end_date = $5, updated_at = NOW() WHERE id = $6 AND user_id = $7 RETURNING *',
-    [itinerary_name, destinations, budget, start_date, end_date, id, userId]  // Changed 'name' to 'itinerary_name'
+    [itinerary_name, destinations, budget, start_date, end_date, id, userId]  
   )
     .then(result => {
       if (result.rows.length === 0) {
@@ -182,7 +201,7 @@ app.put('/api/itineraries/:id', authenticateToken, (req, res) => {
       res.status(200).json({ success: true, itinerary: result.rows[0] });
     })
     .catch(err => {
-      console.error(err);  // Log the error if there is an issue
+      console.error(err);  
       res.status(500).json({ message: 'Error updating itinerary.', error: err.message });
     });
 });
