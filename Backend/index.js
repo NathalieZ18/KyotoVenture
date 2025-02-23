@@ -142,28 +142,28 @@ app.get('/api/protected', authenticateToken, (req, res) => {
 
 ///////////// Itinerary Routes /////////////////
 
-// Create a new itinerary
 app.post('/api/itineraries', authenticateToken, (req, res) => {
-  const { itinerary_name, destinations, budget, start_date, end_date } = req.body;  
+  const { itinerary_name, destinations, budget, start_date, end_date, days_added } = req.body;  
   const userId = req.user.id;
 
-  // Log user ID to check if it's set properly
-  console.log('User ID:', userId);
+  console.log('Received request:', req.body); // Log the request body to see if the data is correct
+  console.log('User ID:', userId); // Log user ID
 
   if (!itinerary_name || !destinations || !budget || !start_date || !end_date) {  
     return res.status(400).json({ message: 'Itinerary name, destinations, budget, start date, and end date are required.' });
   }
 
   db.query(
-    'INSERT INTO itineraries (user_id, itinerary_name, destinations, budget, start_date, end_date, created_at) VALUES ($1, $2, $3, $4, $5, $6, NOW()) RETURNING *',
-    [userId, itinerary_name, destinations, budget, start_date, end_date]  
+    'INSERT INTO itineraries (user_id, itinerary_name, destinations, budget, start_date, end_date, days_added, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW()) RETURNING *',
+    [userId, itinerary_name, destinations, budget, start_date, end_date, days_added]
   )
     .then(result => res.status(201).json({ success: true, itinerary: result.rows[0] }))
     .catch(err => {
-      console.error(err);  
+      console.error('Error creating itinerary:', err);  // Log the error
       res.status(500).json({ message: 'Error creating itinerary.', error: err.message });
     });
 });
+
 
 // Get all itineraries for the authenticated user
 app.get('/api/itineraries', authenticateToken, (req, res) => {
@@ -184,15 +184,20 @@ app.get('/api/itineraries', authenticateToken, (req, res) => {
     });
 });
 
+
 // Update an itinerary 
 app.put('/api/itineraries/:id', authenticateToken, (req, res) => {
   const { id } = req.params;
-  const { itinerary_name, destinations, budget, start_date, end_date } = req.body; 
+  const { itinerary_name, destinations, budget, start_date, end_date, days_added } = req.body; 
   const userId = req.user.id;
 
+  if (days_added === undefined) {
+    return res.status(400).json({ message: 'Number of days added is required for updating itinerary.' });
+  }
+
   db.query(
-    'UPDATE itineraries SET itinerary_name = $1, destinations = $2, budget = $3, start_date = $4, end_date = $5, updated_at = NOW() WHERE id = $6 AND user_id = $7 RETURNING *',
-    [itinerary_name, destinations, budget, start_date, end_date, id, userId]  
+    'UPDATE itineraries SET itinerary_name = $1, destinations = $2, budget = $3, start_date = $4, end_date = $5, days_added = $6, updated_at = NOW() WHERE id = $7 AND user_id = $8 RETURNING *',
+    [itinerary_name, destinations, budget, start_date, end_date, days_added, id, userId]  
   )
     .then(result => {
       if (result.rows.length === 0) {
@@ -205,6 +210,7 @@ app.put('/api/itineraries/:id', authenticateToken, (req, res) => {
       res.status(500).json({ message: 'Error updating itinerary.', error: err.message });
     });
 });
+
 
 
 // Delete an itinerary
@@ -221,5 +227,6 @@ app.delete('/api/itineraries/:id', authenticateToken, (req, res) => {
     })
     .catch(() => res.status(500).json({ message: 'Error deleting itinerary.' }));
 });
+
 
 app.listen(5000, () => console.log('Backend running on http://localhost:5000'));

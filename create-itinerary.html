@@ -51,7 +51,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 24px;
         justify-content: center;
       }
       .itinerary-details-container {
@@ -68,8 +67,6 @@
         margin-bottom: 48px;
       }
       .itinerary-image-container {
-        display: flex;
-        flex-direction: row;
         width: 20%;
         margin-right: 88px;
         text-align: center;
@@ -78,8 +75,12 @@
         text-underline-offset: 5px;
       }
       .itineraryDetails {
+        display: flex;
+        flex-direction: column;
         font-size: 1.5em;
         line-height: 2;
+        gap: 18px;
+        margin-left: 20px;
       }
       .budget {
         margin-left: 40px;
@@ -197,54 +198,162 @@
         font-size: 40px;
         opacity: 0.8;
       }
+
+    .itinerary-container {
+      display: grid;
+      grid-template-columns: 2;
+      grid-template-rows: 5;
+    }
+    .nameInput {
+      margin-left: 15px;
+      width: 500px;
+      height: 35px;
+      background-color: #CCD8E4;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      font-size: 20px;
+    }
+    .destination-input {
+      margin-left: 15px;
+      width: 500px;
+      height: 35px;
+      background-color: #CCD8E4;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      font-size: 20px;
+    }
+    .budget-input {
+      margin-left: 15px;
+      width: 500px;
+      height: 35px;
+      background-color: #CCD8E4;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      font-size: 20px;
+    }
+    .start-date-input {
+      margin-left: 15px;
+      width: 500px;
+      height: 35px;
+      background-color: #CCD8E4;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      font-size: 20px;
+    }
+    .end-date-input {
+      margin-left: 15px;
+      width: 500px;
+      height: 35px;
+      background-color: #CCD8E4;
+      border: none;
+      border-radius: 6px;
+      color: black;
+      font-size: 20px;
+    }
+    .itinerary-grid {
+      display: grid;
+      grid-template-columns: 2;
+    }
+ /* purple container on days */
+.purple-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+/* day elements */
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width: 50%;
+  background-color: #cdbade;
+  height: 48px;
+  margin-bottom: 8px; 
+}
+
+/* day text */
+.dayText {
+  color: #013d79;
+  font-size: 1.5em;
+  line-height: 48px;
+}
+
+/* days that get added are centered */
+#days-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  margin-top: 40px;
+}
     </style>
   </head>
   <body>
      <!-- Navigation -->
-     <nav class="kyotoVentureNavBar">
-      <div class="kyotoVentureLogo">
-        <div class="logoImage"><img src="assets/icons/logo.svg"></div>
-        <div class="title">KyotoVenture</div>
-      </div>
-      <ul class="navbar-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Destinations</a>
-        <ul class="dropdown">
-          <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="kyoto.html">Kyoto City</a></li>
-          <li><a href="arashiyama.html">Arashiyama</a></li>
-          <li><a href="nara.html">Nara</a></li>
-          <li><a href="uji.html">Uji</a></li>
-          <li><a href="kameoka.html">Kameoka</a></li>
-        </ul>
-        </li>
-
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="">Itineraries</a>
-        <ul class="dropdown">
-          <li><a href="itineraries.html">Itineraries</a></li>
-          <li><a href="create-itinerary.html">Create Itinerary</a></li>
-          <li><a href="wishlist.html">Wishlist</a></li>
-        </ul>
-        </li>
-        <li><a href="">About</a>
-        <ul class="dropdown">
-          <li><a href="about-us.html">About</a></li>
-          <li><a href="contact-us.html">Contact Us</a></li>
-          <li><a href="faqs.html">FAQs</a></li>
-        </ul>
-        </li>
-        <li><a href="#">
-        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div></a>
-        <ul class="dropdown">
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
-        </ul>
-      </li>
+<nav class="kyotoVentureNavBar">
+  <div class="kyotoVentureLogo">
+    <div class="logoImage"><img src="assets/icons/logo.svg"></div>
+    <div class="title">KyotoVenture</div>
+  </div>
+  <ul class="navbar-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Destinations</a>
+      <ul class="dropdown">
+        <li><a href="destinations.html">Destinations</a></li>
+        <li><a href="kyoto.html">Kyoto City</a></li>
+        <li><a href="arashiyama.html">Arashiyama</a></li>
+        <li><a href="nara.html">Nara</a></li>
+        <li><a href="uji.html">Uji</a></li>
+        <li><a href="kameoka.html">Kameoka</a></li>
       </ul>
-      <!-- <div class="profile-container">
+    </li>
+
+    <li><a href="activities.html">Activities</a></li>
+    <li><a href="">Itineraries</a>
+      <ul class="dropdown">
+        <li><a href="itineraries.html">Itineraries</a></li>
+        <li><a href="create-itinerary.html">Create Itinerary</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+      </ul>
+    </li>
+    <li><a href="">About</a>
+      <ul class="dropdown">
+        <li><a href="about-us.html">About</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+      </ul>
+    </li>
+
+    <!-- Logged Out Users -->
+    <li id="logged-out" class="profile-menu">
+      <a href="#">
+        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
+      </a>
+      <ul class="dropdown">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </li>
+
+    <!-- Logged In Users -->
+    <li id="logged-in" class="profile-menu">
+      <a href="#">
+        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
+      </a>
+      <ul class="dropdown">
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+     <!-- <div class="profile-container">
       </div> -->
-    </nav>
     <!-- End of Nav -->
 
     <div class="page-layout-itinerary">
@@ -269,54 +378,65 @@
       </div>
     </div>
 
+    <div class="intinerary-grid">
     <div class="itinerary-content">
-      <div class="itinerary-details-container">
-        <div class="itineraryDetails">
-          <p><strong>Itinerary Name:</strong> Kyoto First Days</p>
-          <p>
-            <strong>Destination(s):</strong> Kyoto City, Arashiyama,
-            Kameoka<span class="budget"><strong>Budget:</strong> $378</span>
-          </p>
-          <p>
-            <strong>Start Date:</strong> 1/1/2025<span class="endDate"
-              ><strong>End Date:</strong> 1/3/2025</span
-            >
-          </p>
-        </div>
-      </div>
+      <form id="itineraryForm" class="itinerary-details-container">
 
+        <div class="itinerary-container">
+          <div class="itineraryDetails">
+
+            <div class="itineraryName">
+              <label><strong>Itinerary Name:</strong></label>
+              <input class="nameInput" type="text" id="itineraryName" name="itineraryName" placeholder="Enter itinerary name" required>
+            </div>
+  
+            <div class="destination-container">
+              <label><strong>Destination(s):</strong></label>
+              <input class="destination-input" type="text" id="destinations" name="destinations" placeholder="e.g., Kyoto City, Arashiyama" required>
+            </div>
+  
+            <div class="budget-container">
+              <label><strong>Budget ($):</strong></label>
+              <input class="budget-input" type="number" id="budget" name="budget" placeholder="Enter budget" required>
+            </div>
+  
+            <div class="start-date-container">
+              <label><strong>Start Date:</strong></label>
+              <input class="start-date-input" type="date" id="startDate" name="startDate" required>
+            </div>
+  
+            <div class="end-date-container">
+              <label><strong>End Date:</strong></label>
+              <input class="end-date-input" type="date" id="endDate" name="endDate" required>
+            </div>
+          </form>
+          </div>
+      
+    </div>
+  
       <div class="itinerary-image-container">
-        <div class="itinerary-image">
-          <img
-            src="assets/images/edit itinerary image.jpg"
-            alt="Red Temple"
-            class="itineraryRedTemple"
-          />
-          <p class="changeCover">Change Cover</p>
-        </div>
+          <div class="itinerary-image">
+              <img src="assets/images/edit itinerary image.jpg" alt="Red Temple" class="itineraryRedTemple">
+              <p class="changeCover">Change Cover</p>
+          </div>
       </div>
     </div>
 
-    <div class="content-layout">
-      <div class="text-container">
-        <span class="right-text">add day</span>
-      </div>
-    </div>
-   
+  </div>
+
+  <div class="content-layout">
     <div class="text-container">
-        <div class="overall-notes">
-          <p class="text">Overall Notes:</p>
-        </div>
-      </div>
- <!-- Day Separator -->
- <div class="blue-container">
-    <div class="itinerary-notes">
-      <p class="notes-text">Click to Add Notes</p>
+      <span class="right-text" id="add-day">+ Add Day (Maximum of 7)</span>
     </div>
   </div>
+  
+  <!-- Container to hold dynamically added days from the Add Day option after being clicked on -->
+  <div id="days-container"></div>
+   
+
   <div class="button-layout">
     <div class="button-container">
-      <button class="saveItineraryButton">Save Itinerary</button>
+      <button class="saveItineraryButton" id="save-itinerary-btn">Save Itinerary</button>
     </div>
   </div>
 
@@ -371,5 +491,7 @@
 </div>
 <!-- End of Footer -->
     <script src="js/edit-itinerary.js"></script>
+    <script src="js/create-itinerary.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
