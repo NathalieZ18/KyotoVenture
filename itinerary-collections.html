@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create Itinerary</title>
+    <title>Itinerary Collection</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script
       src="https://kit.fontawesome.com/5e8cd39909.js"
@@ -363,7 +363,18 @@
             </a>
           </div>
       <div class="top">
-        <h1 class="emptyMyItineraryHeader">Create Itinerary</h1>
+        <!-- <h1 class="emptyMyItineraryHeader">Create Itinerary</h1> -->
+        <h1 id="collection-title">Itinerary Collection Name</h1> <!-- dynamically updated -->
+         <!-- display number of days -->
+    <p id="days-count">Days: 0</p> <!-- dynamically updated -->
+
+
+
+    <div id="itinerary-details-container" class="itinerary-details-container">
+      <!-- Itinerary details will be injected here by JavaScript -->
+    </div>
+  
+
       </div>
     </div>
     <!-- Edit Itinerary Breadcrumb -->
@@ -380,7 +391,7 @@
 
     <div class="intinerary-grid">
     <div class="itinerary-content">
-      <form id="itineraryForm" class="itinerary-details-container">
+      <!-- <form id="itineraryForm" class="itinerary-details-container">
 
         <div class="itinerary-container">
           <div class="itineraryDetails">
@@ -409,7 +420,40 @@
               <label><strong>End Date:</strong></label>
               <input class="end-date-input" type="date" id="endDate" name="endDate" required>
             </div>
-          </form>
+          </form> -->
+
+          <!-- Other form: -->
+          <!-- <form id="itineraryForm" class="itinerary-details-container">
+
+            <div class="itinerary-container">
+              <div class="itineraryDetails">
+    
+                <div class="itineraryName">
+                  <label><strong>Itinerary Name:</strong></label>
+                  <input class="nameInput" type="text" id="itineraryName" name="itineraryName" placeholder="Enter itinerary name" required>
+                </div>
+      
+                <div class="destination-container">
+                  <label><strong>Destination(s):</strong></label>
+                  <input class="destination-input" type="text" id="destinations" name="destinations" placeholder="e.g., Kyoto City, Arashiyama" required>
+                </div>
+      
+                <div class="budget-container">
+                  <label><strong>Budget ($):</strong></label>
+                  <input class="budget-input" type="number" id="budget" name="budget" placeholder="Enter budget" required>
+                </div>
+      
+                <div class="start-date-container">
+                  <label><strong>Start Date:</strong></label>
+                  <input class="start-date-input" type="date" id="startDate" name="startDate" required>
+                </div>
+      
+                <div class="end-date-container">
+                  <label><strong>End Date:</strong></label>
+                  <input class="end-date-input" type="date" id="endDate" name="endDate" required>
+                </div>
+              </form>
+         -->
           </div>
       
     </div>
@@ -424,6 +468,14 @@
 
   </div>
 
+  <!-- Test -->
+  <h2 id="itinerary-name"></h2>
+  <p><strong>Destinations:</strong> <span id="destinations"></span></p>
+  <p><strong>Budget:</strong> <span id="budget"></span></p>
+  <p><strong>Start Date:</strong> <span id="start-date"></span></p>
+  <p><strong>End Date:</strong> <span id="end-date"></span></p>
+  
+
   <div class="content-layout">
     <div class="text-container">
       <span class="right-text" id="add-day">+ Add Day (Maximum of 7)</span>
@@ -436,7 +488,10 @@
 
   <div class="button-layout">
     <div class="button-container">
-      <button class="saveItineraryButton" id="save-itinerary-btn">Save Itinerary</button>
+        <button type="button" id="edit-btn">Edit Itinerary</button>
+        <button type="submit" id="save-btn" disabled>Save Changes</button>
+
+      <!-- <button class="saveItineraryButton" id="save-itinerary-btn">Save Itinerary</button> -->
     </div>
   </div>
 
@@ -491,6 +546,7 @@
 </div>
 <!-- End of Footer -->
     <script src="js/itinerary.js"></script>
+    <script src="js/itinerary-collections.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

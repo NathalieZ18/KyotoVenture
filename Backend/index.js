@@ -186,6 +186,27 @@ app.get('/api/itineraries', authenticateToken, (req, res) => {
     });
 });
 
+// Get a specific itinerary collection by ID to display them in itinerary-collections.html after clicking view from itineraries.html
+app.get('/api/itineraries/:id', authenticateToken, (req, res) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  db.query(
+    'SELECT * FROM itineraries WHERE id = $1 AND user_id = $2', 
+    [id, userId]
+  )
+    .then(result => {
+      if (result.rows.length === 0) {
+        return res.status(404).json({ message: 'Itinerary not found or not owned by user.' });
+      }
+      res.status(200).json({ itinerary: result.rows[0] });
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ message: 'Error fetching itinerary details.', error: err.message });
+    });
+});
+
 
 // Update an itinerary 
 app.put('/api/itineraries/:id', authenticateToken, (req, res) => {
