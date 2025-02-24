@@ -61,12 +61,17 @@
           itineraryElement.classList.add("itin-container");
 
           itineraryElement.innerHTML = `
-          <p class="defitin"><span class="star">&#9733;</span> ${itinerary.itinerary_name}</p>
-          <div class="image-container">
-            <img class="bamb" src="assets/images/${itinerary.image || 'default.png'}" alt="${itinerary.itinerary_name}">
-          </div>
-          <button class="foodbutton">View</button>
-        `;
+  <div class="itin-container">
+    <p class="defitin">
+      <span class="star">&#9733;</span> ${itinerary.itinerary_name}
+    </p>
+    <div class="image-container">
+      <img class="bamb" src="assets/images/${itinerary.image || 'default.png'}" alt="${itinerary.itinerary_name}">
+    </div>
+    <button class="foodbutton">View</button>
+  </div>
+`;
+
         
         
 

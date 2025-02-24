@@ -159,72 +159,66 @@
           
 
         }
-        .star {
-            color: #b69ad0;
-            font-size: 22px;
-        }
+        
 
-        .itin-container {
-            display: flex;
-            flex-direction: column;
-            margin-left: 100px;
-            grid-column: 1;
-        }
-        .itin-container2 {
-            display: flex;
-            flex-direction: column;
-            margin-left: 100px;
-            grid-column: 2;
-        }
-        .itin-container3 {
-            display: flex;
-            flex-direction: column;
-            margin-left: 100px;
-            grid-column: 3;
-        }
+        .itin-container,
+.itin-container2,
+.itin-container3 {
+    background-color: #1f3179;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    position: relative; /* This is needed for positioning the button */
+    text-align: center; /* Ensures the text is centered */
+}
+.itin-container img,
+.itin-container2 img,
+.itin-container3 img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
         .bamb {
-            height: 200px;
-            width: 200px;
-        }
+    width: 100%;
+    max-height: 200px; /* Maximum height of images */
+    object-fit: cover; /* Ensure the image doesn't stretch */
+    border-radius: 8px;
+}
 
-        .foodbutton {
-            position: absolute;
-            width: 150px;
-            height: 25px;
-            background-color: #cbe2d1; opacity: 92%;
-            border: none;
-            margin-top: 220px;
-            margin-left: 25px;
-            
-        }
-        .defitin {
-            margin-left: 13px;
-            margin-bottom: 5px;
-            
-            
-        }
-        .itin-grid {
-            display: grid;
-            grid-template-columns: 3;
-            grid-template-rows: 1;
-            margin-left: 80px;
-            margin-right: 80px;
-            padding-left: 40px;
-            padding-right: 40px;
-            justify-content: center;
-        }
-        .itin-grid2 {
-            display: grid;
-            grid-template-columns: 3;
-            grid-template-rows: 1;
-            margin-left: 80px;
-            margin-right: 80px;
-            padding-left: 40px;
-            padding-right: 40px;
-            margin-bottom: 40px;
-            justify-content: center;
+.foodbutton {
+    background-color: #cbe2d1;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
 
-        }
+.foodbutton:hover {
+    background-color: #a8c7b5; /* Hover effect */
+}
+.defitin {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.star {
+    color: #b69ad0;
+    font-size: 22px;
+}
+.itin-grid,
+.itin-grid2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 24px; /* Spacing between items */
+    margin: 0 80px;
+}
+        
         
 
 
@@ -363,19 +357,25 @@
   <div class="itin-container">
   <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 1</p> 
   <img class="bamb" src="assets/images/bamboogrove.png">
-  <button class="foodbutton">Food</button>
+  <button class="foodbutton">
+    <a href="itinerary-collections.html" class="view-button">View</a>
+</button>
 </div>
 
 <div class="itin-container2">
     <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 2</p> 
     <img class="bamb" src="assets/images/temple.png">
-    <button class="foodbutton">Kyoto City</button>
+    <button class="foodbutton">
+      <a href="itinerary-collections.html" class="view-button">View</a>
+  </button>
   </div>
 
   <div class="itin-container3">
     <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 3</p> 
     <img class="bamb" src="assets/images/deer.png">
-    <button class="foodbutton">Nara</button>
+    <button class="foodbutton">
+      <a href="itinerary-collections.html" class="view-button">View</a>
+  </button>
   </div>
 
 </div>
@@ -384,19 +384,25 @@
     <div class="itin-container">
     <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 4</p> 
     <img class="bamb" src="assets/images/uji.png">
-    <button class="foodbutton">Uji</button>
+    <button class="foodbutton">
+      <a href="itinerary-collections.html" class="view-button">View</a>
+  </button>
   </div>
   
   <div class="itin-container2">
       <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 5</p> 
       <img class="bamb" src="assets/images/shop (2).png">
-      <button class="foodbutton">Food</button>
+      <button class="foodbutton">
+        <a href="itinerary-collections.html" class="view-button">View</a>
+    </button>
     </div>
   
     <div class="itin-container3">
       <p class="defitin"><span class="star">&#9733;</span>Itinerary Collection 6</p> 
       <img class="bamb" src="assets/images/redtemple.png">
-      <button class="foodbutton">Food</button>
+      <button class="foodbutton">
+        <a href="itinerary-collections.html" class="view-button">View</a>
+    </button>
     </div>
 
 </div>
