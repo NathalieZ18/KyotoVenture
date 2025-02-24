@@ -142,6 +142,7 @@ app.get('/api/protected', authenticateToken, (req, res) => {
 
 ///////////// Itinerary Routes /////////////////
 
+// Create an Itinerary
 app.post('/api/itineraries', authenticateToken, (req, res) => {
   const { itinerary_name, destinations, budget, start_date, end_date, days_added } = req.body;  
   const userId = req.user.id;
@@ -165,18 +166,19 @@ app.post('/api/itineraries', authenticateToken, (req, res) => {
 });
 
 
-// Get all itineraries for the authenticated user
+// Get all itineraries for the authenticated user and also get their username
 app.get('/api/itineraries', authenticateToken, (req, res) => {
   const userId = req.user.id;
 
   db.query(
-    'SELECT * FROM itineraries WHERE user_id = $1 ORDER BY created_at DESC', [userId]
+    'SELECT users.username, itineraries.* FROM itineraries INNER JOIN users ON itineraries.user_id = users.id WHERE itineraries.user_id = $1 ORDER BY itineraries.created_at DESC', 
+    [userId]
   )
     .then(result => {
       if (result.rows.length === 0) {
         return res.status(404).json({ message: 'No itineraries found for this user.' });
       }
-      res.status(200).json({ itineraries: result.rows });
+      res.status(200).json({ user: result.rows[0].username, itineraries: result.rows });
     })
     .catch(err => {
       console.error(err);  
