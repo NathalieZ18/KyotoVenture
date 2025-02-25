@@ -147,23 +147,47 @@ app.post('/api/itineraries', authenticateToken, (req, res) => {
   const { itinerary_name, destinations, budget, start_date, end_date, days_added } = req.body;  
   const userId = req.user.id;
 
-  console.log('Received request:', req.body); // Log the request body to see if the data is correct
-  console.log('User ID:', userId); // Log user ID
+  console.log('Received request:', req.body); // logs request
+  console.log('User ID:', userId); // logs user ID
 
   if (!itinerary_name || !destinations || !budget || !start_date || !end_date) {  
     return res.status(400).json({ message: 'Itinerary name, destinations, budget, start date, and end date are required.' });
   }
 
+  // makes sure destinations is an array
+  const formattedDestinations = Array.isArray(destinations)
+    ? destinations // If destinations is already an array
+    : destinations.split(",").map(dest => dest.trim()); // split by commas and remove extra spaces
+
+  console.log('Formatted Destinations:', formattedDestinations); // log formatted destinations
+
+  // converts destinations array to PostgreSQL-compatible array format
+  const destinationsArray = `{${formattedDestinations.map(dest => `"${dest}"`).join(',')}}`;
+
+  console.log('Destinations Array:', destinationsArray); // log formatted array
+
+  console.log('Inserting itinerary:', { 
+    userId, 
+    itinerary_name, 
+    destinationsArray, 
+    budget, 
+    start_date, 
+    end_date, 
+    days_added 
+  });
+
+  // inserts the itinerary collection into the postgresql database
   db.query(
     'INSERT INTO itineraries (user_id, itinerary_name, destinations, budget, start_date, end_date, days_added, created_at) VALUES ($1, $2, $3, $4, $5, $6, $7, NOW()) RETURNING *',
-    [userId, itinerary_name, destinations, budget, start_date, end_date, days_added]
+    [userId, itinerary_name, destinationsArray, budget, start_date, end_date, days_added]
   )
     .then(result => res.status(201).json({ success: true, itinerary: result.rows[0] }))
     .catch(err => {
-      console.error('Error creating itinerary:', err);  // Log the error
+      console.error('Error creating itinerary:', err);  
       res.status(500).json({ message: 'Error creating itinerary.', error: err.message });
     });
 });
+
 
 
 // Get all itineraries for the authenticated user and also get their username

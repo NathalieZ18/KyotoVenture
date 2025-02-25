@@ -53,7 +53,7 @@ function displayItineraryDetails(itinerary) {
     const startDate = new Date(itinerary.start_date);
     const endDate = new Date(itinerary.end_date);
     const days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) || 0;
-    daysCount.textContent = `Days: ${days}`;
+    daysCount.textContent = `Days: ${days}`; 
 
     if (!itineraryForm) {
         console.error("Itinerary form not found.");
@@ -62,11 +62,14 @@ function displayItineraryDetails(itinerary) {
 
     // Populate form fields with itinerary collection info
     document.getElementById("itineraryName").value = itinerary.itinerary_name || "";
-    document.getElementById("destinations").value = itinerary.destination || "";
+    
+    // Join destinations with a comma and space
+    document.getElementById("destinations").value = itinerary.destinations ? itinerary.destinations.join(", ") : "";
     document.getElementById("budget").value = itinerary.budget || "";
     document.getElementById("startDate").value = itinerary.start_date || "";
     document.getElementById("endDate").value = itinerary.end_date || "";
 }
+
 
 
 window.onload = () => {
