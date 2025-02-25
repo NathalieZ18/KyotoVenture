@@ -23,7 +23,7 @@ async function fetchItineraryDetails() {
         }
 
         const data = await response.json();
-        console.log("Fetched itinerary data:", data); // Debugging
+        console.log("Fetched itinerary data:", data); 
         if (!data.itinerary) {
             console.error("Itinerary data not found");
             return;
@@ -37,26 +37,37 @@ async function fetchItineraryDetails() {
 }
 
 function displayItineraryDetails(itinerary) {
-    const itineraryDetailsContainer = document.getElementById("itinerary-details-container");
-    if (!itineraryDetailsContainer) {
-        console.error("Itinerary details container not found.");
+    const itineraryTitle = document.getElementById("collection-title");
+    const daysCount = document.getElementById("days-count");
+    const itineraryForm = document.getElementById("itineraryForm");
+
+    if (!itineraryTitle || !daysCount) {
+        console.error("Itinerary title or days count element not found.");
         return;
     }
 
-    // Display fetched itinerary information
-    itineraryDetailsContainer.innerHTML = `
-        <div class="itinerary-image-container">
-            <img class="bamb" src="${itinerary.image ? 'assets/images/' + itinerary.image : 'assets/images/bamboogrove.png'}" alt="Itinerary Image" />
-        </div>
-        <div class="itineraryDetails">
-            <p><strong>Name:</strong> ${itinerary.itinerary_name}</p>
-            <p><strong>Destination:</strong> ${itinerary.destination}</p>
-            <p><strong>Budget:</strong> ${itinerary.budget}</p>
-            <p><strong>Start Date:</strong> ${itinerary.start_date}</p>
-            <p><strong>End Date:</strong> ${itinerary.end_date}</p>
-        </div>
-    `;
+    // Update the itinerary title and days count
+    itineraryTitle.textContent = itinerary.itinerary_name || "Itinerary Collection Name";
+    
+    // Calculate the number of days
+    const startDate = new Date(itinerary.start_date);
+    const endDate = new Date(itinerary.end_date);
+    const days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) || 0;
+    daysCount.textContent = `Days: ${days}`;
+
+    if (!itineraryForm) {
+        console.error("Itinerary form not found.");
+        return;
+    }
+
+    // Populate form fields with itinerary collection info
+    document.getElementById("itineraryName").value = itinerary.itinerary_name || "";
+    document.getElementById("destinations").value = itinerary.destination || "";
+    document.getElementById("budget").value = itinerary.budget || "";
+    document.getElementById("startDate").value = itinerary.start_date || "";
+    document.getElementById("endDate").value = itinerary.end_date || "";
 }
+
 
 window.onload = () => {
     fetchItineraryDetails();

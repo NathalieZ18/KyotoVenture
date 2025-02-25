@@ -44,7 +44,7 @@ async function fetchItineraries() {
 
         // Display itineraries of logged in user
         const itinerariesContainer = document.getElementById("itineraries-container");
-        console.log("Itineraries container found:", itinerariesContainer);
+        console.log("Itinerary collections found:", itinerariesContainer);
         if (!itinerariesContainer) {
             console.warn("Itineraries container not found.");
             return;
@@ -78,21 +78,22 @@ async function fetchItineraries() {
             document.querySelectorAll(".view-btn").forEach(button => {
                 button.addEventListener("click", function () {
                     const itineraryId = this.getAttribute("data-id");
-
+            
                     console.log("View button clicked, itinerary ID:", itineraryId);
-
+            
                     if (!itineraryId) {
                         console.error("No itinerary ID found.");
                         return;
                     }
-
+            
                     // Store itinerary ID in localStorage
                     localStorage.setItem("selectedItineraryId", itineraryId);
-
-                    // Redirect to itinerary-collection.html
-                    window.location.href = "itinerary-collection.html";
+            
+                    // Redirect to itinerary-collections.html
+                    window.location.href = "itinerary-collections.html";
                 });
             });
+            
 
             console.log("Itineraries updated successfully.");
         }

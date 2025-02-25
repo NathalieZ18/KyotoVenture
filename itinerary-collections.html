@@ -375,6 +375,8 @@
     </div>
   
 
+
+
       </div>
     </div>
     <!-- Edit Itinerary Breadcrumb -->
@@ -391,6 +393,36 @@
 
     <div class="intinerary-grid">
     <div class="itinerary-content">
+      <form id="itineraryForm" class="itinerary-details-container">
+
+        <div class="itinerary-container">
+          <div class="itineraryDetails">
+
+            <div class="itineraryName">
+              <label><strong>Itinerary Name:</strong></label>
+              <input class="nameInput" type="text" id="itineraryName" name="itineraryName" placeholder="Enter itinerary name" required>
+            </div>
+  
+            <div class="destination-container">
+              <label><strong>Destination(s):</strong></label>
+              <input class="destination-input" type="text" id="destinations" name="destinations" placeholder="e.g., Kyoto City, Arashiyama" required>
+            </div>
+  
+            <div class="budget-container">
+              <label><strong>Budget ($):</strong></label>
+              <input class="budget-input" type="number" id="budget" name="budget" placeholder="Enter budget" required>
+            </div>
+  
+            <div class="start-date-container">
+              <label><strong>Start Date:</strong></label>
+              <input class="start-date-input" type="date" id="startDate" name="startDate" required>
+            </div>
+  
+            <div class="end-date-container">
+              <label><strong>End Date:</strong></label>
+              <input class="end-date-input" type="date" id="endDate" name="endDate" required>
+            </div>
+          </form>
       <!-- <form id="itineraryForm" class="itinerary-details-container">
 
         <div class="itinerary-container">
