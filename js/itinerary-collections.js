@@ -1,3 +1,5 @@
+// Page for http://localhost:8080/itinerary-collections.html to display the details of the user's itinerary collection
+
 async function fetchItineraryDetails() {
     try {
         const itineraryId = localStorage.getItem("selectedItineraryId");

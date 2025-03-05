@@ -1,4 +1,5 @@
 //////////// Retrieve User Itineraries and Display Username of Logged in User
+// Itineraries Page to display all of the user's collections
 
  // Fetch itineraries from the backend and display them
 async function fetchItineraries() {
@@ -69,12 +70,14 @@ async function fetchItineraries() {
                                 alt="${itinerary.itinerary_name}">
                         </div>
                         <button class="foodbutton view-btn" data-id="${itinerary.id}">View</button>
+                        <button class="foodbutton delete-btn" data-id="${itinerary.id}">Delete</button>
                     </div>
                 `;
 
                 itinerariesContainer.appendChild(itineraryElement);
             });
 
+            //View Button Functionality for Each Itinerary Collection
             document.querySelectorAll(".view-btn").forEach(button => {
                 button.addEventListener("click", function () {
                     const itineraryId = this.getAttribute("data-id");
@@ -89,17 +92,57 @@ async function fetchItineraries() {
                     // Store itinerary ID in localStorage
                     localStorage.setItem("selectedItineraryId", itineraryId);
             
-                    // Redirect to itinerary-collections.html
+                    // goes to itinerary-collections.html page of specific collection clicked
                     window.location.href = "itinerary-collections.html";
                 });
             });
             
+     // Delete Buttons on each itinerary collection functionality
+     document.querySelectorAll(".delete-btn").forEach(button => {
+        button.addEventListener("click", async function () {
+            const itineraryId = this.getAttribute("data-id");
 
-            console.log("Itineraries updated successfully.");
-        }
-    } catch (error) {
-        console.error("Error fetching itineraries:", error);
-    }
+            if (confirm("Are you sure you want to delete this itinerary collection?")) {
+                await deleteItinerary(itineraryId);
+            }
+        });
+    });
+}
+} catch (error) {
+console.error("Error fetching itineraries:", error);
+}
 }
 
+// Function to delete an itinerary
+async function deleteItinerary(itineraryId) {
+try {
+console.log("Deleting itinerary ID:", itineraryId);
+
+const token = localStorage.getItem("token");
+
+const response = await fetch(`http://localhost:5000/api/itineraries/${itineraryId}`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`,
+    },
+});
+
+const result = await response.json();
+
+if (!response.ok) {
+    throw new Error(result.message || "Failed to delete itinerary.");
+}
+
+console.log("Itinerary deleted:", result.message);
+
+// Refresh the itinerary list after deletion
+fetchItineraries();
+} catch (error) {
+console.error("Error deleting itinerary:", error);
+}
+}
+
+// Gets logged in user itineraries when the page loads
 fetchItineraries();
