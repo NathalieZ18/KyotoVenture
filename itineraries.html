@@ -218,6 +218,16 @@
     gap: 24px; /* Spacing between items */
     margin: 0 80px;
 }
+#itinerary-dropdown {
+    display: inline-block; 
+    width: auto; 
+    padding: 8px;
+    margin-left: 80px;
+    background-color: #CFF3D7;
+    border: none;
+    border-radius: 8px;
+}
+
         
         
 
@@ -330,12 +340,21 @@
           </button>
           <button class="profile">Profile</button>
           <button class="wish">Wishlist</button>
-          <button class="review">Reviews</button>
+          <!-- <button class="review">Reviews</button> -->
           
-          <button class="sort">Set Default <span class="down-arrow"></span></button>
+          <!-- <div class="dropdown-container">
+            <button class="sort">Set Default <span class="down-arrow"></span></button>
+            <select id="itinerary-dropdown" class="itinerary-collection-dropdown">
+                <option disabled selected>Select an itinerary</option>
+            </select>
+        </div> -->
+        <select id="itinerary-dropdown" class="itinerary-collection-dropdown">
+          <option disabled selected>Select Default</option>
+      </select>
+
+
 
       </div>
-      
       
       
 

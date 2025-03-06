@@ -276,4 +276,31 @@ app.delete('/api/itineraries/:id', authenticateToken, (req, res) => {
 });
 
 
+// Set an itinerary collection as the default itinerary
+app.put('/api/itineraries/default/:id', authenticateToken, async (req, res) => {
+  const { id } = req.params;
+  const userId = req.user.id;
+
+  try {
+      // Remove default from any other itinerary the user has
+      await db.query('UPDATE itineraries SET is_default = FALSE WHERE user_id = $1', [userId]);
+
+      // Set the selected itinerary as default itinerary
+      const result = await db.query(
+          'UPDATE itineraries SET is_default = TRUE WHERE id = $1 AND user_id = $2 RETURNING *',
+          [id, userId]
+      );
+
+      if (result.rows.length === 0) {
+          return res.status(404).json({ message: 'Itinerary not found or not owned by user.' });
+      }
+
+      res.status(200).json({ success: true, message: 'Default itinerary updated.', itinerary: result.rows[0] });
+  } catch (error) {
+      console.error('Error setting default itinerary:', error);
+      res.status(500).json({ message: 'Error setting default itinerary.' });
+  }
+});
+
+
 app.listen(5000, () => console.log('Backend running on http://localhost:5000'));
