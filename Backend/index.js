@@ -302,5 +302,69 @@ app.put('/api/itineraries/default/:id', authenticateToken, async (req, res) => {
   }
 });
 
+/////////////////////////////////////////ACTIVITIES////////////////////////////////////////////////////
+// Route for adding activities to the default itinerary the user has set
+// checks if users has a default itinerary and if not: error. activities will automatically be added to Day 1
+// users can switch activities to different days through edit itinerary but activities will go to Day 1 by default
+// Add Activity to Default Itinerary
+app.post('/api/activities/add', authenticateToken, async (req, res) => {
+  const { activityId } = req.body; 
+  const userId = req.user.id;
+
+  try {
+    // Find users default itinerary
+    const defaultItineraryQuery = `
+      SELECT id FROM itineraries WHERE user_id = $1 AND is_default = TRUE
+    `;
+    const result = await db.query(defaultItineraryQuery, [userId]);
+
+    if (result.rows.length === 0) {
+      return res.status(400).json({ error: 'No default itinerary found' });
+    }
+
+    const defaultItineraryId = result.rows[0].id;
+
+    // Add the activity to the default itinerary
+    const addActivityQuery = `
+      INSERT INTO activities (user_id, itinerary_id, activity_id, day)
+      VALUES ($1, $2, $3, 1) -- Defaulting to day 1
+    `;
+    await db.query(addActivityQuery, [userId, defaultItineraryId, activityId]);
+
+    res.status(200).json({ message: 'Activity added to default itinerary' });
+  } catch (error) {
+    console.error('Error adding activity to itinerary:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Route for fetching/getting activities linked to a specific itinerary collection. the frontend will 
+// display the activities for the users itinerary on the certain pages where it should show
+// orders/sorts activities by the day ascending from smallest to largest
+// Fetch Activities for a specific Itinerary
+app.get('/api/itinerary/:itineraryId/activities', authenticateToken, async (req, res) => {
+  const { itineraryId } = req.params;
+
+  try {
+    const query = `
+      SELECT * FROM activities 
+      WHERE itinerary_id = $1
+      ORDER BY day ASC
+    `;
+    const result = await db.query(query, [itineraryId]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'No activities found for this itinerary' });
+    }
+
+    res.status(200).json(result.rows);
+  } catch (error) {
+    console.error('Error fetching activities:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
 
 app.listen(5000, () => console.log('Backend running on http://localhost:5000'));

@@ -291,6 +291,14 @@
   width: 100%;
   margin-top: 40px;
 }
+
+.activity-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
     </style>
   </head>
   <body>
@@ -374,7 +382,6 @@
       <!-- Itinerary details will be injected here by JavaScript -->
     </div>
   
-
 
 
       </div>
@@ -486,9 +493,12 @@
                 </div>
               </form>
          -->
+              
           </div>
       
     </div>
+
+  
   
       <div class="itinerary-image-container">
           <div class="itinerary-image">
@@ -500,6 +510,12 @@
 
   </div>
 
+  <div class="activity-content">
+    <!-- Activities -->
+    <h3>Activities:</h3>
+    <div id="activities-container"></div>
+  </div>
+
   <!-- Test -->
   <h2 id="itinerary-name"></h2>
   <p><strong>Destinations:</strong> <span id="destinations"></span></p>
@@ -507,6 +523,7 @@
   <p><strong>Start Date:</strong> <span id="start-date"></span></p>
   <p><strong>End Date:</strong> <span id="end-date"></span></p>
   
+ 
 
   <div class="content-layout">
     <div class="text-container">
