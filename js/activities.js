@@ -96,3 +96,49 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     window.location.href = "my-itinerary.html"; 
 });
 
+// Add Activity to Default Itinerary Function
+async function addActivityToDefaultItinerary(activityId) {
+  try {
+    // token from localstorage
+    const token = localStorage.getItem("token");
+
+    // current default itinerary ID from localstorage
+    const defaultItineraryId = localStorage.getItem("defaultItineraryId");
+
+    // show a message if theres no default itinerary set
+    if (!defaultItineraryId) {
+      alert("You need to set a default itinerary first.");
+      return;
+    }
+
+    // POST request to add the activity to the default itinerary
+    const response = await fetch('http://localhost:5000/api/activities/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ activityId })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Failed to add activity.');
+    }
+
+    // show success message and refresh activities
+    alert("Activity added to your default itinerary!");
+    fetchActivitiesForItinerary(defaultItineraryId);
+  } catch (error) {
+    console.error('Error adding activity to itinerary:', error);
+  }
+}
+
+// Attach event listener to "Add to Itinerary" button for each activity
+document.querySelectorAll('.addItineraryButton').forEach(button => {
+  button.addEventListener('click', (event) => {
+    const activityId = event.target.dataset.activityId; // each button has data-activity-id according to the database numb for activity id
+    addActivityToDefaultItinerary(activityId);
+  });
+});

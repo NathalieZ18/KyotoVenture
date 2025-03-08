@@ -312,22 +312,32 @@ app.post('/api/activities/add', authenticateToken, async (req, res) => {
   const userId = req.user.id;
 
   try {
-    // Find users default itinerary
+    // Find the users default itinerary
     const defaultItineraryQuery = `
       SELECT id FROM itineraries WHERE user_id = $1 AND is_default = TRUE
     `;
     const result = await db.query(defaultItineraryQuery, [userId]);
 
     if (result.rows.length === 0) {
-      return res.status(400).json({ error: 'No default itinerary found' });
+      return res.status(400).json({ error: 'No default itinerary found. Please set a default itinerary first.' });
     }
 
     const defaultItineraryId = result.rows[0].id;
 
-    // Add the activity to the default itinerary
+    // Check if the activity exists
+    const activityQuery = `
+      SELECT id FROM activities WHERE id = $1
+    `;
+    const activityResult = await db.query(activityQuery, [activityId]);
+
+    if (activityResult.rows.length === 0) {
+      return res.status(400).json({ error: 'Activity not found' });
+    }
+
+    // Add activity to the itinerary_activities table (defaulting to Day 1)
     const addActivityQuery = `
-      INSERT INTO activities (user_id, itinerary_id, activity_id, day)
-      VALUES ($1, $2, $3, 1) -- Defaulting to day 1
+      INSERT INTO itinerary_activities (user_id, itinerary_id, activity_id, day)
+      VALUES ($1, $2, $3, 1) -- Defaulting to Day 1
     `;
     await db.query(addActivityQuery, [userId, defaultItineraryId, activityId]);
 
@@ -338,6 +348,7 @@ app.post('/api/activities/add', authenticateToken, async (req, res) => {
   }
 });
 
+
 // Route for fetching/getting activities linked to a specific itinerary collection. the frontend will 
 // display the activities for the users itinerary on the certain pages where it should show
 // orders/sorts activities by the day ascending from smallest to largest
@@ -347,9 +358,11 @@ app.get('/api/itinerary/:itineraryId/activities', authenticateToken, async (req,
 
   try {
     const query = `
-      SELECT * FROM activities 
-      WHERE itinerary_id = $1
-      ORDER BY day ASC
+      SELECT ia.id, ia.day, a.title, a.area, a.interest, a.rating
+      FROM itinerary_activities ia
+      JOIN activities a ON ia.activity_id = a.id
+      WHERE ia.itinerary_id = $1
+      ORDER BY ia.day ASC
     `;
     const result = await db.query(query, [itineraryId]);
 
@@ -363,8 +376,6 @@ app.get('/api/itinerary/:itineraryId/activities', authenticateToken, async (req,
     res.status(500).json({ error: 'Server error' });
   }
 });
-
-
 
 
 app.listen(5000, () => console.log('Backend running on http://localhost:5000'));
