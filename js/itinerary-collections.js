@@ -29,7 +29,7 @@ async function fetchItineraryDetails() {
         }
 
         const data = await response.json();
-        console.log("Fetched itinerary data:", data); 
+        console.log("Fetched itinerary data:", data);
 
         if (!data.itinerary) {
             console.error("Itinerary data not found");
@@ -37,7 +37,6 @@ async function fetchItineraryDetails() {
         }
 
         displayItineraryDetails(data.itinerary);
-        fetchActivities(itineraryId);  // Fetch activities for the selected itinerary
 
     } catch (error) {
         console.error("Error fetching itinerary details:", error);
@@ -76,12 +75,12 @@ function displayItineraryDetails(itinerary) {
     // Populate form fields with itinerary collection info
     document.getElementById("itineraryName").value = itinerary.itinerary_name || "";
     document.getElementById("destinations").value = itinerary.destinations ? itinerary.destinations.join(", ") : "";
-
-    // Set formatted dates if available
     document.getElementById("startDate").value = startDate ? startDate.toISOString().split('T')[0] : "";
     document.getElementById("endDate").value = endDate ? endDate.toISOString().split('T')[0] : "";
-
     document.getElementById("budget").value = itinerary.budget || "";
+
+    // Fetch activities after displaying itinerary details
+    fetchActivities(itinerary.id);
 }
 
 // Fetch activities for the selected itinerary
@@ -94,7 +93,7 @@ async function fetchActivities(itineraryId) {
         }
 
         const response = await fetch(
-            `http://localhost:5000/api/itineraries/${itineraryId}/activities`, 
+            `http://localhost:5000/api/itinerary/${itineraryId}/activities`, 
             {
                 method: "GET",
                 headers: {
@@ -109,33 +108,91 @@ async function fetchActivities(itineraryId) {
             throw new Error(errorData.message || "Failed to fetch activities.");
         }
 
-        const activities = await response.json();
+        const activitiesData = await response.json();
+        console.log("Fetched activities:", activitiesData);
 
-        // Display activities on the frontend
-        const activitiesContainer = document.getElementById("activities-container");
-        activitiesContainer.innerHTML = ""; 
-
-        if (!activities || activities.length === 0) {
-            activitiesContainer.innerHTML = "<p>No activities added to this itinerary yet.</p>";
-        } else {
-            activities.forEach(activity => {
-                const activityCard = document.createElement("div");
-                activityCard.classList.add("activity-card");
-                activityCard.innerHTML = `
-                    <h4>${activity.title}</h4>
-                    <p>Area: ${activity.area}</p>
-                    <p>Interest: ${activity.interest}</p>
-                    <p>Day: ${activity.day || "Unassigned"}</p>
-                `;
-                activitiesContainer.appendChild(activityCard);
-            });
+        // Check if activities exist in response
+        if (!activitiesData || !Array.isArray(activitiesData) || activitiesData.length === 0) {
+            console.warn("No activities found for this itinerary.");
+            return;
         }
 
+        displayActivities(activitiesData);
     } catch (error) {
         console.error("Error fetching activities:", error);
     }
 }
 
+function displayActivities(activities) {
+    const container = document.getElementById("activities-container");
+
+    if (!container) {
+        console.error("Activity container not found.");
+        return;
+    }
+
+    container.innerHTML = ""; 
+
+    activities.forEach(activity => {
+        // activity container
+        const activityContainer = document.createElement("div");
+        activityContainer.classList.add("itinerary-container");
+
+        // activity image
+        const img = document.createElement("img");
+        img.src = activity.image_url ? activity.image_url : "assets/images/thetemplekyoto.png"; 
+        img.alt = `Itinerary Activity: ${activity.title}`;
+        img.classList.add("container-image"); 
+
+        // text
+        const textContainer = document.createElement("div");
+        textContainer.classList.add("container-text");
+
+        const title = document.createElement("h3");
+        title.classList.add("less-bold", "headerSize");
+        title.textContent = activity.title;
+
+        const tag = document.createElement("p");
+        tag.classList.add("container-tag");
+        tag.innerHTML = `${activity.area} <span class="ellipses"></span> ${activity.interest}`;
+
+        const tagTwo = document.createElement("p");
+        tagTwo.classList.add("container-tag-two");
+        tagTwo.textContent = activity.day ? `Day ${activity.day}` : "Unscheduled";
+
+        // buttons
+        const buttonSet = document.createElement("div");
+        buttonSet.classList.add("myItineraryButtonSet");
+
+        const editButton = document.createElement("button");
+        editButton.classList.add("editTimeButton");
+        editButton.innerHTML = `<i class="fa-solid fa-pen editTimePen"></i> Edit Time`;
+        editButton.onclick = () => editActivityTime(activity.activity_id);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteButton");
+        deleteButton.innerHTML = `<i class="fa-regular fa-trash-can deleteIcon"></i> Delete`;
+        deleteButton.onclick = () => deleteActivity(activity.activity_id);
+
+        
+        textContainer.appendChild(title);
+        textContainer.appendChild(tag);
+        textContainer.appendChild(tagTwo);
+
+        buttonSet.appendChild(editButton);
+        buttonSet.appendChild(deleteButton);
+
+        activityContainer.appendChild(img); 
+        activityContainer.appendChild(textContainer);
+        activityContainer.appendChild(buttonSet);
+
+        container.appendChild(activityContainer); 
+    });
+}
+
+
+
+// loads itinerary details when page loads
 window.onload = () => {
     fetchItineraryDetails();
 };

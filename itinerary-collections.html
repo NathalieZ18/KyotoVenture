@@ -299,6 +299,126 @@
   justify-content: center;
 }
 
+/* CSS from my-itinerary.html */
+.page-layout-itinerary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .container-layout-itinerary {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-left: 80px;
+        margin-right: 80px;
+      }
+      .itinerary-container {
+        display: flex;
+        flex-direction: row;
+        /* align-items: center; */
+        width: 100%;
+        max-width: 1280px;
+        height: 304px;
+        margin: 0 auto;
+        border-radius: 8px;
+        background-color: #f5f7fa;
+        gap: 24px;
+        /* overflow: auto; */
+        /* overflow: hidden; */
+      }
+      .container-image {
+        width: 35%;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+        max-height: 304px;
+      }
+      .container-tag {
+        color: gray;
+        position: relative;
+        bottom: 20px;
+        font-size: 1em;
+      }
+      .container-tag-two {
+        font-size: 1em;
+        position: relative;
+        bottom: 20px;
+      }
+      .ellipsesTime {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: black;
+        margin: 0 2px;
+      }
+      .container-text {
+        width: 35%;
+        height: auto;
+      }
+      .notes {
+        max-height: 100px;
+        overflow-y: auto;
+        font-size: 1em;
+        position: relative;
+        bottom: 20px;
+      }
+      .headerSize {
+        font-size: 1.5em;
+      }
+      .myItineraryButtonSet {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        height: 100%;
+        margin-top: 56px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        overflow: auto;
+      }
+      .editTimeButton {
+        color: white;
+        font-size: 1.2em;
+        background-color: #013d79;
+        padding: 16px 36px;
+        border: solid #013d79;
+        border-radius: 8px;
+        width: 200px;
+        /* position: relative;
+        top: 4px;
+        left: 16px; */
+        cursor: pointer;
+        display: none;
+      }
+      .editTimePen {
+        margin-right: 8px;
+        font-size: 1.25em;
+      }
+      .deleteButton {
+        color: black;
+        font-size: 1.2em;
+        background-color: #cdcdcd;
+        padding: 16px 36px;
+        border: solid #cdcdcd;
+        border-radius: 8px;
+        width: 200px;
+        cursor: pointer;
+      }
+      .deleteIcon {
+        margin-right: 8px;
+        font-size: 1.25em;
+        color: black;
+      }
+/* End of CSS */
+
     </style>
   </head>
   <body>
@@ -430,69 +550,7 @@
               <input class="end-date-input" type="date" id="endDate" name="endDate" required>
             </div>
           </form>
-      <!-- <form id="itineraryForm" class="itinerary-details-container">
 
-        <div class="itinerary-container">
-          <div class="itineraryDetails">
-
-            <div class="itineraryName">
-              <label><strong>Itinerary Name:</strong></label>
-              <input class="nameInput" type="text" id="itineraryName" name="itineraryName" placeholder="Enter itinerary name" required>
-            </div>
-  
-            <div class="destination-container">
-              <label><strong>Destination(s):</strong></label>
-              <input class="destination-input" type="text" id="destinations" name="destinations" placeholder="e.g., Kyoto City, Arashiyama" required>
-            </div>
-  
-            <div class="budget-container">
-              <label><strong>Budget ($):</strong></label>
-              <input class="budget-input" type="number" id="budget" name="budget" placeholder="Enter budget" required>
-            </div>
-  
-            <div class="start-date-container">
-              <label><strong>Start Date:</strong></label>
-              <input class="start-date-input" type="date" id="startDate" name="startDate" required>
-            </div>
-  
-            <div class="end-date-container">
-              <label><strong>End Date:</strong></label>
-              <input class="end-date-input" type="date" id="endDate" name="endDate" required>
-            </div>
-          </form> -->
-
-          <!-- Other form: -->
-          <!-- <form id="itineraryForm" class="itinerary-details-container">
-
-            <div class="itinerary-container">
-              <div class="itineraryDetails">
-    
-                <div class="itineraryName">
-                  <label><strong>Itinerary Name:</strong></label>
-                  <input class="nameInput" type="text" id="itineraryName" name="itineraryName" placeholder="Enter itinerary name" required>
-                </div>
-      
-                <div class="destination-container">
-                  <label><strong>Destination(s):</strong></label>
-                  <input class="destination-input" type="text" id="destinations" name="destinations" placeholder="e.g., Kyoto City, Arashiyama" required>
-                </div>
-      
-                <div class="budget-container">
-                  <label><strong>Budget ($):</strong></label>
-                  <input class="budget-input" type="number" id="budget" name="budget" placeholder="Enter budget" required>
-                </div>
-      
-                <div class="start-date-container">
-                  <label><strong>Start Date:</strong></label>
-                  <input class="start-date-input" type="date" id="startDate" name="startDate" required>
-                </div>
-      
-                <div class="end-date-container">
-                  <label><strong>End Date:</strong></label>
-                  <input class="end-date-input" type="date" id="endDate" name="endDate" required>
-                </div>
-              </form>
-         -->
               
           </div>
       
@@ -512,8 +570,9 @@
 
   <div class="activity-content">
     <!-- Activities -->
-    <h3>Activities:</h3>
-    <div id="activities-container"></div>
+    <!-- <h3>Activities:</h3> -->
+    <!-- activities go in the activities-container div -->
+    <div id="activities-container"></div>    
   </div>
 
   <!-- Test -->
