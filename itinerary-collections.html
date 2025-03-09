@@ -292,6 +292,15 @@
   margin-top: 40px;
 }
 
+/* Additional styling for the "No activities scheduled" message */
+.no-activities-message {
+  font-size: 1em;
+  color: #888;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
 .activity-content {
   display: flex;
   flex-direction: row;
@@ -568,6 +577,9 @@
 
   </div>
 
+<!-- day separators -->
+  <div id="days-container"></div>
+
   <div class="activity-content">
     <!-- Activities -->
     <!-- <h3>Activities:</h3> -->
@@ -591,7 +603,7 @@
   </div>
   
   <!-- Container to hold dynamically added days from the Add Day option after being clicked on -->
-  <div id="days-container"></div>
+  <!-- <div id="days-container"></div> -->
    
 
   <div class="button-layout">
