@@ -3,7 +3,7 @@ import cors from "cors";
 import db from "./db.js"; // database connection
 import bcrypt from "bcryptjs"; // bcryptjs for hashing passwords
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+import dotenv from "dotenv"; 
 
 dotenv.config(); // Loads environment variables from .env
 
@@ -14,7 +14,7 @@ app.use(express.json());
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "7d";
 
-// Allow frontend requests (node http server)
+// Allow frontend requests (node http server) - type http-server on the terminal in the frontend KyotoVenture folder to start it on localhost:8080
 app.use(
   cors({
     origin: ["http://127.0.0.1:8080", "http://localhost:8080"],
@@ -479,5 +479,42 @@ app.get(
     }
   }
 );
+
+// Delete an Activity from an itinerary collection
+app.delete("/api/itinerary/:itineraryId/activities/:activityId", authenticateToken, (req, res) => {
+  const { itineraryId, activityId } = req.params;
+  const userId = req.user.id;
+
+  // Check if the activity exists in the itinerary
+  db.query(
+    "SELECT * FROM itinerary_activities WHERE itinerary_id = $1 AND activity_id = $2 AND user_id = $3",
+    [itineraryId, activityId, userId]
+  )
+    .then((result) => {
+      if (result.rows.length === 0) {
+        return res
+          .status(404)
+          .json({ message: "Activity not found in this itinerary or not owned by user." });
+      }
+
+      // Delete activity from itinerary
+      db.query(
+        "DELETE FROM itinerary_activities WHERE itinerary_id = $1 AND activity_id = $2 AND user_id = $3 RETURNING *",
+        [itineraryId, activityId, userId]
+      )
+        .then(() => {
+          res.status(200).json({ success: true, message: "Activity deleted from itinerary." });
+        })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).json({ message: "Error deleting activity from itinerary.", error: err.message });
+        });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({ message: "Error checking activity existence.", error: err.message });
+    });
+});
+
 
 app.listen(5000, () => console.log("Backend running on http://localhost:5000"));

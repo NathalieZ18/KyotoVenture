@@ -82,7 +82,6 @@ function displayItineraryDetails(itinerary) {
     fetchActivities(itinerary.id, days);  
 }
 
-
 // Fetch activities for the selected itinerary collection
 async function fetchActivities(itineraryId, totalDays) {
     try {
@@ -232,6 +231,53 @@ function displayActivities(activities, totalDays) {
         daysContainer.appendChild(daySeparator);
     }
 }
+
+// Delete activity from the itinerary and refresh
+async function deleteActivity(activityId) {
+    try {
+        const itineraryId = localStorage.getItem("selectedItineraryId");
+        if (!itineraryId) {
+            console.error("No itinerary ID found in localStorage");
+            return;
+        }
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            console.error("No authentication token found.");
+            return;
+        }
+
+        // Confirm deletion before deleting an activity
+        if (confirm("Are you sure you want to delete this activity?")) {
+            const response = await fetch(`http://localhost:5000/api/itinerary/${itineraryId}/activities/${activityId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || "Failed to delete activity");
+            }
+
+            // Remove activity on the page after deleting
+            const activityElement = document.querySelector(`.itinerary-container[data-activity-id='${activityId}']`);
+            if (activityElement) {
+                activityElement.remove();
+            }
+
+            console.log("Activity deleted successfully");
+        } else {
+            console.log("Activity deletion cancelled.");
+        }
+        fetchItineraryDetails();
+    } catch (error) {
+        console.error("Error deleting activity:", error);
+    }
+}
+
 
 // loads itinerary details when page loads
 window.onload = () => {
