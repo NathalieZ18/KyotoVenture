@@ -97,7 +97,8 @@ async function fetchItineraries() {
           if (itinerary.is_default) {
             option.style.fontWeight = "bold";
             dropdown.dataset.default = itinerary.id;
-            option.selected = true; // This ensures the default itinerary is selected
+            // default itinerary selected
+            option.selected = true;
           }
   
           dropdown.appendChild(option);
