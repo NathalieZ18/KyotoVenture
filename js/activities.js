@@ -1,62 +1,38 @@
-// Tag Functionality //
-document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
-    checkbox.addEventListener('change', (event) => {
-      const value = event.target.value;
-      // Select div from html. Tags will be displayed in the div
-      const tagContainer = document.querySelector('.selected-checkbox-tags');
-  
-      if (event.target.checked) {
-        // Create a new tag
-        const tag = document.createElement('div');
-        tag.className = 'tag';
-        tag.setAttribute('data-value', value);
-        tag.innerHTML = `${value} <button aria-label="Remove tag"><i class="fa-solid fa-xmark"></i></button>`;
-  
-        // Append the tag to the tag container
-        tagContainer.appendChild(tag);
-  
-        // Add event listener to the remove button
-        tag.querySelector('button').addEventListener('click', () => {
-          // Uncheck related checkbox
-          event.target.checked = false; 
-          // Remove tag
-          tag.remove(); 
-        });
-      } else {
-        // Remove tag if the checkbox is unchecked
-        const tagToRemove = tagContainer.querySelector(`.tag[data-value="${value}"]`);
-        if (tagToRemove) tagToRemove.remove();
-      }
-    });
-  });
-  // Clears all tags and checkboxes once Clear All is clicked // 
-  document.querySelector('.clear-all').addEventListener('click', () => {
-    // Clear all the tags
-    const tagContainer = document.querySelector('.selected-checkbox-tags');
-    tagContainer.innerHTML = '';
-  
-    // Uncheck all checkboxes
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    checkboxes.forEach(checkbox => {
-      checkbox.checked = false;
-    });
-  });
+// Search Feature
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.querySelector(".activities-search-box input");
+  const searchButton = document.querySelector(".activities-search-button");
+  const cards = document.querySelectorAll(".card");
 
+  // Function to filter activities based on search input
+  function filterActivities() {
+    const searchText = searchInput.value.toLowerCase();
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', function(event) {
-      console.log('Card clicked');
-      
-      // Check for the 'Add to Itinerary' button, don't navigate if clicked
-      if (event.target.closest('.addItineraryButton')) {
+    cards.forEach((card) => {
+      const title = card.querySelector(".cardTitle").textContent.toLowerCase();
+      card.style.display = title.includes(searchText) ? "block" : "none";
+    });
+  }
+
+  // Event listeners for search functionality
+  searchButton.addEventListener("click", filterActivities);
+  searchInput.addEventListener("keyup", filterActivities);
+
+  // Card Click Feature (to go to the activity details page of the card)
+  document.querySelectorAll(".card").forEach((card) => {
+    card.addEventListener("click", function (event) {
+      console.log("Card clicked");
+
+      // Prevent navigation when clicking the "Add to Itinerary" button (clicking anywhere else on the card takes you to activity details page)
+      if (event.target.closest(".addItineraryButton")) {
         event.stopPropagation();
         return;
       }
-  
-      // Get the URL from data-url and navigate to specific activity details page
-      const pageUrl = this.getAttribute('data-url');
-      console.log('Navigating to:', pageUrl); // Debug log for URL
-  
+      // Get the URL of the activity details page from data-url and navigate to that specific page
+      const pageUrl = this.getAttribute("data-url");
+      // debug log for URL to show that your navigating to the activity details page based on the activity cards clicked
+      console.log("Navigating to:", pageUrl);
+
       if (pageUrl) {
         window.location.href = pageUrl;
       } else {
@@ -64,81 +40,145 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
       }
     });
   });
-  
 
-  // Search Feature
-  document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.querySelector(".activities-search-box input");
-    const searchButton = document.querySelector(".activities-search-button");
-    const cards = document.querySelectorAll(".card");
+  // Function to filter activities based on selected tags, areas, and interests
+  function filterCards() {
+    const selectedTags = [
+      ...document.querySelectorAll(".selected-checkbox-tags .tag"),
+    ].map((tag) => tag.getAttribute("data-value"));
 
-    function filterActivities() {
-      const searchText = searchInput.value.toLowerCase();
+    const selectedAreas = [
+      ...document.querySelectorAll(
+        '.area-checkbox-group input[type="checkbox"]:checked'
+      ),
+    ].map((checkbox) => checkbox.value);
 
-      cards.forEach((card) => {
-        const title = card.querySelector(".cardTitle").textContent.toLowerCase();
-        
-        if (title.includes(searchText)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
+    const selectedInterests = [
+      ...document.querySelectorAll(
+        '.interests-checkbox-group input[type="checkbox"]:checked'
+      ),
+    ].map((checkbox) => checkbox.value);
 
-    // Event Listeners
-    searchButton.addEventListener("click", filterActivities);
-    searchInput.addEventListener("keyup", filterActivities); 
+    cards.forEach((card) => {
+      const cardArea = card.getAttribute("data-area");
+      const cardInterests = card.getAttribute("data-interests").split(", ");
+
+      const matchesArea =
+        selectedAreas.length === 0 || selectedAreas.includes(cardArea);
+      const matchesInterest =
+        selectedInterests.length === 0 ||
+        cardInterests.some((interest) => selectedInterests.includes(interest));
+      const matchesTag =
+        selectedTags.length === 0 ||
+        selectedTags.every(
+          (tag) => cardInterests.includes(tag) || cardArea === tag
+        );
+
+      card.style.display =
+        matchesArea && matchesInterest && matchesTag ? "block" : "none";
+    });
+  }
+
+  // Event listeners for checkbox filtering
+  document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+    checkbox.addEventListener("change", (event) => {
+      const value = event.target.value;
+      const tagContainer = document.querySelector(".selected-checkbox-tags");
+
+      if (event.target.checked) {
+        // Create a tag element for selected checkbox
+        const tag = document.createElement("div");
+        tag.className = "tag";
+        tag.setAttribute("data-value", value);
+        tag.innerHTML = `${value} <button aria-label="Remove tag"><i class="fa-solid fa-xmark"></i></button>`;
+
+        tagContainer.appendChild(tag);
+
+        // Remove tag when clicked
+        tag.querySelector("button").addEventListener("click", () => {
+          event.target.checked = false;
+          tag.remove();
+          filterCards();
+        });
+      } else {
+        // Remove tag when checkbox is unchecked
+        const tagToRemove = tagContainer.querySelector(
+          `.tag[data-value="${value}"]`
+        );
+        if (tagToRemove) tagToRemove.remove();
+        filterCards();
+      }
+    });
   });
 
-  // Go to My Itinerary Button
-  document.querySelector(".goToMyItineraryButton").addEventListener("click", function () {
-    window.location.href = "my-itinerary.html"; 
-});
+  // Clear all selected filters
+  document.querySelector(".clear-all").addEventListener("click", () => {
+    document.querySelector(".selected-checkbox-tags").innerHTML = "";
+    document
+      .querySelectorAll('input[type="checkbox"]')
+      .forEach((checkbox) => (checkbox.checked = false));
+    showAllCards();
+    filterCards();
+  });
 
-// Add Activity to Default Itinerary Function
-async function addActivityToDefaultItinerary(activityId) {
-  try {
-    // token from localstorage
-    const token = localStorage.getItem("token");
+  // Function to show all cards
+  function showAllCards() {
+    cards.forEach((card) => (card.style.display = "block"));
+  }
 
-    // current default itinerary ID from localstorage
-    const defaultItineraryId = localStorage.getItem("defaultItineraryId");
-
-    // show a message if theres no default itinerary set
-    if (!defaultItineraryId) {
-      alert("You need to set a default itinerary first.");
-      return;
-    }
-
-    // POST request to add the activity to the default itinerary
-    const response = await fetch('http://localhost:5000/api/activities/add', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,
-      },
-      body: JSON.stringify({ activityId })
+  // Event listeners for area and interest checkboxes
+  document
+    .querySelectorAll(
+      '.area-checkbox-group input[type="checkbox"], .interests-checkbox-group input[type="checkbox"]'
+    )
+    .forEach((checkbox) => {
+      checkbox.addEventListener("change", filterCards);
     });
 
-    const result = await response.json();
+  // Function to add an activity to the default itinerary
+  async function addActivityToDefaultItinerary(activityId) {
+    try {
+      const token = localStorage.getItem("token");
+      const defaultItineraryId = localStorage.getItem("defaultItineraryId");
 
-    if (!response.ok) {
-      throw new Error(result.error || 'Failed to add activity.');
+      if (!defaultItineraryId) {
+        alert("You need to set a default itinerary first.");
+        return;
+      }
+
+      const response = await fetch("http://localhost:5000/api/activities/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ activityId }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok)
+        throw new Error(result.error || "Failed to add activity.");
+
+      alert("Activity added to your default itinerary!");
+      fetchActivitiesForItinerary(defaultItineraryId);
+    } catch (error) {
+      console.error("Error adding activity to itinerary:", error);
     }
-
-    // show success message and refresh activities
-    alert("Activity added to your default itinerary!");
-    fetchActivitiesForItinerary(defaultItineraryId);
-  } catch (error) {
-    console.error('Error adding activity to itinerary:', error);
   }
-}
 
-// Attach event listener to "Add to Itinerary" button for each activity
-document.querySelectorAll('.addItineraryButton').forEach(button => {
-  button.addEventListener('click', (event) => {
-    const activityId = event.target.dataset.activityId; // each button has data-activity-id according to the database numb for activity id
-    addActivityToDefaultItinerary(activityId);
+  // Event listeners for "Add to Itinerary" buttons
+  document.querySelectorAll(".addItineraryButton").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const activityId = event.target.dataset.activityId;
+      addActivityToDefaultItinerary(activityId);
+    });
   });
+
+  // Event listener for "Go to My Itinerary" button at the top right (that page shows the users default itinerary)
+  document
+    .querySelector(".goToMyItineraryButton")
+    .addEventListener("click", function () {
+      window.location.href = "my-itinerary.html";
+    });
 });

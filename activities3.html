@@ -17,63 +17,69 @@
     />
   </head>
   <body>
-     <!-- Navigation -->
-<nav class="kyotoVentureNavBar">
-  <div class="kyotoVentureLogo">
-    <div class="logoImage"><img src="assets/icons/logo.svg"></div>
-    <div class="title">KyotoVenture</div>
-  </div>
-  <ul class="navbar-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="destinations.html">Destinations</a>
-      <ul class="dropdown">
-        <li><a href="kyoto.html">Kyoto City</a></li>
-        <li><a href="arashiyama.html">Arashiyama</a></li>
-        <li><a href="nara.html">Nara</a></li>
-        <li><a href="uji.html">Uji</a></li>
-        <li><a href="kameoka.html">Kameoka</a></li>
-      </ul>
-    </li>
+    <!-- Navigation -->
+    <nav class="kyotoVentureNavBar">
+      <div class="kyotoVentureLogo">
+        <div class="logoImage"><img src="assets/icons/logo.svg" /></div>
+        <div class="title">KyotoVenture</div>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="destinations.html">Destinations</a>
+          <ul class="dropdown">
+            <li><a href="kyoto.html">Kyoto City</a></li>
+            <li><a href="arashiyama.html">Arashiyama</a></li>
+            <li><a href="nara.html">Nara</a></li>
+            <li><a href="uji.html">Uji</a></li>
+            <li><a href="kameoka.html">Kameoka</a></li>
+          </ul>
+        </li>
 
-    <li><a href="activities.html">Activities</a></li>
-    <li><a href="itineraries.html">Itineraries</a>
-      <ul class="dropdown">
-        <li><a href="create-itinerary.html">Create Itinerary</a></li>
-        <!-- <li><a href="wishlist.html">Wishlist</a></li> -->
-      </ul>
-    </li>
-    <li><a href="about-us.html">About</a>
-      <ul class="dropdown">
-        <!-- <li><a href="about-us.html">About</a></li> -->
-        <li><a href="contact-us.html">Contact Us</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-      </ul>
-    </li>
+        <li><a href="activities.html">Activities</a></li>
+        <li>
+          <a href="itineraries.html">Itineraries</a>
+          <ul class="dropdown">
+            <li><a href="create-itinerary.html">Create Itinerary</a></li>
+            <!-- <li><a href="wishlist.html">Wishlist</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="about-us.html">About</a>
+          <ul class="dropdown">
+            <!-- <li><a href="about-us.html">About</a></li> -->
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </li>
 
-    <!-- Logged Out Users -->
-    <li id="logged-out" class="profile-menu">
-      <a href="#">
-        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
-      </a>
-      <ul class="dropdown">
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
-    </li>
+        <!-- Logged Out Users -->
+        <li id="logged-out" class="profile-menu">
+          <a href="#">
+            <div class="profile-icon">
+              <i class="fa-regular fa-user navProfileIcon"></i>
+            </div>
+          </a>
+          <ul class="dropdown">
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </li>
 
-    <!-- Logged In Users -->
-    <li id="logged-in" class="profile-menu">
-      <a href="#">
-        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
-      </a>
-      <ul class="dropdown">
-        <li><a href="#" onclick="logout()">Logout</a></li>
+        <!-- Logged In Users -->
+        <li id="logged-in" class="profile-menu">
+          <a href="#">
+            <div class="profile-icon">
+              <i class="fa-regular fa-user navProfileIcon"></i>
+            </div>
+          </a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
-</nav>
+    </nav>
     <!-- End of Nav -->
-  
     <div class="page-layout">
       <!-- Container (Left-Side) -->
       <div class="left-layout-container">
@@ -200,7 +206,13 @@
         <!-- Cards Section -->
         <div class="card-list">
           <!-- Card 25 -->
-          <div class="card" data-id="25" data-url="nijo-castle-details.html">
+          <div
+            class="card"
+            data-id="25"
+            data-url="nijo-castle-details.html"
+            data-area="Kyoto City"
+            data-interests="Landmarks"
+          >
             <img
               src="assets/images/Nijo Castle 2.jpg"
               alt="Activity 25: Nijo Castle"
@@ -214,7 +226,9 @@
             </p>
 
             <p class="cardTitle">Nijo Castle</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.7</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
             <button class="addItineraryButton" data-activity-id="25">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -222,7 +236,13 @@
           </div>
           <!-- End of Card 25 -->
           <!-- Card 26 -->
-          <div class="card" data-id="26" data-url="arashiyama-hanatouro-details.html">
+          <div
+            class="card"
+            data-id="26"
+            data-url="arashiyama-hanatouro-details.html"
+            data-area="Arashiyama"
+            data-interests="Festivals & Events"
+          >
             <img
               src="assets/images/Arashiyama Hanatouro.jpeg"
               alt="Activity 26: Arashiyama Hanatouro"
@@ -236,7 +256,9 @@
             </p>
 
             <p class="cardTitle">Arashiyama Hanatouro</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.8</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.8</span></i
+            >
             <button class="addItineraryButton" data-activity-id="26">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -244,7 +266,13 @@
           </div>
           <!-- End of Card 26 -->
           <!-- Card 27 -->
-          <div class="card" data-id="27" data-url="todai-ji-temple.html">
+          <div
+            class="card"
+            data-id="27"
+            data-url="todai-ji-temple.html"
+            data-area="Nara"
+            data-interests="Landmarks"
+          >
             <img
               src="assets/images/Todai-ji Temple.jpg"
               alt="Activity 27: Todai-ji Temple"
@@ -258,7 +286,9 @@
             </p>
 
             <p class="cardTitle">Todai-ji Temple</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.6</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.6</span></i
+            >
             <button class="addItineraryButton" data-activity-id="27">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -266,7 +296,13 @@
           </div>
           <!-- End of Card 27 -->
           <!-- Card 28 -->
-          <div class="card" data-id="28" data-url="gion-district-details.html">
+          <div
+            class="card"
+            data-id="28"
+            data-url="gion-district-details.html"
+            data-area="Kyoto City"
+            data-interests="Food & Drink"
+          >
             <img
               src="assets/images/gion district.jpg"
               alt="Activity 28: Gion District"
@@ -280,7 +316,9 @@
             </p>
 
             <p class="cardTitle">Gion District</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">5.0</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">5.0</span></i
+            >
             <button class="addItineraryButton" data-activity-id="28">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -288,7 +326,13 @@
           </div>
           <!-- End of Card 28 -->
           <!-- Card 29 -->
-          <div class="card" data-id="29" data-url="higashiyama-district-details.html">
+          <div
+            class="card"
+            data-id="29"
+            data-url="higashiyama-district-details.html"
+            data-area="Kyoto City"
+            data-interests="Food & Drink"
+          >
             <img
               src="assets/images/higashiyama.jpg"
               alt="Activity 29: Higashiyama District "
@@ -301,8 +345,10 @@
               Food & Drink
             </p>
 
-            <p class="cardTitle">Higashiyama District </p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">5.0</span></i>
+            <p class="cardTitle">Higashiyama District</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">5.0</span></i
+            >
             <button class="addItineraryButton" data-activity-id="29">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -310,7 +356,13 @@
           </div>
           <!-- End of Card 29 -->
           <!-- Card 30 -->
-          <div class="card" data-id="30" data-url="nakamura-tokichi-details.html">
+          <div
+            class="card"
+            data-id="30"
+            data-url="nakamura-tokichi-details.html"
+            data-area="Uji"
+            data-interests="Food & Drink"
+          >
             <img
               src="assets/images/uji matcha.jpg"
               alt="Activity 30: Nakamura Tokichi"
@@ -324,7 +376,9 @@
             </p>
 
             <p class="cardTitle">Nakamura Tokichi</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.9</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
             <button class="addItineraryButton" data-activity-id="30">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -332,7 +386,13 @@
           </div>
           <!-- End of Card 30 -->
           <!-- Card 31 -->
-          <div class="card" data-id="31" data-url="kameoka-station-details.html">
+          <div
+            class="card"
+            data-id="31"
+            data-url="kameoka-station-details.html"
+            data-area="Kameoka"
+            data-interests="Food & Drink"
+          >
             <img
               src="assets/images/kameoka station.jpg"
               alt="Activity 31: Kameoka Station Area"
@@ -346,7 +406,9 @@
             </p>
 
             <p class="cardTitle">Kameoka Station Area</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.7</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
             <button class="addItineraryButton" data-activity-id="31">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -354,7 +416,13 @@
           </div>
           <!-- End of Card 31 -->
           <!-- Card 32 -->
-          <div class="card" data-id="32" data-url="hozugawa-river-boat-details.html">
+          <div
+            class="card"
+            data-id="32"
+            data-url="hozugawa-river-boat-details.html"
+            data-area="Kameoka"
+            data-interests="Nature & Outdoors"
+          >
             <img
               src="assets/images/Hozugawa River Boat Ride.jpg"
               alt="Activity 32: Hozugawa River Boat Ride"
@@ -368,7 +436,9 @@
             </p>
 
             <p class="cardTitle">Hozugawa River Boat Ride</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.7</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
             <button class="addItineraryButton" data-activity-id="32">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -376,7 +446,13 @@
           </div>
           <!-- End of Card 32 -->
           <!-- Card 33 -->
-          <div class="card" data-id="33" data-url="nara-deer-park-details.html">
+          <div
+            class="card"
+            data-id="33"
+            data-url="nara-deer-park-details.html"
+            data-area="Nara"
+            data-interests="Nature & Outdoors"
+          >
             <img
               src="assets/images/nara.jpg"
               alt="Activity 33: Nara Deer Park"
@@ -390,7 +466,9 @@
             </p>
 
             <p class="cardTitle">Nara Deer Park</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.8</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.8</span></i
+            >
             <button class="addItineraryButton" data-activity-id="33">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -398,7 +476,13 @@
           </div>
           <!-- End of Card 33 -->
           <!-- Card 34 -->
-          <div class="card" data-id="34" data-url="kasuga-taisha-details.html">
+          <div
+            class="card"
+            data-id="34"
+            data-url="kasuga-taisha-details.html"
+            data-area="Nara"
+            data-interests="Nature & Outdoors"
+          >
             <img
               src="assets/images/Kasuga Taisha.jpg"
               alt="Activity 34: Kasuga Taisha Shrine Forest"
@@ -412,7 +496,9 @@
             </p>
 
             <p class="cardTitle">Kasuga Taisha Shrine Forest</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.7</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
             <button class="addItineraryButton" data-activity-id="34">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -420,7 +506,13 @@
           </div>
           <!-- End of Card 34 -->
           <!-- Card 35 -->
-          <div class="card" data-id="35" data-url="uji-river-details.html">
+          <div
+            class="card"
+            data-id="35"
+            data-url="uji-river-details.html"
+            data-area="Uji"
+            data-interests="Nature & Outdoors"
+          >
             <img
               src="assets/images/uji river boat ride.jpg"
               alt="Activity 35: Uji River"
@@ -434,7 +526,9 @@
             </p>
 
             <p class="cardTitle">Uji River</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.6</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.6</span></i
+            >
             <button class="addItineraryButton" data-activity-id="35">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -442,7 +536,13 @@
           </div>
           <!-- End of Card 35 -->
           <!-- Card 36 -->
-          <div class="card" data-id="36" data-url="sagano-train-details.html">
+          <div
+            class="card"
+            data-id="36"
+            data-url="sagano-train-details.html"
+            data-area="Arashiyama"
+            data-interests="Nature & Outdoors"
+          >
             <img
               src="assets/images/Sagano Romantic Train.jpg"
               alt="Activity 36: Sagano Romantic Train"
@@ -456,7 +556,9 @@
             </p>
 
             <p class="cardTitle">Sagano Romantic Train</p>
-            <i class="fa-solid fa-star activitiesStar"><span class="rating">4.8</span></i>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.8</span></i
+            >
             <button class="addItineraryButton" data-activity-id="36">
               <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
             </button>
@@ -481,56 +583,55 @@
       </div>
     </div>
     <!-- Footer -->
-<div class="logo-grid">
-  <div class="logo">
-    <img src="assets/icons/logo.svg" alt="Logo" />
-  </div>
-<div class="destination">
-  <p><strong>Destinations</strong></p>
-<p>Kyoto City</p>
-<p>Arashiyama</p>
-<p>Nara</p>
-<p>Uji</p>
-<p>Kameoka</p>
-</div>
+    <div class="logo-grid">
+      <div class="logo">
+        <img src="assets/icons/logo.svg" alt="Logo" />
+      </div>
+      <div class="destination">
+        <p><strong>Destinations</strong></p>
+        <p>Kyoto City</p>
+        <p>Arashiyama</p>
+        <p>Nara</p>
+        <p>Uji</p>
+        <p>Kameoka</p>
+      </div>
 
-<div class="guide">
-  <strong><p>Guides</p></strong>
-  <p>Guides</p>
-  <p>Community Guides</p>
-</div>
+      <div class="guide">
+        <strong><p>Guides</p></strong>
+        <p>Guides</p>
+        <p>Community Guides</p>
+      </div>
 
-<div class="support">
-  <strong><p>Support</p></strong>
-  <p>FAQs</p>
-  <p>Contact Us</p>
-  <p>About Us</p>
-</div>
+      <div class="support">
+        <strong><p>Support</p></strong>
+        <p>FAQs</p>
+        <p>Contact Us</p>
+        <p>About Us</p>
+      </div>
 
-<div class="news">
-<strong><p>Join Our Newsletter </p></strong>
-<p class="receive">
-  Receive news about the latest and most 
-  popular activities and events in Kyoto!   
-</p>
+      <div class="news">
+        <strong><p>Join Our Newsletter</p></strong>
+        <p class="receive">
+          Receive news about the latest and most popular activities and events
+          in Kyoto!
+        </p>
 
-<div class="email-bar">
-  <form action="/email" method="get">
-    <input
-      type="text"
-      name="q"
-      placeholder="Your Email"
-      class="email-input"
-    />
-  </form>
+        <div class="email-bar">
+          <form action="/email" method="get">
+            <input
+              type="text"
+              name="q"
+              placeholder="Your Email"
+              class="email-input"
+            />
+          </form>
 
-  <button class="subscribe">Subscribe</button>
-</div>
-
-</div>
-</div>
-<!-- End of Footer -->
-<script src="js/activities.js"></script>
-<script src="js/main.js"></script>
+          <button class="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of Footer -->
+    <script src="js/activities.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

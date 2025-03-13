@@ -17,63 +17,69 @@
     />
   </head>
   <body>
-      <!-- Navigation -->
-<nav class="kyotoVentureNavBar">
-  <div class="kyotoVentureLogo">
-    <div class="logoImage"><img src="assets/icons/logo.svg"></div>
-    <div class="title">KyotoVenture</div>
-  </div>
-  <ul class="navbar-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="destinations.html">Destinations</a>
-      <ul class="dropdown">
-        <li><a href="kyoto.html">Kyoto City</a></li>
-        <li><a href="arashiyama.html">Arashiyama</a></li>
-        <li><a href="nara.html">Nara</a></li>
-        <li><a href="uji.html">Uji</a></li>
-        <li><a href="kameoka.html">Kameoka</a></li>
-      </ul>
-    </li>
+    <!-- Navigation -->
+    <nav class="kyotoVentureNavBar">
+      <div class="kyotoVentureLogo">
+        <div class="logoImage"><img src="assets/icons/logo.svg" /></div>
+        <div class="title">KyotoVenture</div>
+      </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="destinations.html">Destinations</a>
+          <ul class="dropdown">
+            <li><a href="kyoto.html">Kyoto City</a></li>
+            <li><a href="arashiyama.html">Arashiyama</a></li>
+            <li><a href="nara.html">Nara</a></li>
+            <li><a href="uji.html">Uji</a></li>
+            <li><a href="kameoka.html">Kameoka</a></li>
+          </ul>
+        </li>
 
-    <li><a href="activities.html">Activities</a></li>
-    <li><a href="itineraries.html">Itineraries</a>
-      <ul class="dropdown">
-        <li><a href="create-itinerary.html">Create Itinerary</a></li>
-        <!-- <li><a href="wishlist.html">Wishlist</a></li> -->
-      </ul>
-    </li>
-    <li><a href="about-us.html">About</a>
-      <ul class="dropdown">
-        <!-- <li><a href="about-us.html">About</a></li> -->
-        <li><a href="contact-us.html">Contact Us</a></li>
-        <li><a href="faqs.html">FAQs</a></li>
-      </ul>
-    </li>
+        <li><a href="activities.html">Activities</a></li>
+        <li>
+          <a href="itineraries.html">Itineraries</a>
+          <ul class="dropdown">
+            <li><a href="create-itinerary.html">Create Itinerary</a></li>
+            <!-- <li><a href="wishlist.html">Wishlist</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="about-us.html">About</a>
+          <ul class="dropdown">
+            <!-- <li><a href="about-us.html">About</a></li> -->
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a href="faqs.html">FAQs</a></li>
+          </ul>
+        </li>
 
-    <!-- Logged Out Users -->
-    <li id="logged-out" class="profile-menu">
-      <a href="#">
-        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
-      </a>
-      <ul class="dropdown">
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-      </ul>
-    </li>
+        <!-- Logged Out Users -->
+        <li id="logged-out" class="profile-menu">
+          <a href="#">
+            <div class="profile-icon">
+              <i class="fa-regular fa-user navProfileIcon"></i>
+            </div>
+          </a>
+          <ul class="dropdown">
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </li>
 
-    <!-- Logged In Users -->
-    <li id="logged-in" class="profile-menu">
-      <a href="#">
-        <div class="profile-icon"><i class="fa-regular fa-user navProfileIcon"></i></div>
-      </a>
-      <ul class="dropdown">
-        <li><a href="#" onclick="logout()">Logout</a></li>
+        <!-- Logged In Users -->
+        <li id="logged-in" class="profile-menu">
+          <a href="#">
+            <div class="profile-icon">
+              <i class="fa-regular fa-user navProfileIcon"></i>
+            </div>
+          </a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="logout()">Logout</a></li>
+          </ul>
+        </li>
       </ul>
-    </li>
-  </ul>
-</nav>
+    </nav>
     <!-- End of Nav -->
-  
     <div class="page-layout">
       <!-- Container (Left-Side) -->
       <div class="left-layout-container">
@@ -181,8 +187,8 @@
       <div class="main-content">
         <div class="myItineraryButton">
           <button class="goToMyItineraryButton">
-        <i class="fa-regular fa-calendar activitiesCalendar"></i>
-        <span>My Itinerary</span>
+            <i class="fa-regular fa-calendar activitiesCalendar"></i>
+            <span>My Itinerary</span>
           </button>
         </div>
         <h1 class="activityTitle">Activities</h1>
@@ -193,301 +199,372 @@
         </div>
 
         <!-- Tag Display Area -->
-         <div class="selected-checkbox-tags">
+        <div class="selected-checkbox-tags">
           <!-- Tags will be displayed here -->
-         </div>
-
-       <!-- Cards Section -->
-       <div class="card-list">
-        <!-- Card 13 -->
-        <div class="card" data-id="13" data-url="arashiyama-details.html">
-          <img
-            src="assets/images/Arashiyama Bamboo Forest.jpg"
-            alt="Activity 13: Arashiyama Bamboo Forest"
-            class="card-image"
-          />
-          <!-- Card Contents 13 -->
-          <p class="cardTop">
-            Arashiyama
-            <span class="ellipses"></span>
-            Nature & Outdoors
-          </p>
-
-          <p class="cardTitle">Arashiyama Bamboo Forest</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.7</span></i
-          >
-          <button class="addItineraryButton" data-activity-id="13">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 13 -->
         </div>
-        <!-- End of Card 13 -->
-        <!-- Card 14 -->
-        <div class="card" data-id="14" data-url="toji-temple-details.html">
-          <img
-            src="assets/images/To-ji Temple Flea Market (Kobo-san).jpeg"
-            alt="Activity 14: To-ji Temple Flea Market (Kobo-san)"
-            class="card-image"
-          />
-          <!-- Card Contents 14 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Festivals & Events
-          </p>
 
-          <p class="cardTitle">To-ji Temple Flea Market (Kobo-san)</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.5</span></i
+        <!-- Cards Section -->
+        <div class="card-list">
+          <!-- Card 13 -->
+          <div
+            class="card"
+            data-id="13"
+            data-url="arashiyama-details.html"
+            data-area="Arashiyama"
+            data-interests="Nature & Outdoors"
           >
-          <button class="addItineraryButton" data-activity-id="14">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 14 -->
-        </div>
-        <!-- End of Card 14 -->
-        <!-- Card 15 -->
-        <div class="card" data-id="15" data-url="philosophers-path-details.html">
-          <img
-            src="assets/images/Philosopher’s Path.jpg"
-            alt="Activity 15: Philosopher’s Path"
-            class="card-image"
-          />
-          <!-- Card Contents 15 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Nature & Outdoors
-          </p>
+            <img
+              src="assets/images/Arashiyama Bamboo Forest.jpg"
+              alt="Activity 13: Arashiyama Bamboo Forest"
+              class="card-image"
+            />
+            <!-- Card Contents 13 -->
+            <p class="cardTop">
+              Arashiyama
+              <span class="ellipses"></span>
+              Nature & Outdoors
+            </p>
 
-          <p class="cardTitle">Philosopher’s Path</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.9</span></i
+            <p class="cardTitle">Arashiyama Bamboo Forest</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="13">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 13 -->
+          </div>
+          <!-- End of Card 13 -->
+          <!-- Card 14 -->
+          <div
+            class="card"
+            data-id="14"
+            data-url="toji-temple-details.html"
+            data-area="Kyoto City"
+            data-interests="Festivals & Events"
           >
-          <button class="addItineraryButton" data-activity-id="15">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 15 -->
-        </div>
-        <!-- End of Card 15 -->
-        <!-- Card 16 -->
-        <div class="card" data-id="16" data-url="funaoka-onsen-details.html">
-          <img
-            src="assets/images/Funaoka Onsen.jpg"
-            alt="Activity 16: Funaoka Onsen"
-            class="card-image"
-          />
-          <!-- Card Contents 16 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Bathhouses/Onsens
-          </p>
+            <img
+              src="assets/images/To-ji Temple Flea Market (Kobo-san).jpeg"
+              alt="Activity 14: To-ji Temple Flea Market (Kobo-san)"
+              class="card-image"
+            />
+            <!-- Card Contents 14 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Festivals & Events
+            </p>
 
-          <p class="cardTitle">Funaoka Onsen</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.7</span></i
+            <p class="cardTitle">To-ji Temple Flea Market (Kobo-san)</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.5</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="14">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 14 -->
+          </div>
+          <!-- End of Card 14 -->
+          <!-- Card 15 -->
+          <div
+            class="card"
+            data-id="15"
+            data-url="philosophers-path-details.html"
+            data-area="Kyoto City"
+            data-interests="Nature & Outdoors"
           >
-          <button class="addItineraryButton" data-activity-id="16">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 16 -->
-        </div>
-        <!-- End of Card 16 -->
-        <!-- Card 17 -->
-        <div class="card" data-id="17" data-url="kurama-onsen-details.html">
-          <img
-            src="assets/images/Kurama Onsen.jpg"
-            alt="Activity 17: Kurama Onsen"
-            class="card-image"
-          />
-          <!-- Card Contents 17 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Bathhouses/Onsens
-          </p>
+            <img
+              src="assets/images/Philosopher’s Path.jpg"
+              alt="Activity 15: Philosopher’s Path"
+              class="card-image"
+            />
+            <!-- Card Contents 15 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Nature & Outdoors
+            </p>
 
-          <p class="cardTitle">Kurama Onsen</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.8</span></i
+            <p class="cardTitle">Philosopher’s Path</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="15">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 15 -->
+          </div>
+          <!-- End of Card 15 -->
+          <!-- Card 16 -->
+          <div
+            class="card"
+            data-id="16"
+            data-url="funaoka-onsen-details.html"
+            data-area="Kyoto City"
+            data-interests="Bathhouses/Onsens"
           >
-          <button class="addItineraryButton" data-activity-id="17">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 17 -->
-        </div>
-        <!-- End of Card 17 -->
-        <!-- Card 18 -->
-        <div class="card" data-id="18" data-url="yunohana-onsen-details.html">
-          <img
-            src="assets/images/Yunohana Onsen.jpg"
-            alt="Activity 18: Yunohana Onsen"
-            class="card-image"
-          />
-          <!-- Card Contents 18 -->
-          <p class="cardTop">
-            Kameoka
-            <span class="ellipses"></span>
-            Bathhouses/Onsens
-          </p>
+            <img
+              src="assets/images/Funaoka Onsen.jpg"
+              alt="Activity 16: Funaoka Onsen"
+              class="card-image"
+            />
+            <!-- Card Contents 16 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Bathhouses/Onsens
+            </p>
 
-          <p class="cardTitle">Yunohana Onsen</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.9</span></i
+            <p class="cardTitle">Funaoka Onsen</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="16">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 16 -->
+          </div>
+          <!-- End of Card 16 -->
+          <!-- Card 17 -->
+          <div
+            class="card"
+            data-id="17"
+            data-url="kurama-onsen-details.html"
+            data-area="Kyoto City"
+            data-interests="Bathhouses/Onsens"
           >
-          <button class="addItineraryButton" data-activity-id="18">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 18 -->
-        </div>
-        <!-- End of Card 18 -->
-        <!-- Card 19 -->
-        <div class="card" data-id="19" data-url="aoi-matsuri-festival-details.html">
-          <img
-            src="assets/images/aoi matsuri.jpeg"
-            alt="Activity 19: Aoi Matsuri"
-            class="card-image"
-          />
-          <!-- Card Contents 19 -->
-          <p class="cardTop">
-            Arashiyama
-            <span class="ellipses"></span>
-            Festivals & Events
-          </p>
+            <img
+              src="assets/images/Kurama Onsen.jpg"
+              alt="Activity 17: Kurama Onsen"
+              class="card-image"
+            />
+            <!-- Card Contents 17 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Bathhouses/Onsens
+            </p>
 
-          <p class="cardTitle">Aoi Matsuri</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.7</span></i
+            <p class="cardTitle">Kurama Onsen</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.8</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="17">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 17 -->
+          </div>
+          <!-- End of Card 17 -->
+          <!-- Card 18 -->
+          <div
+            class="card"
+            data-id="18"
+            data-url="yunohana-onsen-details.html"
+            data-area="Kameoka"
+            data-interests="Bathhouses/Onsens"
           >
-          <button class="addItineraryButton" data-activity-id="19">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 19 -->
-        </div>
-        <!-- End of Card 19 -->
-        <!-- Card 20 -->
-        <div class="card" data-id="20" data-url="jidai-matsuri-festival-details.html">
-          <img
-            src="assets/images/Jidai Matsuri.jpg"
-            alt="Activity 20: Jidai Matsuri"
-            class="card-image"
-          />
-          <!-- Card Contents 20 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Festivals & Events
-          </p>
+            <img
+              src="assets/images/Yunohana Onsen.jpg"
+              alt="Activity 18: Yunohana Onsen"
+              class="card-image"
+            />
+            <!-- Card Contents 18 -->
+            <p class="cardTop">
+              Kameoka
+              <span class="ellipses"></span>
+              Bathhouses/Onsens
+            </p>
 
-          <p class="cardTitle">Jidai Matsuri</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.8</span></i
+            <p class="cardTitle">Yunohana Onsen</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="18">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 18 -->
+          </div>
+          <!-- End of Card 18 -->
+          <!-- Card 19 -->
+          <div
+            class="card"
+            data-id="19"
+            data-url="aoi-matsuri-festival-details.html"
+            data-area="Arashiyama"
+            data-interests="Festivals & Events"
           >
-          <button class="addItineraryButton" data-activity-id="20">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 20 -->
-        </div>
-        <!-- End of Card 20 -->
-        <!-- Card 21 -->
-        <div class="card" data-id="21" data-url="gion-matsuri-festival-details.html">
-          <img
-            src="assets/images/gion matsuri.jpg"
-            alt="Activity 21: Gion Matsuri"
-            class="card-image"
-          />
-          <!-- Card Contents 21 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Festivals & Events
-          </p>
+            <img
+              src="assets/images/aoi matsuri.jpeg"
+              alt="Activity 19: Aoi Matsuri"
+              class="card-image"
+            />
+            <!-- Card Contents 19 -->
+            <p class="cardTop">
+              Arashiyama
+              <span class="ellipses"></span>
+              Festivals & Events
+            </p>
 
-          <p class="cardTitle">Gion Matsuri</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.9</span></i
+            <p class="cardTitle">Aoi Matsuri</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="19">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 19 -->
+          </div>
+          <!-- End of Card 19 -->
+          <!-- Card 20 -->
+          <div
+            class="card"
+            data-id="20"
+            data-url="jidai-matsuri-festival-details.html"
+            data-area="Kyoto City"
+            data-interests="Festivals & Events"
           >
-          <button class="addItineraryButton" data-activity-id="21">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 21 -->
-        </div>
-        <!-- End of Card 21 -->
-        <!-- Card 22 -->
-        <div class="card 22 card" data-id="22" data-url="yume-kimono-details.html">
-          <img
-            src="assets/images/kimono & yukata dressing.jpg"
-            alt="Activity 22: Yume Kyoto Kimono & Yukata Dressing"
-            class="card-image"
-          />
-          <!-- Card Contents 22 -->
-          <p class="cardTop">
-            Arashiyama
-            <span class="ellipses"></span>
-            Cultural Activities
-          </p>
+            <img
+              src="assets/images/Jidai Matsuri.jpg"
+              alt="Activity 20: Jidai Matsuri"
+              class="card-image"
+            />
+            <!-- Card Contents 20 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Festivals & Events
+            </p>
 
-          <p class="cardTitle">Yume Kimono & Yukata Dressing</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.9</span></i
+            <p class="cardTitle">Jidai Matsuri</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.8</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="20">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 20 -->
+          </div>
+          <!-- End of Card 20 -->
+          <!-- Card 21 -->
+          <div
+            class="card"
+            data-id="21"
+            data-url="gion-matsuri-festival-details.html"
+            data-area="Kyoto City"
+            data-interests="Festivals & Events"
           >
-          <button class="addItineraryButton" data-activity-id="22">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 22 -->
-        </div>
-        <!-- End of Card 22 -->
-        <!-- Card 23 -->
-        <div class="card" data-id="23" data-url="chifumi-calligraphy-details.html">
-          <img
-            src="assets/images/calligraphy 2.jpg"
-            alt="Activity 23: Chifumi Calligraphy Kyoto"
-            class="card-image"
-          />
-          <!-- Card Contents 19 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Cultural Activities
-          </p>
+            <img
+              src="assets/images/gion matsuri.jpg"
+              alt="Activity 21: Gion Matsuri"
+              class="card-image"
+            />
+            <!-- Card Contents 21 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Festivals & Events
+            </p>
 
-          <p class="cardTitle">Chifumi Calligraphy Kyoto</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.7</span></i
+            <p class="cardTitle">Gion Matsuri</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="21">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 21 -->
+          </div>
+          <!-- End of Card 21 -->
+          <!-- Card 22 -->
+          <div
+            class="card 22 card"
+            data-id="22"
+            data-url="yume-kimono-details.html"
+            data-area="Arashiyama"
+            data-interests="Cultural Activities"
           >
-          <button class="addItineraryButton" data-activity-id="23">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 23 -->
-        </div>
-        <!-- End of Card 23 -->
-        <!-- Card 24 -->
-        <div class="card" data-id="24" data-url="camellia-tea-ceremony-details.html">
-          <img
-            src="assets/images/Camellia Tea Ceremony.jpg"
-            alt="Activity 24: Camellia Tea Ceremony"
-            class="card-image"
-          />
-          <!-- Card Contents 24 -->
-          <p class="cardTop">
-            Kyoto City
-            <span class="ellipses"></span>
-            Cultural Activities
-          </p>
+            <img
+              src="assets/images/kimono & yukata dressing.jpg"
+              alt="Activity 22: Yume Kyoto Kimono & Yukata Dressing"
+              class="card-image"
+            />
+            <!-- Card Contents 22 -->
+            <p class="cardTop">
+              Arashiyama
+              <span class="ellipses"></span>
+              Cultural Activities
+            </p>
 
-          <p class="cardTitle">Camellia Tea Ceremony</p>
-          <i class="fa-solid fa-star activitiesStar"
-            ><span class="rating">4.9</span></i
+            <p class="cardTitle">Yume Kimono & Yukata Dressing</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="22">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 22 -->
+          </div>
+          <!-- End of Card 22 -->
+          <!-- Card 23 -->
+          <div
+            class="card"
+            data-id="23"
+            data-url="chifumi-calligraphy-details.html"
+            data-area="Kyoto City"
+            data-interests="Cultural Activities"
           >
-          <button class="addItineraryButton" data-activity-id="24">
-            <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
-          </button>
-          <!-- End of Card Contents 24 -->
-        </div>
-        <!-- End of Card 24 -->
-        
+            <img
+              src="assets/images/calligraphy 2.jpg"
+              alt="Activity 23: Chifumi Calligraphy Kyoto"
+              class="card-image"
+            />
+            <!-- Card Contents 23 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Cultural Activities
+            </p>
+
+            <p class="cardTitle">Chifumi Calligraphy Kyoto</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.7</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="23">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 23 -->
+          </div>
+          <!-- End of Card 23 -->
+          <!-- Card 24 -->
+          <div
+            class="card"
+            data-id="24"
+            data-url="camellia-tea-ceremony-details.html"
+            data-area="Kyoto City"
+            data-interests="Cultural Activities"
+          >
+            <img
+              src="assets/images/Camellia Tea Ceremony.jpg"
+              alt="Activity 24: Camellia Tea Ceremony"
+              class="card-image"
+            />
+            <!-- Card Contents 24 -->
+            <p class="cardTop">
+              Kyoto City
+              <span class="ellipses"></span>
+              Cultural Activities
+            </p>
+
+            <p class="cardTitle">Camellia Tea Ceremony</p>
+            <i class="fa-solid fa-star activitiesStar"
+              ><span class="rating">4.9</span></i
+            >
+            <button class="addItineraryButton" data-activity-id="24">
+              <i class="fa-solid fa-plus activityPlus"></i>Add to Itinerary
+            </button>
+            <!-- End of Card Contents 24 -->
+          </div>
+          <!-- End of Card 24 -->
         </div>
         <!-- End of Card List ^ -->
         <!-- Pagination -->
@@ -497,61 +574,62 @@
           <a href="activities.html">1</a>
           <a href="activities2.html" class="active">2</a>
           <a href="activities3.html">3</a>
-          <a href="activities3.html"><i class="fa-solid fa-chevron-right"></i></a>
+          <a href="activities3.html"
+            ><i class="fa-solid fa-chevron-right"></i
+          ></a>
         </div>
       </div>
     </div>
     <!-- Footer -->
-<div class="logo-grid">
-  <div class="logo">
-    <img src="assets/icons/logo.svg" alt="Logo" />
-  </div>
-<div class="destination">
-  <p><strong>Destinations</strong></p>
-<p>Kyoto City</p>
-<p>Arashiyama</p>
-<p>Nara</p>
-<p>Uji</p>
-<p>Kameoka</p>
-</div>
+    <div class="logo-grid">
+      <div class="logo">
+        <img src="assets/icons/logo.svg" alt="Logo" />
+      </div>
+      <div class="destination">
+        <p><strong>Destinations</strong></p>
+        <p>Kyoto City</p>
+        <p>Arashiyama</p>
+        <p>Nara</p>
+        <p>Uji</p>
+        <p>Kameoka</p>
+      </div>
 
-<div class="guide">
-  <strong><p>Guides</p></strong>
-  <p>Guides</p>
-  <p>Community Guides</p>
-</div>
+      <div class="guide">
+        <strong><p>Guides</p></strong>
+        <p>Guides</p>
+        <p>Community Guides</p>
+      </div>
 
-<div class="support">
-  <strong><p>Support</p></strong>
-  <p>FAQs</p>
-  <p>Contact Us</p>
-  <p>About Us</p>
-</div>
+      <div class="support">
+        <strong><p>Support</p></strong>
+        <p>FAQs</p>
+        <p>Contact Us</p>
+        <p>About Us</p>
+      </div>
 
-<div class="news">
-<strong><p>Join Our Newsletter </p></strong>
-<p class="receive">
-  Receive news about the latest and most 
-  popular activities and events in Kyoto!   
-</p>
+      <div class="news">
+        <strong><p>Join Our Newsletter</p></strong>
+        <p class="receive">
+          Receive news about the latest and most popular activities and events
+          in Kyoto!
+        </p>
 
-<div class="email-bar">
-  <form action="/email" method="get">
-    <input
-      type="text"
-      name="q"
-      placeholder="Your Email"
-      class="email-input"
-    />
-  </form>
+        <div class="email-bar">
+          <form action="/email" method="get">
+            <input
+              type="text"
+              name="q"
+              placeholder="Your Email"
+              class="email-input"
+            />
+          </form>
 
-  <button class="subscribe">Subscribe</button>
-</div>
-
-</div>
-</div>
-<!-- End of Footer -->
-<script src="js/activities.js"></script>
-<script src="js/main.js"></script>
+          <button class="subscribe">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <!-- End of Footer -->
+    <script src="js/activities.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
